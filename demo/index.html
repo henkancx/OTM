@@ -774,6 +774,7 @@
     .login-card { width: calc(100vw - 32px); padding: 32px 24px 28px; }
   }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -1196,7 +1197,15 @@
   .ord-pgbtn.active { background:#EBF4FC; border-color:#1A6DB5; color:#1A6DB5; font-weight:600; }
   .e-pend { background:#ffe5e5; color:#c0392b; }
 
-  </style>
+  
+  @keyframes shake {
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-8px)}
+    40%{transform:translateX(8px)}
+    60%{transform:translateX(-6px)}
+    80%{transform:translateX(6px)}
+  }
+</style>
 
 <div class="lp">
 
@@ -1306,7 +1315,7 @@
       <label class="lp-lbl">Usuario</label>
       <div class="lp-wrap">
         <i class="ti ti-user lp-ico"></i>
-        <input class="lp-inp" id="login-user" type="text" placeholder="usuario@empresa.com" autocomplete="username"/>
+        <input class="lp-inp" id="login-user" type="text" placeholder="correo@empresa.com" type="email" autocomplete="username"/>
       </div>
     </div>
 
@@ -2856,6 +2865,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   function doLogout() {
+    _sb.auth.signOut();
     const ls = document.getElementById('login-screen');
     ls.classList.remove('hidden');
     ls.style.opacity = '0';
@@ -2869,55 +2879,57 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     document.getElementById('login-pass').classList.remove('error');
   }
 
+  /* ── SUPABASE AUTH ── */
+  const _sb = supabase.createClient(
+    'https://vbxkahhidtkhfnxzeqyc.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZieGthaGhpZHRraGZueHplcXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MzAxNjMsImV4cCI6MjA5OTQwNjE2M30.3NLyQC8TPrH0Q84D-YxfPCL6aSNEPZpezjjdrQBrpYw'
+  );
+
+  // Check existing session on load
+  (async () => {
+    const { data: { session } } = await _sb.auth.getSession();
+    if (session) {
+      document.getElementById('login-screen').classList.add('hidden');
+    }
+  })();
+
   /* ── LOGIN ── */
-  const _lu = atob('YWRtaW4=');
-  const _lp = atob('c295UGFuYTIwMjY=');
 
-  function doLogin() {
-    const user = document.getElementById('login-user').value.trim();
-    const pass = document.getElementById('login-pass').value;
-    const btn  = document.getElementById('login-btn');
-    const err  = document.getElementById('login-error');
-    const ui   = document.getElementById('login-user');
-    const pi   = document.getElementById('login-pass');
 
-    // clear previous errors
-    err.classList.remove('show'); err.style.display='none';
-    ui.classList.remove('error'); ui.style.borderColor='';
-    pi.classList.remove('error'); pi.style.borderColor='';
+  async function doLogin() {
+    const email = document.getElementById('login-user').value.trim();
+    const pass  = document.getElementById('login-pass').value;
+    const btn   = document.getElementById('login-btn');
+    const err   = document.getElementById('login-error');
 
-    if (!user || !pass) {
-      document.getElementById('login-error-msg').textContent = 'Por favor completa todos los campos.';
-      err.classList.add('show'); err.style.display='flex';
-      if (!user) ui.classList.add('error'); ui.style.borderColor='rgba(192,57,43,.7)';
-      if (!pass) pi.classList.add('error'); pi.style.borderColor='rgba(192,57,43,.7)';
+    if (!email || !pass) {
+      document.getElementById('login-error-msg').textContent = 'Completa todos los campos.';
+      err.classList.add('show'); err.style.display = 'flex';
       return;
     }
 
     btn.classList.add('loading');
+    err.classList.remove('show'); err.style.display = 'none';
 
-    setTimeout(() => {
-      btn.classList.remove('loading');
-      if (user === _lu && pass === _lp) {
-        const ls = document.getElementById('login-screen');
-        ls.style.transition = 'opacity 0.35s ease';
-        ls.style.opacity = '0';
-        setTimeout(() => ls.classList.add('hidden'), 350);
-      } else {
-        document.getElementById('login-error-msg').textContent = 'Usuario o contraseña incorrectos.';
-        err.classList.add('show'); err.style.display='flex';
-        ui.classList.add('error'); ui.style.borderColor='rgba(192,57,43,.7)';
-        pi.classList.add('error'); pi.style.borderColor='rgba(192,57,43,.7)';
-        pi.value = '';
-        pi.focus();
-        // shake animation
-        const card = document.querySelector('.login-card');
-        card.style.animation = 'none';
-        card.style.transform = 'translateX(-6px)';
-        setTimeout(() => { card.style.transition = 'transform 0.4s ease'; card.style.transform = ''; }, 50);
-        setTimeout(() => { card.style.transition = ''; }, 450);
-      }
-    }, 900);
+    const { data, error } = await _sb.auth.signInWithPassword({ email, password: pass });
+
+    btn.classList.remove('loading');
+
+    if (error) {
+      document.getElementById('login-error-msg').textContent = 'Usuario o contraseña incorrectos.';
+      err.classList.add('show'); err.style.display = 'flex';
+      // Shake animation
+      const card = document.querySelector('.lp-form');
+      if (card) { card.style.animation = 'none'; card.offsetHeight; card.style.animation = 'shake .4s ease'; }
+      return;
+    }
+
+    // Auth OK — enter demo
+    const ls = document.getElementById('login-screen');
+    ls.style.opacity = '1';
+    ls.style.transition = 'opacity .4s ease';
+    setTimeout(() => { ls.style.opacity = '0'; }, 50);
+    setTimeout(() => { ls.classList.add('hidden'); }, 450);
   }
 
   function togglePass() {
