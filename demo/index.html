@@ -1049,7 +1049,94 @@
   .lp-brand { display:none; }
   .lp-form { padding:40px 28px; }
 }
-</style>
+
+  /* ── DASHBOARD NUEVO ── */
+  .ai-greeting {
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    background: linear-gradient(135deg, #0D2744 0%, #1A4A7A 100%);
+    border-radius:12px; padding:16px 20px; margin-bottom:0;
+    border-left:4px solid #3A8FD6;
+  }
+  .ai-greeting-left { display:flex; align-items:flex-start; gap:14px; flex:1; }
+  .ai-greeting-avatar {
+    width:36px; height:36px; border-radius:10px; flex-shrink:0;
+    background:rgba(58,143,214,0.25); border:1px solid rgba(58,143,214,0.4);
+    display:flex; align-items:center; justify-content:center;
+    color:#7DC8F5; font-size:17px;
+  }
+  .ai-greeting-title { font-size:11px; font-weight:600; color:rgba(255,255,255,0.55); margin-bottom:5px; }
+  .ai-greeting-msg { font-size:13px; color:rgba(255,255,255,0.85); line-height:1.5; }
+  .ai-greeting-msg strong { color:#fff; }
+  .ai-greeting-btn {
+    background:rgba(58,143,214,0.2); border:1px solid rgba(58,143,214,0.4);
+    color:#7DC8F5; font-size:12px; font-weight:600; border-radius:8px;
+    padding:8px 14px; cursor:pointer; white-space:nowrap;
+    display:flex; align-items:center; gap:6px; flex-shrink:0;
+    transition:all .15s;
+  }
+  .ai-greeting-btn:hover { background:rgba(58,143,214,0.35); }
+
+  .dash-kpi-row { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+  .dash-kpi-card {
+    background:#fff; border-radius:10px; border:0.5px solid #e8e8e8;
+    padding:14px 16px; transition:box-shadow .15s;
+  }
+  .dash-kpi-card.alert-card { border-color:#f5a0a0; background:#fff8f8; }
+  .dash-kpi-card:hover { box-shadow:0 2px 12px rgba(0,0,0,0.08); }
+  .dash-kpi-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+  .dash-kpi-icon { width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .dash-kpi-trend { font-size:10px; font-weight:600; }
+  .dash-kpi-trend.up { color:#16a34a; }
+  .dash-kpi-trend.down { color:#c0392b; }
+  .dash-kpi-trend.warn { color:#c27b00; }
+  .dash-kpi-value { font-size:26px; font-weight:700; color:#1a1a2e; line-height:1; margin-bottom:4px; }
+  .dash-kpi-label { font-size:11px; color:#888; }
+
+  .dash-mid-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .dash-panel { background:#fff; border-radius:10px; border:0.5px solid #e8e8e8; padding:14px 16px; }
+  .dash-panel-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+  .dash-panel-title { font-size:11px; font-weight:700; color:#1a1a2e; display:flex; align-items:center; gap:6px; }
+  .dash-panel-badge { font-size:10px; font-weight:600; padding:2px 8px; border-radius:10px; }
+  .live-dot-wrap { display:flex; align-items:center; gap:5px; }
+  .live-dot { width:7px; height:7px; border-radius:50%; background:#16a34a; box-shadow:0 0 0 2px rgba(22,163,74,0.25); animation:livePulse 2s ease-in-out infinite; }
+  @keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+  .ia-alert-list { display:flex; flex-direction:column; gap:8px; }
+  .ia-alert { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; border:0.5px solid transparent; }
+  .ia-alert-red { background:#fff5f5; border-color:#f5a0a0; }
+  .ia-alert-red .ia-alert-icon { color:#c0392b; }
+  .ia-alert-amber { background:#fffbf0; border-color:#fbd38d; }
+  .ia-alert-amber .ia-alert-icon { color:#c27b00; }
+  .ia-alert-blue { background:#EBF4FC; border-color:#B5D4F4; }
+  .ia-alert-blue .ia-alert-icon { color:#1A6DB5; }
+  .ia-alert-icon { font-size:15px; margin-top:1px; flex-shrink:0; }
+  .ia-alert-body { flex:1; }
+  .ia-alert-title { font-size:11px; font-weight:600; color:#1a1a2e; margin-bottom:2px; }
+  .ia-alert-sub { font-size:10px; color:#888; }
+  .ia-alert-time { font-size:9px; color:#bbb; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+
+  .live-feed { display:flex; flex-direction:column; gap:0; }
+  .live-item { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:0.5px solid #f5f5f5; }
+  .live-item:last-child { border-bottom:none; }
+  .live-av { width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:#fff; flex-shrink:0; }
+  .live-body { flex:1; }
+  .live-action { font-size:11px; color:#333; line-height:1.4; }
+  .live-action strong { color:#1a1a2e; }
+  .live-time { font-size:10px; color:#bbb; margin-top:1px; }
+  .live-badge { font-size:9px; font-weight:700; padding:2px 7px; border-radius:8px; white-space:nowrap; flex-shrink:0; }
+  .live-ok { background:#e6f9f0; color:#16a34a; }
+  .live-prog { background:#EBF4FC; color:#1A6DB5; }
+  .live-ia { background:#f0e9fd; color:#833AE0; }
+
+  .dash-bottom-row { display:grid; grid-template-columns:1.2fr 0.7fr 1.1fr; gap:12px; }
+  .donut-wrap { display:flex; align-items:center; gap:20px; }
+  .donut-legend { display:flex; flex-direction:column; gap:8px; flex:1; }
+  .donut-item { display:flex; align-items:center; gap:8px; }
+  .donut-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .donut-lbl { font-size:11px; color:#555; flex:1; }
+  .donut-val { font-size:13px; font-weight:700; }
+
+  </style>
 
 <div class="lp">
 
@@ -1305,51 +1392,220 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     <!-- ══════ SCREEN: DASHBOARD ══════ -->
     <div class="screen active" id="screen-dash">
 
-      <div class="kpi-row-4">
-        <div class="kpi-card"><div class="kpi-icon purple"><i class="ti ti-clipboard-list"></i></div><div class="kpi-value">24</div><div class="kpi-label">Órdenes activas</div><div class="kpi-trend trend-up-good"><i class="ti ti-trending-up" style="font-size:11px"></i> +12% esta semana</div></div>
-        <div class="kpi-card"><div class="kpi-icon blue"><i class="ti ti-users"></i></div><div class="kpi-value">6</div><div class="kpi-label">Técnicos en campo</div><div class="kpi-trend trend-neutral"><i class="ti ti-clock" style="font-size:11px"></i> 2 disponibles ahora</div></div>
-        <div class="kpi-card"><div class="kpi-icon green"><i class="ti ti-circle-check"></i></div><div class="kpi-value">37</div><div class="kpi-label">Completadas hoy</div><div class="kpi-trend trend-up-good"><i class="ti ti-trending-up" style="font-size:11px"></i> +8% vs ayer</div></div>
-        <div class="kpi-card"><div class="kpi-icon amber"><i class="ti ti-clock"></i></div><div class="kpi-value">2.4h</div><div class="kpi-label">Tiempo promedio</div><div class="kpi-trend trend-down-good"><i class="ti ti-trending-down" style="font-size:11px"></i> -15% este mes</div></div>
+  <!-- IA GREETING BANNER -->
+  <div class="ai-greeting">
+    <div class="ai-greeting-left">
+      <div class="ai-greeting-avatar"><i class="ti ti-sparkles"></i></div>
+      <div class="ai-greeting-body">
+        <div class="ai-greeting-title">Buenos días, Luciana — <span id="dash-date"></span></div>
+        <div class="ai-greeting-msg">Analicé la operación de anoche. <strong>3 alertas requieren tu atención</strong>: 2 OTs vencieron SLA y hay un patrón de falla recurrente en lavadoras modelo WM-3200. El resto de la red opera con normalidad.</div>
       </div>
+    </div>
+    <button class="ai-greeting-btn" onclick="goTo('ia',document.querySelector('[onclick*=goTo\\'ia\\']'))">
+      <i class="ti ti-message-circle"></i> Hablar con IA
+    </button>
+  </div>
 
-      <div class="kpi-row-4">
-        <div class="kpi-card-g"><div class="kg-label">Aging promedio OT</div><div class="kg-value warn">4.7 <span style="font-size:13px;font-weight:500;color:#888">días</span></div><div class="kg-sub warn">▲ +0.8 días vs mes anterior</div><div class="kg-bar"><div class="kg-fill" style="width:62%;background:#f59e0b"></div></div></div>
-        <div class="kpi-card-g kalert"><div class="kg-label">OTs bloqueadas ahora</div><div class="kg-value danger">7 <span style="font-size:13px;font-weight:500;color:#c0392b">/ 24</span></div><div class="kg-sub danger">29% del total activo bloqueado</div><div class="kg-bar"><div class="kg-fill" style="width:29%;background:#e24b4a"></div></div></div>
-        <div class="kpi-card-g"><div class="kg-label">Tasa FCR</div><div class="kg-value ok">68%</div><div class="kg-sub">Resueltas en 1 visita · meta: 75%</div><div class="kg-bar"><div class="kg-fill" style="width:68%;background:#16a34a"></div></div></div>
-        <div class="kpi-card-g kwarn"><div class="kg-label">OTs fuera de SLA</div><div class="kg-value warn">5</div><div class="kg-sub warn">3 críticas · 2 en alerta</div><div class="kg-bar"><div class="kg-fill" style="width:21%;background:#f59e0b"></div></div></div>
+  <!-- KPI ROW 1 — 5 cards -->
+  <div class="dash-kpi-row">
+    <div class="dash-kpi-card">
+      <div class="dash-kpi-top">
+        <div class="dash-kpi-icon" style="background:#E8F2FB;color:#1A6DB5;"><i class="ti ti-clipboard-list"></i></div>
+        <span class="dash-kpi-trend up"><i class="ti ti-trending-up"></i> +12%</span>
       </div>
+      <div class="dash-kpi-value">24</div>
+      <div class="dash-kpi-label">OTs activas</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dash-kpi-top">
+        <div class="dash-kpi-icon" style="background:#e6f9f0;color:#16a34a;"><i class="ti ti-circle-check"></i></div>
+        <span class="dash-kpi-trend up"><i class="ti ti-trending-up"></i> +8%</span>
+      </div>
+      <div class="dash-kpi-value">37</div>
+      <div class="dash-kpi-label">Cerradas hoy</div>
+    </div>
+    <div class="dash-kpi-card alert-card">
+      <div class="dash-kpi-top">
+        <div class="dash-kpi-icon" style="background:#fff0f0;color:#c0392b;"><i class="ti ti-alert-triangle"></i></div>
+        <span class="dash-kpi-trend down">29% del total</span>
+      </div>
+      <div class="dash-kpi-value" style="color:#c0392b;">7</div>
+      <div class="dash-kpi-label">OTs bloqueadas</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dash-kpi-top">
+        <div class="dash-kpi-icon" style="background:#fff4e0;color:#c27b00;"><i class="ti ti-clock"></i></div>
+        <span class="dash-kpi-trend warn">meta: 75%</span>
+      </div>
+      <div class="dash-kpi-value">68%</div>
+      <div class="dash-kpi-label">Tasa FCR</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dash-kpi-top">
+        <div class="dash-kpi-icon" style="background:#e8f0fe;color:#2563eb;"><i class="ti ti-users"></i></div>
+        <span class="dash-kpi-trend up">2 disponibles</span>
+      </div>
+      <div class="dash-kpi-value">6</div>
+      <div class="dash-kpi-label">Técnicos activos</div>
+    </div>
+  </div>
 
-      <div class="bottom-row">
-        <div class="panel">
-          <div class="panel-hdr"><div class="panel-title"><i class="ti ti-trending-up"></i> OTs cerradas por semana</div></div>
-          <div class="bar-chart">
-            <div class="bar-col"><div class="bv">41</div><div class="bar" style="height:42px;background:#e0d4f7"></div><div class="bl">S1</div></div>
-            <div class="bar-col"><div class="bv">38</div><div class="bar" style="height:38px;background:#e0d4f7"></div><div class="bl">S2</div></div>
-            <div class="bar-col"><div class="bv">45</div><div class="bar" style="height:46px;background:#e0d4f7"></div><div class="bl">S3</div></div>
-            <div class="bar-col"><div class="bv">52</div><div class="bar" style="height:53px;background:#c9a8f5"></div><div class="bl">S4</div></div>
-            <div class="bar-col"><div class="bv">49</div><div class="bar" style="height:50px;background:#c9a8f5"></div><div class="bl">S5</div></div>
-            <div class="bar-col"><div class="bv">58</div><div class="bar" style="height:59px;background:#3A8FD6"></div><div class="bl">S6</div></div>
-            <div class="bar-col"><div class="bv">61</div><div class="bar" style="height:62px;background:#3A8FD6"></div><div class="bl">S7</div></div>
-            <div class="bar-col"><div class="bv" style="color:#1A6DB5;font-weight:700">67</div><div class="bar" style="height:68px;background:#1A6DB5"></div><div class="bl" style="color:#1A6DB5;font-weight:600">S8</div></div>
+  <!-- MIDDLE ROW — Alertas IA + Actividad reciente -->
+  <div class="dash-mid-row">
+
+    <!-- ALERTAS IA -->
+    <div class="dash-panel">
+      <div class="dash-panel-hdr">
+        <div class="dash-panel-title"><i class="ti ti-sparkles" style="color:#1A6DB5;"></i> Alertas detectadas por IA</div>
+        <span class="dash-panel-badge" style="background:#fff4e0;color:#c27b00;">3 pendientes</span>
+      </div>
+      <div class="ia-alert-list">
+        <div class="ia-alert ia-alert-red">
+          <div class="ia-alert-icon"><i class="ti ti-alert-circle"></i></div>
+          <div class="ia-alert-body">
+            <div class="ia-alert-title">2 OTs superaron SLA crítico</div>
+            <div class="ia-alert-sub">WO-2447 · WO-2445 — más de 72h sin avance</div>
           </div>
-          <div class="chart-footer">
-            <div><div class="cf-lbl">Promedio</div><div class="cf-val">51.4</div></div>
-            <div><div class="cf-lbl">Mejor semana</div><div class="cf-val" style="color:#1A6DB5">67 (S8)</div></div>
-            <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a">↑ +63%</div></div>
-          </div>
+          <span class="ia-alert-time">hace 2h</span>
         </div>
-        <div class="panel">
-          <div class="panel-hdr"><div class="panel-title"><i class="ti ti-users"></i> Técnicos en campo</div></div>
-          <div class="tec-col-hdr"><span>Técnico</span><span>Origen</span><span>Estado</span></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av av-cr">CR</div><div><div class="tec-name">Carlos Ruiz</div><div class="tec-loc">En servicio · Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En Progreso</span></div></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av av-al">AL</div><div><div class="tec-name">Ana López</div><div class="tec-loc">En ruta · Zona Sur</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En Progreso</span></div></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av" style="background:#6366f1">RV</div><div><div class="tec-name">Roberto Vargas</div><div class="tec-loc">En servicio · Zona Norte</div></div></div><div><span class="origen-tag origen-taller">Taller</span><span class="origen-sub">Tecnoserv Panamá</span></div><div><span class="tec-status ts-prog">En Progreso</span></div></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av av-lm">LM</div><div><div class="tec-name">Luis Mora</div><div class="tec-loc">Disponible · Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av" style="background:#ec4899">MA</div><div><div class="tec-name">Miguel Arias</div><div class="tec-loc">En servicio · Zona Central</div></div></div><div><span class="origen-tag origen-taller">Taller</span><span class="origen-sub">Frío Total S.A.</span></div><div><span class="tec-status ts-prog">En Progreso</span></div></div>
-          <div class="tec-item"><div class="tec-identity"><div class="tec-av av-dp">DP</div><div><div class="tec-name">Diego Pérez</div><div class="tec-loc">Disponible · Zona Central</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
+        <div class="ia-alert ia-alert-amber">
+          <div class="ia-alert-icon"><i class="ti ti-repeat"></i></div>
+          <div class="ia-alert-body">
+            <div class="ia-alert-title">Patrón de falla recurrente detectado</div>
+            <div class="ia-alert-sub">Lavadora WM-3200 — 3 OTs con falla de compresor en 30 días</div>
+          </div>
+          <span class="ia-alert-time">hace 5h</span>
+        </div>
+        <div class="ia-alert ia-alert-blue">
+          <div class="ia-alert-icon"><i class="ti ti-package"></i></div>
+          <div class="ia-alert-body">
+            <div class="ia-alert-title">Stock mínimo: correa LG 6602-001655</div>
+            <div class="ia-alert-sub">Taller Tecnoserv — quedan 2 unidades, consumo promedio 4/semana</div>
+          </div>
+          <span class="ia-alert-time">hace 8h</span>
         </div>
       </div>
     </div>
+
+    <!-- ACTIVIDAD EN VIVO -->
+    <div class="dash-panel">
+      <div class="dash-panel-hdr">
+        <div class="dash-panel-title"><i class="ti ti-activity" style="color:#1A6DB5;"></i> Operación en vivo</div>
+        <div class="live-dot-wrap"><div class="live-dot"></div><span style="font-size:10px;color:#16a34a;font-weight:600;">EN VIVO</span></div>
+      </div>
+      <div class="live-feed">
+        <div class="live-item">
+          <div class="live-av" style="background:#1A6DB5;">CR</div>
+          <div class="live-body">
+            <div class="live-action"><strong>Carlos Ruiz</strong> cerró OT #WO-2450 — A/C Torre Central</div>
+            <div class="live-time">hace 3 min</div>
+          </div>
+          <span class="live-badge live-ok">Cerrada</span>
+        </div>
+        <div class="live-item">
+          <div class="live-av" style="background:#0891b2;">MA</div>
+          <div class="live-body">
+            <div class="live-action"><strong>Miguel Arias</strong> inició diagnóstico — A/C Banco Nacional</div>
+            <div class="live-time">hace 11 min</div>
+          </div>
+          <span class="live-badge live-prog">En progreso</span>
+        </div>
+        <div class="live-item">
+          <div class="live-av" style="background:#c0392b;">!</div>
+          <div class="live-body">
+            <div class="live-action"><strong>IA detectó</strong> pieza crítica en WO-2451 — solicitud automática enviada</div>
+            <div class="live-time">hace 18 min</div>
+          </div>
+          <span class="live-badge live-ia">IA</span>
+        </div>
+        <div class="live-item">
+          <div class="live-av" style="background:#16a34a;">LM</div>
+          <div class="live-body">
+            <div class="live-action"><strong>Luis Mora</strong> marcó disponible — regresó de WO-2449</div>
+            <div class="live-time">hace 24 min</div>
+          </div>
+          <span class="live-badge live-ok">Disponible</span>
+        </div>
+        <div class="live-item">
+          <div class="live-av" style="background:#6366f1;">RV</div>
+          <div class="live-body">
+            <div class="live-action"><strong>Roberto Vargas</strong> abrió WO-2452 — Refrigeradora Restaurante La Plaza</div>
+            <div class="live-time">hace 31 min</div>
+          </div>
+          <span class="live-badge live-prog">Nueva</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW — Gráfico + técnicos + estados -->
+  <div class="dash-bottom-row">
+
+    <!-- GRAFICO OTs POR SEMANA -->
+    <div class="dash-panel">
+      <div class="dash-panel-hdr">
+        <div class="dash-panel-title"><i class="ti ti-chart-bar" style="color:#1A6DB5;"></i> OTs cerradas por semana</div>
+        <span style="font-size:10px;color:#aaa;">Jul 2026</span>
+      </div>
+      <div class="bar-chart" style="height:88px;margin-bottom:10px;">
+        <div class="bar-col"><div class="bv">41</div><div class="bar" style="height:43px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S1</div></div>
+        <div class="bar-col"><div class="bv">38</div><div class="bar" style="height:40px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S2</div></div>
+        <div class="bar-col"><div class="bv">45</div><div class="bar" style="height:47px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S3</div></div>
+        <div class="bar-col"><div class="bv">52</div><div class="bar" style="height:55px;background:#378ADD;border-radius:4px 4px 0 0;"></div><div class="bl">S4</div></div>
+        <div class="bar-col"><div class="bv">49</div><div class="bar" style="height:51px;background:#378ADD;border-radius:4px 4px 0 0;"></div><div class="bl">S5</div></div>
+        <div class="bar-col"><div class="bv">58</div><div class="bar" style="height:61px;background:#1A6DB5;border-radius:4px 4px 0 0;"></div><div class="bl">S6</div></div>
+        <div class="bar-col"><div class="bv">61</div><div class="bar" style="height:64px;background:#1A6DB5;border-radius:4px 4px 0 0;"></div><div class="bl">S7</div></div>
+        <div class="bar-col"><div class="bv" style="color:#0D4E87;font-weight:700;">67</div><div class="bar" style="height:70px;background:#0D4E87;border-radius:4px 4px 0 0;"></div><div class="bl" style="color:#0D4E87;font-weight:700;">S8</div></div>
+      </div>
+      <div class="chart-footer">
+        <div><div class="cf-lbl">Promedio</div><div class="cf-val">51.4</div></div>
+        <div><div class="cf-lbl">Mejor semana</div><div class="cf-val" style="color:#1A6DB5;">67 (S8)</div></div>
+        <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a;">↑ +63%</div></div>
+      </div>
+    </div>
+
+    <!-- ESTADOS DE OT — donut visual -->
+    <div class="dash-panel">
+      <div class="dash-panel-hdr">
+        <div class="dash-panel-title"><i class="ti ti-chart-donut" style="color:#1A6DB5;"></i> Estado de OTs activas</div>
+        <span style="font-size:10px;color:#aaa;">24 total</span>
+      </div>
+      <div class="donut-wrap">
+        <svg viewBox="0 0 80 80" width="80" height="80" style="flex-shrink:0;">
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#f0f0f0" stroke-width="10"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#c0392b" stroke-width="10" stroke-dasharray="22 167" stroke-dashoffset="0" stroke-linecap="butt"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="31 167" stroke-dashoffset="-22" stroke-linecap="butt"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#1A6DB5" stroke-width="10" stroke-dasharray="63 167" stroke-dashoffset="-53" stroke-linecap="butt"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#16a34a" stroke-width="10" stroke-dasharray="53 167" stroke-dashoffset="-116" stroke-linecap="butt"/>
+          <text x="40" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a2e">24</text>
+          <text x="40" y="48" text-anchor="middle" font-size="6" fill="#aaa">OTs</text>
+        </svg>
+        <div class="donut-legend">
+          <div class="donut-item"><div class="donut-dot" style="background:#c0392b;"></div><span class="donut-lbl">Bloqueadas</span><span class="donut-val" style="color:#c0392b;">7</span></div>
+          <div class="donut-item"><div class="donut-dot" style="background:#f59e0b;"></div><span class="donut-lbl">Pendientes</span><span class="donut-val" style="color:#f59e0b;">9</span></div>
+          <div class="donut-item"><div class="donut-dot" style="background:#1A6DB5;"></div><span class="donut-lbl">En progreso</span><span class="donut-val" style="color:#1A6DB5;">5</span></div>
+          <div class="donut-item"><div class="donut-dot" style="background:#16a34a;"></div><span class="donut-lbl">Esp. repuesto</span><span class="donut-val" style="color:#16a34a;">3</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TÉCNICOS EN CAMPO -->
+    <div class="dash-panel">
+      <div class="dash-panel-hdr">
+        <div class="dash-panel-title"><i class="ti ti-users" style="color:#1A6DB5;"></i> Técnicos en campo</div>
+      </div>
+      <div class="tec-col-hdr"><span>Técnico</span><span>Origen</span><span>Estado</span></div>
+      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-cr">CR</div><div><div class="tec-name">Carlos Ruiz</div><div class="tec-loc">Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En servicio</span></div></div>
+      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-al">AL</div><div><div class="tec-name">Ana López</div><div class="tec-loc">Zona Sur</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En ruta</span></div></div>
+      <div class="tec-item"><div class="tec-identity"><div class="tec-av" style="background:#6366f1;">RV</div><div><div class="tec-name">Roberto Vargas</div><div class="tec-loc">Tecnoserv</div></div></div><div><span class="origen-tag origen-taller">Taller</span></div><div><span class="tec-status ts-prog">En servicio</span></div></div>
+      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-lm">LM</div><div><div class="tec-name">Luis Mora</div><div class="tec-loc">Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
+      <div class="tec-item" style="border-bottom:none;"><div class="tec-identity"><div class="tec-av av-dp">DP</div><div><div class="tec-name">Diego Pérez</div><div class="tec-loc">Zona Central</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
+    </div>
+
+  </div>
+
+</div>
+
 
     <!-- ══════ SCREEN: ÓRDENES ══════ -->
     <div class="screen" id="screen-ord">
@@ -2698,5 +2954,16 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   document.getElementById('tb-analytics').style.display = 'none';
   setFilter('todas');
 </script>
+
+<script>
+(function(){
+  const days = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const d = new Date();
+  const el = document.getElementById('dash-date');
+  if(el) el.textContent = days[d.getDay()] + ' ' + d.getDate() + ' de ' + months[d.getMonth()];
+})();
+</script>
+
 </body>
 </html>
