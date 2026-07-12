@@ -2050,8 +2050,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
     <div class="nav-section" style="margin-top:4px;border-top:1px solid rgba(255,255,255,0.07);padding-top:8px;">
       <div class="nav-label" style="color:rgba(203,108,230,0.6);">HK Platform</div>
-      <div class="nav-item" onclick="goTo('hkmarketplace',this)"><i class="ti ti-layout-grid"></i><span>HK Marketplace</span></div>
-      <div class="nav-item" onclick="goTo('hkstudio',this)"><i class="ti ti-settings-2"></i><span>HK Studio</span></div>
+      <div class="nav-item" onclick="goToHK('hkmarketplace')"><i class="ti ti-layout-grid"></i><span>HK Marketplace</span></div>
+      <div class="nav-item" onclick="goToHK('hkstudio')"><i class="ti ti-settings-2"></i><span>HK Studio</span></div>
     </div>
     <div class="sidebar-footer">
       <div class="sidebar-user">
@@ -2119,6 +2119,27 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       </div>
       <i class="ti ti-download icon-btn" style="color:#1A6DB5"></i>
     </div>
+    <div class="topbar" id="tb-hkmarketplace" style="display:none;">
+      <button class="hamburger" onclick="openSidebar()"><i class="ti ti-menu-2"></i></button>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <i class="ti ti-layout-grid" style="color:#CB6CE6;font-size:15px;"></i>
+        <h1 style="color:#1A202C;">HK Marketplace</h1>
+      </div>
+      <div class="demo-badge">DEMO</div>
+      <i class="ti ti-bell ico" style="margin-left:auto;"></i>
+      <div class="user-av" style="background:#833AE0;font-size:9px;width:28px;height:28px;">GL</div>
+    </div>
+    <div class="topbar" id="tb-hkstudio" style="display:none;">
+      <button class="hamburger" onclick="openSidebar()"><i class="ti ti-menu-2"></i></button>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <i class="ti ti-settings-2" style="color:#CB6CE6;font-size:15px;"></i>
+        <h1 style="color:#1A202C;">HK Studio</h1>
+      </div>
+      <div class="demo-badge">DEMO</div>
+      <i class="ti ti-bell ico" style="margin-left:auto;"></i>
+      <div class="user-av" style="background:#833AE0;font-size:9px;width:28px;height:28px;">GL</div>
+    </div>
+
 
     <!-- Sub-tabs Analytics (fuera del scroll) -->
     <div class="sub-tabs" id="stabs-analytics" style="display:none">
@@ -3236,6 +3257,19 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
 <!-- Overlay sidebar mobile -->
 
+    
+    <!-- ══════ SCREEN: HK STUDIO ══════ -->
+    <div class="screen" id="screen-hkstudio">
+      <div style="padding:32px;text-align:center;color:#6B7A8D;">
+        <i class="ti ti-settings-2" style="font-size:48px;color:#CB6CE6;display:block;margin-bottom:16px;"></i>
+        <div style="font-size:18px;font-weight:600;color:#1A202C;margin-bottom:8px;">HK Studio</div>
+        <div style="font-size:13px;font-weight:300;max-width:400px;margin:0 auto;line-height:1.6;">
+          El configurador de tu tenant — branding, flujos, campos custom y personalización del sistema.<br>
+          <span style="color:#CB6CE6;font-weight:500;">Próximamente en esta sesión.</span>
+        </div>
+      </div>
+    </div>
+
     <!-- ══════ SCREEN: HK MARKETPLACE ══════ -->
     <div class="screen" id="screen-hkmarketplace">
 
@@ -3308,7 +3342,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
             <div class="hkm-card-desc">Ciclo completo de órdenes de trabajo, estados configurables, auditorías y cierre con firma digital.</div>
             <div class="hkm-card-footer">
               <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="goTo('hkstudio',document.querySelector('[onclick*=hkstudio]'))"><i class="ti ti-settings-2"></i> Configurar</button>
+              <button class="hkm-btn-config" onclick="goToHK('hkstudio')"><i class="ti ti-settings-2"></i> Configurar</button>
             </div>
           </div>
 
@@ -3386,7 +3420,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
             <div class="hkm-card-desc">Configurador de tenant — branding, flujos, campos custom y personalización del sistema.</div>
             <div class="hkm-card-footer">
               <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="goTo('hkstudio',document.querySelector('[onclick*=hkstudio]'))"><i class="ti ti-settings-2"></i> Abrir Studio</button>
+              <button class="hkm-btn-config" onclick="goToHK('hkstudio')"><i class="ti ti-settings-2"></i> Abrir Studio</button>
             </div>
           </div>
 
@@ -4044,10 +4078,13 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.topbar').forEach(t => t.style.display = 'none');
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('screen-' + id).classList.add('active');
-    document.getElementById('tb-' + id).style.display = 'flex';
-    document.getElementById('stabs-analytics').style.display = id === 'analytics' ? 'flex' : 'none';
-    navEl.classList.add('active');
+    const _sc = document.getElementById('screen-' + id);
+    if (_sc) _sc.classList.add('active');
+    const _tb = document.getElementById('tb-' + id);
+    if (_tb) _tb.style.display = 'flex';
+    const _sa = document.getElementById('stabs-analytics');
+    if (_sa) _sa.style.display = id === 'analytics' ? 'flex' : 'none';
+    if (navEl && navEl.classList) navEl.classList.add('active');
     closeSidebar();
   }
 
@@ -4358,6 +4395,14 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     }
     closeModal();
     showToast(_modalModule + ' activado correctamente. El cargo se reflejará en tu próxima factura.');
+  }
+
+
+  function goToHK(id) {
+    const navEl = document.querySelector('[onclick*="goTo(\''+id+'\')"]') ||
+                  document.querySelector('[onclick*=\"goTo(\'' + id + '\']') ||
+                  document.querySelectorAll('.nav-item')[0];
+    goTo(id, navEl);
   }
 
 </script>
