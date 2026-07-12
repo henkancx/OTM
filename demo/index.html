@@ -3318,13 +3318,14 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
     
     <!-- ══════ SCREEN: HK STUDIO ══════ -->
+        <!-- ══════ SCREEN: HK STUDIO ══════ -->
     <div class="screen" id="screen-hkstudio">
-      <div style="padding:32px;text-align:center;color:#6B7A8D;">
-        <i class="ti ti-settings-2" style="font-size:48px;color:#CB6CE6;display:block;margin-bottom:16px;"></i>
-        <div style="font-size:18px;font-weight:600;color:#1A202C;margin-bottom:8px;">HK Studio</div>
-        <div style="font-size:13px;font-weight:300;max-width:400px;margin:0 auto;line-height:1.6;">
-          El configurador de tu tenant — branding, flujos, campos custom y personalización del sistema.<br>
-          <span style="color:#CB6CE6;font-weight:500;">Próximamente en esta sesión.</span>
+      <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:40px;text-align:center;">
+        <div style="width:48px;height:48px;background:#F5F3FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#CB6CE6;"><i class="ti ti-settings-2"></i></div>
+        <div style="font-size:18px;font-weight:700;color:#1A202C;margin-bottom:8px;font-family:Nunito,sans-serif;">HK Studio</div>
+        <div style="font-size:13px;color:#6B7A8D;max-width:380px;margin:0 auto;line-height:1.6;font-family:Nunito,sans-serif;">
+          Configurador del tenant — branding, flujos, campos custom y personalización.<br>
+          <span style="color:#CB6CE6;font-weight:600;">En construcción para este demo.</span>
         </div>
       </div>
     </div>
@@ -3332,347 +3333,287 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     <!-- ══════ SCREEN: HK MARKETPLACE ══════ -->
     <div class="screen" id="screen-hkmarketplace">
 
-      <!-- HK Header -->
-      <div class="hk-header">
-        <div class="hk-header-left">
-          <div class="hk-logo-wrap">
-            <div class="hk-logo-icon"><i class="ti ti-layout-grid"></i></div>
-            <div>
-              <div class="hk-logo-name">HK Marketplace</div>
-              <div class="hk-logo-sub">by HenkanCX · OTManager</div>
-            </div>
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:#0D2744;border-radius:6px;gap:16px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:36px;background:rgba(203,108,230,0.2);border:1px solid rgba(203,108,230,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#CB6CE6;font-size:16px;"><i class="ti ti-layout-grid"></i></div>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:white;font-family:Nunito,sans-serif;">HK Marketplace</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.4);font-family:Nunito,sans-serif;">by HenkanCX · OTManager</div>
           </div>
         </div>
-        <div class="hk-header-right">
-          <div class="hk-plan-badge">
-            <i class="ti ti-package"></i>
-            Plan Professional
-          </div>
-          <div class="hk-billing-info">
-            Próxima factura: <strong>$1,847/mes</strong> · 1 ago 2026
-          </div>
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="display:flex;align-items:center;gap:6px;background:rgba(203,108,230,0.15);border:1px solid rgba(203,108,230,0.25);border-radius:4px;padding:5px 10px;font-size:11px;font-weight:600;color:#CB6CE6;font-family:Nunito,sans-serif;"><i class="ti ti-package"></i> Plan Professional</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:Nunito,sans-serif;">Próxima factura: <strong style="color:rgba(255,255,255,0.85);">$1,847/mes</strong> · 1 ago 2026</div>
         </div>
       </div>
 
-      <!-- Plan summary bar -->
-      <div class="hk-plan-bar">
-        <div class="hk-plan-item">
-          <span class="hk-plan-lbl">Plan base</span>
-          <span class="hk-plan-val">$1,499/mes</span>
+      <!-- Plan bar -->
+      <div style="display:flex;align-items:center;gap:0;background:white;border:1px solid #E8ECF2;border-radius:6px;padding:12px 20px;flex-wrap:wrap;">
+        <div style="display:flex;flex-direction:column;gap:2px;padding:0 16px 0 0;border-right:1px solid #E8ECF2;margin-right:16px;">
+          <span style="font-size:10px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.5px;font-family:Nunito,sans-serif;">Plan base</span>
+          <span style="font-size:13px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">$1,499/mes</span>
         </div>
-        <div class="hk-plan-sep"></div>
-        <div class="hk-plan-item">
-          <span class="hk-plan-lbl">Módulos add-on activos</span>
-          <span class="hk-plan-val">2 módulos · $348/mes</span>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:0 16px 0 0;border-right:1px solid #E8ECF2;margin-right:16px;">
+          <span style="font-size:10px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.5px;font-family:Nunito,sans-serif;">Add-ons activos</span>
+          <span style="font-size:13px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">2 módulos · $348/mes</span>
         </div>
-        <div class="hk-plan-sep"></div>
-        <div class="hk-plan-item">
-          <span class="hk-plan-lbl">Usuarios</span>
-          <span class="hk-plan-val">12 activos · incluidos</span>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:0 16px 0 0;border-right:1px solid #E8ECF2;margin-right:16px;">
+          <span style="font-size:10px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.5px;font-family:Nunito,sans-serif;">Usuarios</span>
+          <span style="font-size:13px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">12 activos</span>
         </div>
-        <div class="hk-plan-sep"></div>
-        <div class="hk-plan-item">
-          <span class="hk-plan-lbl">OTs este mes</span>
-          <span class="hk-plan-val">847 / 5,000</span>
-        </div>
-        <div style="margin-left:auto;">
-          <button class="hk-btn-outline" onclick="showToast('Abriendo historial de facturación...')"><i class="ti ti-file-invoice"></i> Ver facturación</button>
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="font-size:10px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.5px;font-family:Nunito,sans-serif;">OTs este mes</span>
+          <span style="font-size:13px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">847 / 5,000</span>
         </div>
       </div>
 
       <!-- Tabs -->
-      <div class="hk-tabs">
-        <button class="hk-tab active" onclick="hkTab(this,'hkm-included')">Incluidos en tu plan</button>
-        <button class="hk-tab" onclick="hkTab(this,'hkm-addons')">Add-ons disponibles</button>
-        <button class="hk-tab" onclick="hkTab(this,'hkm-enterprise')">Enterprise</button>
-      </div>
+      <div style="background:white;border:1px solid #E8ECF2;border-radius:6px 6px 0 0;border-bottom:none;">
+        <div style="display:flex;border-bottom:1px solid #E8ECF2;padding:0 16px;" id="hkm-tab-bar">
+          <button onclick="hkTab(this,'hkm-included')" style="padding:12px 16px;font-size:12px;font-weight:600;color:#1A202C;background:none;border:none;border-bottom:2px solid #1A202C;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;" id="hkm-t1">Incluidos en tu plan</button>
+          <button onclick="hkTab(this,'hkm-addons')" style="padding:12px 16px;font-size:12px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;" id="hkm-t2">Add-ons disponibles</button>
+          <button onclick="hkTab(this,'hkm-enterprise')" style="padding:12px 16px;font-size:12px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;" id="hkm-t3">Enterprise</button>
+        </div>
 
-      <!-- TAB: INCLUDED -->
-      <div id="hkm-included" class="hk-tab-content" style="display:block;">
-        <p class="hk-section-desc">Estos módulos están activos en tu plan Professional sin costo adicional. Se desactivan solo si cambias de plan.</p>
-        <div class="hkm-grid">
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-clipboard-list"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+        <!-- Tab: Incluidos -->
+        <div id="hkm-included" style="padding:20px;display:block;">
+          <p style="font-size:12px;color:#6B7A8D;margin-bottom:16px;font-family:Nunito,sans-serif;font-weight:300;">Estos módulos están activos en tu plan Professional sin costo adicional.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#EFF6FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1E40AF;font-size:15px;"><i class="ti ti-clipboard-list"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M1 · Gestión de OT</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Ciclo completo de OTs, estados, auditorías y cierre.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="showToast('Abriendo HK Studio...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F7F8FC;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-settings-2" style="font-size:11px;"></i> Configurar</button>
+              </div>
             </div>
-            <div class="hkm-card-name">M1 · Gestión de OT</div>
-            <div class="hkm-card-desc">Ciclo completo de órdenes de trabajo, estados configurables, auditorías y cierre con firma digital.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="goTo('hkstudio', this)"><i class="ti ti-settings-2"></i> Configurar</button>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#ECFDF5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#065F46;font-size:15px;"><i class="ti ti-users"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M2 · CRM</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Clientes, productos, historial y catálogo completo.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="showToast('Configurando CRM...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F7F8FC;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-settings-2" style="font-size:11px;"></i> Configurar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#FFFBEB;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#92400E;font-size:15px;"><i class="ti ti-shield"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M3 · Garantías</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Validación automática, garantía extendida y reemplazos.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="showToast('Configurando Garantías...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F7F8FC;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-settings-2" style="font-size:11px;"></i> Configurar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#EFF6FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1E40AF;font-size:15px;"><i class="ti ti-building-store"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M4 · Red de Talleres</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Talleres, técnicos, mapa geolocalizado y stock.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="showToast('Configurando Red de Talleres...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F7F8FC;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-settings-2" style="font-size:11px;"></i> Configurar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#ECFDF5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#065F46;font-size:15px;"><i class="ti ti-headset"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M5 · Contact Center</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Casos, búsqueda omnicanal y derivación a talleres.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="showToast('Configurando Contact Center...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F7F8FC;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-settings-2" style="font-size:11px;"></i> Configurar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-settings-2"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">HK Studio</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Configurador del tenant incluido en todos los planes.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#16a34a;font-family:Nunito,sans-serif;">Incluido</span>
+                <button onclick="goTo('hkstudio',document.querySelector('[onclick*=hkstudio]'))" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#F5F3FF;color:#5B21B6;border:1px solid #DDD6FE;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-external-link" style="font-size:11px;"></i> Abrir</button>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-users"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+        <!-- Tab: Add-ons -->
+        <div id="hkm-addons" style="padding:20px;display:none;">
+          <p style="font-size:12px;color:#6B7A8D;margin-bottom:16px;font-family:Nunito,sans-serif;font-weight:300;">Activa módulos adicionales. El cargo se agrega a tu facturación mensual de forma inmediata.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#EFF6FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1E40AF;font-size:15px;"><i class="ti ti-box"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#F7F8FC;color:#9BA8B8;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Inactivo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M6 · Inventario</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Repuestos, precios, extracto MO y logística LGR.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$149</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showActivateModal('M6 · Inventario','149')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:11px;"></i> Activar</button>
+              </div>
             </div>
-            <div class="hkm-card-name">M2 · CRM</div>
-            <div class="hkm-card-desc">Gestión de clientes, productos, catálogos y historial completo de la relación postventa.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de CRM...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#ECFDF5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#065F46;font-size:15px;"><i class="ti ti-plug"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M7 · Integraciones</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">API pública, conectores ERP/CRM y webhooks.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$199</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showToast('Para desactivar contacta a HenkanCX')" style="padding:5px 10px;background:white;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;">Desactivar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#FFFBEB;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#92400E;font-size:15px;"><i class="ti ti-device-mobile"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#F7F8FC;color:#9BA8B8;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Inactivo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M8 · Portal cliente</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Portal self-service público con branding propio.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$99</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showActivateModal('M8 · Portal cliente','99')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:11px;"></i> Activar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #D1FAE5;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-chart-bar"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Activo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M9 · Analítica IA</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">ML, predicción de demanda y scoring de talleres.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$249</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showToast('Para desactivar contacta a HenkanCX')" style="padding:5px 10px;background:white;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;">Desactivar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#EFF6FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1E40AF;font-size:15px;"><i class="ti ti-bell"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#F7F8FC;color:#9BA8B8;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Inactivo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M10 · Notificaciones</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">WhatsApp, SMS y Email multicanal con fallback.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$79</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showActivateModal('M10 · Notificaciones','79')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:11px;"></i> Activar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-robot"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#F7F8FC;color:#9BA8B8;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Inactivo</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">M11 · AI Agéntica</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Agentes autónomos completos — triaje y auditoría.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <div><span style="font-size:16px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$399</span><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">/mes</span></div>
+                <button onclick="showActivateModal('M11 · AI Agéntica','399')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:11px;"></i> Activar</button>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#FFFBEB;color:#92400E;"><i class="ti ti-shield"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+        <!-- Tab: Enterprise -->
+        <div id="hkm-enterprise" style="padding:20px;display:none;">
+          <p style="font-size:12px;color:#6B7A8D;margin-bottom:16px;font-family:Nunito,sans-serif;font-weight:300;">Estos módulos requieren negociación con HenkanCX. Contáctanos para conocer condiciones y pricing.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
+            <div style="background:white;border:1px solid #EDE9FE;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-building"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#EDE9FE;color:#5B21B6;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Enterprise</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">Multi-tenant</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Opera múltiples tenants bajo una cuenta matriz.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#5B21B6;font-family:Nunito,sans-serif;">A convenir</span>
+                <button onclick="showToast('Contactando a HenkanCX...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#EDE9FE;color:#5B21B6;border:1px solid #DDD6FE;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-mail" style="font-size:11px;"></i> Contactar</button>
+              </div>
             </div>
-            <div class="hkm-card-name">M3 · Garantías</div>
-            <div class="hkm-card-desc">Validación automática, garantía extendida por pieza, reemplazos y flujo de auditoría.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Garantías...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            <div style="background:white;border:1px solid #EDE9FE;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-shield-lock"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#EDE9FE;color:#5B21B6;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Enterprise</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">SSO Corporativo</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">SAML, Active Directory, Okta integrado.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#5B21B6;font-family:Nunito,sans-serif;">A convenir</span>
+                <button onclick="showToast('Contactando a HenkanCX...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#EDE9FE;color:#5B21B6;border:1px solid #DDD6FE;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-mail" style="font-size:11px;"></i> Contactar</button>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #EDE9FE;border-radius:6px;padding:16px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+                <div style="width:32px;height:32px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#5B21B6;font-size:15px;"><i class="ti ti-database"></i></div>
+                <span style="font-size:9px;font-weight:700;background:#EDE9FE;color:#5B21B6;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Enterprise</span>
+              </div>
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px;font-family:Nunito,sans-serif;">Data Warehouse</div>
+              <div style="font-size:11px;color:#6B7A8D;line-height:1.5;margin-bottom:12px;font-family:Nunito,sans-serif;font-weight:300;">Exportación a BigQuery, Snowflake o Redshift.</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:10px;">
+                <span style="font-size:11px;font-weight:500;color:#5B21B6;font-family:Nunito,sans-serif;">A convenir</span>
+                <button onclick="showToast('Contactando a HenkanCX...')" style="display:flex;align-items:center;gap:4px;padding:5px 10px;background:#EDE9FE;color:#5B21B6;border:1px solid #DDD6FE;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-mail" style="font-size:11px;"></i> Contactar</button>
+              </div>
             </div>
           </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-building-store"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">M4 · Red de talleres</div>
-            <div class="hkm-card-desc">Talleres autorizados, técnicos, mapa geolocalizado, cálculo de KM y stock por taller.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Red de talleres...')"><i class="ti ti-settings-2"></i> Configurar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-headset"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">M5 · Contact Center</div>
-            <div class="hkm-card-desc">Gestión de Casos, protocolos, búsqueda omnicanal de clientes y derivación a talleres.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Contact Center...')"><i class="ti ti-settings-2"></i> Configurar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-sparkles"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">M11 · AI Core</div>
-            <div class="hkm-card-desc">Asistente IA base por rol, alertas proactivas y diagnóstico asistido en OTs.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de AI Core...')"><i class="ti ti-settings-2"></i> Configurar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-settings-2"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">HK Studio</div>
-            <div class="hkm-card-desc">Configurador de tenant — branding, flujos, campos custom y personalización del sistema.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag">Incluido</span>
-              <button class="hkm-btn-config" onclick="goTo('hkstudio', this)"><i class="ti ti-settings-2"></i> Abrir Studio</button>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      <!-- TAB: ADD-ONS -->
-      <div id="hkm-addons" class="hk-tab-content" style="display:none;">
-        <p class="hk-section-desc">Activa módulos adicionales cuando los necesites. El cargo se agrega a tu facturación mensual de forma inmediata. Puedes desactivarlos en cualquier momento.</p>
-        <div class="hkm-grid">
-
-          <div class="hkm-card">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-box"></i></div>
-              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
-            </div>
-            <div class="hkm-card-name">M6 · Inventario</div>
-            <div class="hkm-card-desc">Repuestos, tablas de precios, extracto de mano de obra y logística inversa (LGR).</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$149</span>
-                <span class="hkm-price-mo">/mes</span>
+      <!-- Activation Modal -->
+      <div id="hkm-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(13,23,36,0.5);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+        <div style="background:white;border-radius:6px;width:460px;max-width:95vw;border:0.5px solid #E8ECF2;overflow:hidden;">
+          <div style="padding:20px 24px;border-bottom:1px solid #E8ECF2;">
+            <div style="font-size:14px;font-weight:600;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Activar módulo</div>
+            <div style="font-size:12px;color:#6B7A8D;font-family:Nunito,sans-serif;font-weight:300;">Revisa el impacto en tu facturación antes de confirmar.</div>
+          </div>
+          <div style="padding:20px 24px;">
+            <div style="background:#F7F8FC;border:1px solid #E8ECF2;border-radius:4px;padding:14px 16px;margin-bottom:16px;">
+              <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:10px;font-family:Nunito,sans-serif;" id="modal-module-name">M6 · Inventario</div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="font-size:12px;color:#6B7A8D;font-family:Nunito,sans-serif;">Plan actual</span>
+                <span style="font-size:12px;font-weight:500;color:#1A202C;font-family:Nunito,sans-serif;">$1,847/mes</span>
               </div>
-              <button class="hkm-btn-activate" onclick="showActivateModal('M6 · Inventario','149')"><i class="ti ti-plus"></i> Activar</button>
+              <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+                <span style="font-size:12px;color:#6B7A8D;font-family:Nunito,sans-serif;">Cargo del módulo</span>
+                <span style="font-size:12px;font-weight:500;color:#1A6DB5;font-family:Nunito,sans-serif;">+ $<span id="modal-price">149</span>/mes</span>
+              </div>
+              <div style="height:1px;background:#E8ECF2;margin:8px 0;"></div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Nueva factura mensual</span>
+                <span style="font-size:14px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$<span id="modal-total">1,996</span>/mes</span>
+              </div>
+            </div>
+            <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;margin-bottom:16px;">
+              <input type="checkbox" id="modal-terms" style="margin-top:2px;flex-shrink:0;">
+              <span style="font-size:11px;color:#6B7A8D;line-height:1.5;font-family:Nunito,sans-serif;font-weight:300;">Acepto los <a href="#" style="color:#1A6DB5;">Términos de uso del módulo</a> y autorizo el cargo adicional.</span>
+            </label>
+            <div style="display:flex;gap:8px;">
+              <button onclick="closeModal()" style="flex:1;padding:10px;background:white;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-weight:500;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;">Cancelar</button>
+              <button onclick="confirmActivation()" style="flex:1;padding:10px;background:#1A6DB5;border:none;border-radius:4px;font-size:13px;font-weight:600;color:white;cursor:pointer;font-family:Nunito,sans-serif;">Confirmar activación</button>
             </div>
           </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-plug"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">M7 · Integraciones</div>
-            <div class="hkm-card-desc">API pública documentada, conectores ERP/CRM, webhooks salientes y carga SFTP.</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$199</span>
-                <span class="hkm-price-mo">/mes</span>
-              </div>
-              <button class="hkm-btn-deactivate" onclick="showToast('Para desactivar contacta a HenkanCX')"><i class="ti ti-minus"></i> Desactivar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#FFFBEB;color:#92400E;"><i class="ti ti-device-mobile"></i></div>
-              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
-            </div>
-            <div class="hkm-card-name">M8 · Portal cliente</div>
-            <div class="hkm-card-desc">Portal self-service público con branding propio, consulta de OT y mapa de talleres.</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$99</span>
-                <span class="hkm-price-mo">/mes</span>
-              </div>
-              <button class="hkm-btn-activate" onclick="showActivateModal('M8 · Portal cliente','99')"><i class="ti ti-plus"></i> Activar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-active">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-chart-bar"></i></div>
-              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
-            </div>
-            <div class="hkm-card-name">M9 · Analítica IA</div>
-            <div class="hkm-card-desc">Machine learning, predicción de demanda de repuestos, scoring de talleres y detección de anomalías.</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$249</span>
-                <span class="hkm-price-mo">/mes</span>
-              </div>
-              <button class="hkm-btn-deactivate" onclick="showToast('Para desactivar contacta a HenkanCX')"><i class="ti ti-minus"></i> Desactivar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-bell"></i></div>
-              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
-            </div>
-            <div class="hkm-card-name">M10 · Notificaciones</div>
-            <div class="hkm-card-desc">WhatsApp, SMS y Email multicanal con templates personalizables y fallback automático.</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$79</span>
-                <span class="hkm-price-mo">/mes <span style="font-size:9px;color:#9BA8B8;">+ por mensaje</span></span>
-              </div>
-              <button class="hkm-btn-activate" onclick="showActivateModal('M10 · Notificaciones','79')"><i class="ti ti-plus"></i> Activar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-robot"></i></div>
-              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
-            </div>
-            <div class="hkm-card-name">M11 · AI Agéntica</div>
-            <div class="hkm-card-desc">Agentes autónomos completos — triaje, auditoría, comunicación proactiva y analítica ejecutiva.</div>
-            <div class="hkm-card-footer">
-              <div>
-                <span class="hkm-price-val">$399</span>
-                <span class="hkm-price-mo">/mes</span>
-              </div>
-              <button class="hkm-btn-activate" onclick="showActivateModal('M11 · AI Agéntica','399')"><i class="ti ti-plus"></i> Activar</button>
-            </div>
-          </div>
-
         </div>
       </div>
 
-      <!-- TAB: ENTERPRISE -->
-      <div id="hkm-enterprise" class="hk-tab-content" style="display:none;">
-        <p class="hk-section-desc">Estos módulos requieren negociación con HenkanCX. Contáctanos para conocer condiciones, SLA y pricing personalizado.</p>
-        <div class="hkm-grid">
-
-          <div class="hkm-card hkm-card-ent">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-building"></i></div>
-              <span class="hkm-status-badge hkm-ent">Enterprise</span>
-            </div>
-            <div class="hkm-card-name">Multi-tenant</div>
-            <div class="hkm-card-desc">Opera múltiples tenants bajo una cuenta matriz con dashboard consolidado.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
-              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-ent">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-shield-lock"></i></div>
-              <span class="hkm-status-badge hkm-ent">Enterprise</span>
-            </div>
-            <div class="hkm-card-name">SSO Corporativo</div>
-            <div class="hkm-card-desc">SAML, Active Directory, Okta — autenticación corporativa integrada con tu IdP.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
-              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
-            </div>
-          </div>
-
-          <div class="hkm-card hkm-card-ent">
-            <div class="hkm-card-top">
-              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-database"></i></div>
-              <span class="hkm-status-badge hkm-ent">Enterprise</span>
-            </div>
-            <div class="hkm-card-name">Data Warehouse</div>
-            <div class="hkm-card-desc">Exportación directa a BigQuery, Snowflake o Redshift — todos los datos de tu tenant.</div>
-            <div class="hkm-card-footer">
-              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
-              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ACTIVATION MODAL -->
-    <div id="hkm-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(13,23,36,0.5);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
-      <div style="background:#fff;border-radius:6px;width:460px;max-width:95vw;border:0.5px solid #E8ECF2;overflow:hidden;">
-        <div style="padding:20px 24px;border-bottom:1px solid #E8ECF2;">
-          <div style="font-size:14px;font-weight:600;color:#1A202C;margin-bottom:4px;">Activar módulo</div>
-          <div style="font-size:12px;color:#6B7A8D;font-weight:300;">Revisa el impacto en tu facturación antes de confirmar.</div>
-        </div>
-        <div style="padding:20px 24px;">
-          <div style="background:#F7F8FC;border:1px solid #E8ECF2;border-radius:4px;padding:14px 16px;margin-bottom:16px;">
-            <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:10px;" id="modal-module-name">M6 · Inventario</div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-              <span style="font-size:12px;color:#6B7A8D;">Plan actual</span>
-              <span style="font-size:12px;font-weight:500;color:#1A202C;">$1,847/mes</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-              <span style="font-size:12px;color:#6B7A8D;">Cargo del módulo</span>
-              <span style="font-size:12px;font-weight:500;color:#1A6DB5;">+ $<span id="modal-price">149</span>/mes</span>
-            </div>
-            <div style="height:1px;background:#E8ECF2;margin:8px 0;"></div>
-            <div style="display:flex;justify-content:space-between;">
-              <span style="font-size:12px;font-weight:600;color:#1A202C;">Nueva factura mensual</span>
-              <span style="font-size:14px;font-weight:700;color:#1A202C;">$<span id="modal-total">1,996</span>/mes</span>
-            </div>
-          </div>
-          <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;margin-bottom:16px;">
-            <input type="checkbox" id="modal-terms" style="margin-top:2px;flex-shrink:0;">
-            <span style="font-size:11px;color:#6B7A8D;line-height:1.5;font-weight:300;">Acepto los <a href="#" style="color:#1A6DB5;">Términos de uso del módulo</a> y autorizo el cargo adicional a mi facturación mensual vigente.</span>
-          </label>
-          <div style="display:flex;gap:8px;">
-            <button onclick="closeModal()" style="flex:1;padding:10px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-weight:500;color:#6B7A8D;cursor:pointer;font-family:'Nunito',sans-serif;">Cancelar</button>
-            <button onclick="confirmActivation()" style="flex:1;padding:10px;background:#1A6DB5;border:none;border-radius:4px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;"><i class="ti ti-circle-check" style="font-size:12px;"></i> Confirmar activación</button>
-          </div>
-        </div>
-      </div>
     </div>
 
 <!-- ══════ OT DETAIL PANEL ══════ -->
@@ -4146,10 +4087,18 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     if (navEl && navEl.classList) navEl.classList.add('active');
     // Reset HK Marketplace tabs on navigation
     if (id === 'hkmarketplace') {
-      document.querySelectorAll('.hk-tab-content').forEach(c => { c.style.display = 'none'; });
-      const inc = document.getElementById('hkm-included');
+      ['hkm-included','hkm-addons','hkm-enterprise'].forEach(function(eid) {
+        var el = document.getElementById(eid);
+        if (el) el.style.display = 'none';
+      });
+      var inc = document.getElementById('hkm-included');
       if (inc) inc.style.display = 'block';
-      document.querySelectorAll('.hk-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+      var tabs = document.querySelectorAll('.hk-tab');
+      tabs.forEach(function(t, i) {
+        t.style.borderBottomColor = i===0 ? '#1A202C' : 'transparent';
+        t.style.fontWeight = i===0 ? '600' : '500';
+        t.style.color = i===0 ? '#1A202C' : '#6B7A8D';
+      });
     }
     closeSidebar();
   }
@@ -4430,10 +4379,20 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
   /* ── HK MARKETPLACE ── */
   function hkTab(btn, targetId) {
-    document.querySelectorAll('.hk-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.hk-tab-content').forEach(c => c.style.display = 'none');
-    btn.classList.add('active');
-    document.getElementById(targetId).style.display = 'block';
+    document.querySelectorAll('.hk-tab').forEach(t => {
+      t.style.borderBottomColor = 'transparent';
+      t.style.fontWeight = '500';
+      t.style.color = '#6B7A8D';
+    });
+    ['hkm-included','hkm-addons','hkm-enterprise'].forEach(id => {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    btn.style.borderBottomColor = '#1A202C';
+    btn.style.fontWeight = '600';
+    btn.style.color = '#1A202C';
+    var target = document.getElementById(targetId);
+    if (target) target.style.display = 'block';
   }
 
   let _modalModule = '';
