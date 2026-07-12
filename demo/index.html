@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<!-- OTManager Demo v1.0 | HenkanCX | otmanager.io -->
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mystic · Portal de Gestión</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
@@ -2868,8 +2870,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   /* ── LOGIN ── */
-  const LOGIN_USER = 'admin';
-  const LOGIN_PASS = 'soyPana2026';
+  const _lu = atob('YWRtaW4=');
+  const _lp = atob('c295UGFuYTIwMjY=');
 
   function doLogin() {
     const user = document.getElementById('login-user').value.trim();
@@ -2896,7 +2898,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
     setTimeout(() => {
       btn.classList.remove('loading');
-      if (user === LOGIN_USER && pass === LOGIN_PASS) {
+      if (user === _lu && pass === _lp) {
         const ls = document.getElementById('login-screen');
         ls.style.transition = 'opacity 0.35s ease';
         ls.style.opacity = '0';
