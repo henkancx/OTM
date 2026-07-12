@@ -1136,6 +1136,64 @@
   .donut-lbl { font-size:11px; color:#555; flex:1; }
   .donut-val { font-size:13px; font-weight:700; }
 
+  
+  /* ── ÓRDENES REDISEÑO ── */
+  .ord-ia-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .ord-ia-item { display:flex; align-items:flex-start; gap:9px; padding:10px 13px; border-radius:9px; border:0.5px solid transparent; }
+  .ord-ia-item i { font-size:15px; flex-shrink:0; margin-top:1px; }
+  .ord-ia-red { background:#fff5f5; border-color:#f5a0a0; }
+  .ord-ia-red i { color:#c0392b; }
+  .ord-ia-amber { background:#fffbf0; border-color:#fbd38d; }
+  .ord-ia-amber i { color:#c27b00; }
+  .ord-ia-blue { background:#EBF4FC; border-color:#B5D4F4; }
+  .ord-ia-blue i { color:#1A6DB5; }
+  .ord-ia-title { font-size:11px; font-weight:600; color:#1a1a2e; margin-bottom:2px; }
+  .ord-ia-sub { font-size:10px; color:#888; }
+
+  .ord-filter-row { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; }
+  .ord-fcard { background:#fff; border-radius:9px; border:1.5px solid #e8e8e8; padding:11px 12px; cursor:pointer; text-align:center; position:relative; transition:all .15s; user-select:none; }
+  .ord-fcard:hover { transform:translateY(-1px); }
+  .ord-fcard.selected { border-color:#1A6DB5; background:#EBF4FC; }
+  .ord-fcard-icon { font-size:14px; position:absolute; top:8px; right:8px; opacity:.35; }
+  .ord-fcard-num { font-size:22px; font-weight:700; line-height:1; margin-bottom:3px; }
+  .ord-fcard-lbl { font-size:10px; font-weight:500; }
+  .ord-fcard-total { background:#0D2744; border-color:#0D2744; }
+  .ord-fcard-total .ord-fcard-num { color:#fff; }
+  .ord-fcard-total .ord-fcard-lbl { color:rgba(255,255,255,.6); }
+  .ord-fcard-total .ord-fcard-icon { color:rgba(255,255,255,.3); opacity:1; }
+  .ord-fcard-analisis .ord-fcard-num { color:#555; }
+  .ord-fcard-analisis .ord-fcard-lbl { color:#888; }
+  .ord-fcard-piezas .ord-fcard-num { color:#c27b00; }
+  .ord-fcard-piezas .ord-fcard-lbl { color:#c27b00; }
+  .ord-fcard-reparacion .ord-fcard-num { color:#1A6DB5; }
+  .ord-fcard-reparacion .ord-fcard-lbl { color:#1A6DB5; }
+  .ord-fcard-retiro .ord-fcard-num { color:#16a34a; }
+  .ord-fcard-retiro .ord-fcard-lbl { color:#16a34a; }
+  .ord-fcard-bloq .ord-fcard-num { color:#c0392b; }
+  .ord-fcard-bloq .ord-fcard-lbl { color:#c0392b; }
+  .ord-fcard-comp .ord-fcard-num { color:#888; }
+  .ord-fcard-comp .ord-fcard-lbl { color:#888; }
+
+  .ord-toolbar { display:flex; align-items:center; gap:8px; }
+  .ord-search { flex:1; background:#fff; border:0.5px solid #ddd; border-radius:8px; padding:8px 13px; font-size:12px; display:flex; align-items:center; gap:8px; }
+  .ord-select { background:#fff; border:0.5px solid #ddd; border-radius:7px; padding:6px 10px; font-size:11px; color:#555; cursor:pointer; }
+  .ord-vtab { width:30px; height:30px; display:flex; align-items:center; justify-content:center; border-radius:6px; border:0.5px solid #ddd; background:#fff; cursor:pointer; color:#aaa; font-size:14px; }
+  .ord-vtab.active { background:#EBF4FC; border-color:#8BBEE0; color:#1A6DB5; }
+  .btn-caso { background:#0D2744; color:#fff; font-size:11px; font-weight:600; border:none; border-radius:7px; padding:7px 14px; cursor:pointer; display:flex; align-items:center; gap:5px; }
+
+  .ord-cols { grid-template-columns: 22px 110px 1fr 1fr 90px 110px 140px 90px 90px 60px 26px; }
+  .ord-ia-flag { display:flex; align-items:center; justify-content:center; }
+  .ord-caso-link { font-size:10px; color:#1A6DB5; margin-top:2px; display:flex; align-items:center; gap:3px; }
+  .ord-taller-tec { display:flex; flex-direction:column; gap:3px; }
+  .ord-dias { font-size:10px; font-weight:700; padding:2px 7px; border-radius:8px; white-space:nowrap; }
+  .ord-dias-ok { background:#e6f9f0; color:#16a34a; }
+  .ord-dias-warn { background:#fff4e0; color:#c27b00; }
+  .ord-dias-red { background:#fff0f0; color:#c0392b; }
+  .ord-actions { display:flex; align-items:center; justify-content:center; }
+  .ord-pgbtn { padding:4px 9px; border-radius:6px; border:0.5px solid #ddd; background:#fff; font-size:11px; color:#555; cursor:pointer; }
+  .ord-pgbtn.active { background:#EBF4FC; border-color:#1A6DB5; color:#1A6DB5; font-weight:600; }
+  .e-pend { background:#ffe5e5; color:#c0392b; }
+
   </style>
 
 <div class="lp">
@@ -1335,7 +1393,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       <h1>Dashboard</h1>
       <div class="demo-badge">DEMO</div>
       <i class="ti ti-bell icon-btn"></i>
-      <button class="btn-nueva"><i class="ti ti-plus" style="font-size:12px"></i> Nueva ODT</button>
+      <button class="btn-nueva" onclick="showToast('Abriendo nueva OT...')"><i class="ti ti-plus" style="font-size:12px"></i> Nueva OT</button>
+      <button class="btn-caso" onclick="showToast('Abriendo nuevo Caso...')"><i class="ti ti-headset" style="font-size:12px"></i> Nuevo Caso</button>
     </div>
 
     <!-- Topbar Órdenes -->
@@ -1344,7 +1403,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       <h1>Órdenes de Trabajo <span id="ord-count" style="font-size:13px;color:#aaa;font-weight:400">6 órdenes</span></h1>
       <div class="demo-badge">DEMO</div>
       <button class="btn-excel"><i class="ti ti-file-spreadsheet" style="font-size:13px;color:#16a34a"></i> Descargar Excel</button>
-      <button class="btn-nueva"><i class="ti ti-plus" style="font-size:12px"></i> Nueva ODT</button>
+      <button class="btn-nueva" onclick="showToast('Abriendo nueva OT...')"><i class="ti ti-plus" style="font-size:12px"></i> Nueva OT</button>
+      <button class="btn-caso" onclick="showToast('Abriendo nuevo Caso...')"><i class="ti ti-headset" style="font-size:12px"></i> Nuevo Caso</button>
     </div>
 
     <!-- Topbar Agenda -->
@@ -1610,345 +1670,270 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     <!-- ══════ SCREEN: ÓRDENES ══════ -->
     <div class="screen" id="screen-ord">
 
-      <div class="alertas-strip">
-        <div class="alerta-card ared"><i class="ti ti-clock-exclamation"></i><div><div class="alerta-titulo">WO-2450 sin actualizar por 2h</div><div class="alerta-sub">Ana López — Torre Central Offices</div><div class="alerta-time">hace 15 min</div></div></div>
-        <div class="alerta-card aamber"><i class="ti ti-tool"></i><div><div class="alerta-titulo">WO-2448 requiere repuesto</div><div class="alerta-sub">María Castro — Hotel Continental</div><div class="alerta-time">hace 1h</div></div></div>
-        <div class="alerta-card apurple"><i class="ti ti-user-check"></i><div><div class="alerta-titulo">Luis Mora disponible</div><div class="alerta-sub">Zona Norte libre para asignación</div><div class="alerta-time">hace 5 min</div></div></div>
-      </div>
+  <!-- IA STRIP -->
+  <div class="ord-ia-strip">
+    <div class="ord-ia-item ord-ia-red">
+      <i class="ti ti-clock-exclamation"></i>
+      <div><div class="ord-ia-title">2 OTs superaron SLA</div><div class="ord-ia-sub">OT-08447 · OT-08445 — más de 72h sin avance</div></div>
+    </div>
+    <div class="ord-ia-item ord-ia-amber">
+      <i class="ti ti-repeat"></i>
+      <div><div class="ord-ia-title">Reincidencia detectada por IA</div><div class="ord-ia-sub">WM-3200 · 3 OTs con falla de compresor en 30 días</div></div>
+    </div>
+    <div class="ord-ia-item ord-ia-blue">
+      <i class="ti ti-sparkles"></i>
+      <div><div class="ord-ia-title">5 OTs sin Caso vinculado</div><div class="ord-ia-sub">IA sugiere crear Caso para trazabilidad completa</div></div>
+    </div>
+  </div>
 
-      <div class="filter-cards">
-        <div class="fcard fcard-total" onclick="setFilter('all')"><i class="ti ti-clipboard-list fcard-icon"></i><div class="fcard-num">24</div><div class="fcard-label">Total órdenes</div></div>
-        <div class="fcard fcard-todas selected" data-f="todas" onclick="setFilter('todas')"><i class="ti ti-layout-list fcard-icon"></i><div class="fcard-num">6</div><div class="fcard-label">Todas</div></div>
-        <div class="fcard fcard-prog" data-f="progreso" onclick="setFilter('progreso')"><i class="ti ti-clock fcard-icon"></i><div class="fcard-num">1</div><div class="fcard-label">En progreso</div></div>
-        <div class="fcard fcard-pend" data-f="pendiente" onclick="setFilter('pendiente')"><i class="ti ti-hourglass fcard-icon"></i><div class="fcard-num">2</div><div class="fcard-label">Pendiente</div></div>
-        <div class="fcard fcard-comp" data-f="completada" onclick="setFilter('completada')"><i class="ti ti-circle-check fcard-icon"></i><div class="fcard-num">2</div><div class="fcard-label">Completada</div></div>
-        <div class="fcard fcard-bloq" data-f="bloqueada" onclick="setFilter('bloqueada')"><i class="ti ti-lock fcard-icon"></i><div class="fcard-num">1</div><div class="fcard-label">Bloqueada</div></div>
-      </div>
+  <!-- FILTER CARDS -->
+  <div class="ord-filter-row">
+    <div class="ord-fcard ord-fcard-total" onclick="setFilter('todas')">
+      <i class="ti ti-clipboard-list ord-fcard-icon"></i>
+      <div class="ord-fcard-num">24</div>
+      <div class="ord-fcard-lbl">Todas</div>
+    </div>
+    <div class="ord-fcard ord-fcard-analisis selected" onclick="setFilter('analisis')">
+      <i class="ti ti-search ord-fcard-icon"></i>
+      <div class="ord-fcard-num">4</div>
+      <div class="ord-fcard-lbl">En análisis</div>
+    </div>
+    <div class="ord-fcard ord-fcard-piezas" onclick="setFilter('piezas')">
+      <i class="ti ti-package ord-fcard-icon"></i>
+      <div class="ord-fcard-num">7</div>
+      <div class="ord-fcard-lbl">Esp. piezas</div>
+    </div>
+    <div class="ord-fcard ord-fcard-reparacion" onclick="setFilter('reparacion')">
+      <i class="ti ti-tool ord-fcard-icon"></i>
+      <div class="ord-fcard-num">5</div>
+      <div class="ord-fcard-lbl">En reparación</div>
+    </div>
+    <div class="ord-fcard ord-fcard-retiro" onclick="setFilter('retiro')">
+      <i class="ti ti-check ord-fcard-icon"></i>
+      <div class="ord-fcard-num">3</div>
+      <div class="ord-fcard-lbl">Esp. retiro</div>
+    </div>
+    <div class="ord-fcard ord-fcard-bloq" onclick="setFilter('bloqueada')">
+      <i class="ti ti-lock ord-fcard-icon"></i>
+      <div class="ord-fcard-num">7</div>
+      <div class="ord-fcard-lbl">Bloqueadas</div>
+    </div>
+    <div class="ord-fcard ord-fcard-comp" onclick="setFilter('completada')">
+      <i class="ti ti-circle-check ord-fcard-icon"></i>
+      <div class="ord-fcard-num">37</div>
+      <div class="ord-fcard-lbl">Completadas hoy</div>
+    </div>
+  </div>
 
-      <div class="filter-hint"><i class="ti ti-hand-click" style="font-size:12px"></i> Toca una tarjeta para filtrar por ese estado</div>
+  <!-- TOOLBAR -->
+  <div class="ord-toolbar">
+    <div class="ord-search">
+      <i class="ti ti-search" style="color:#bbb;font-size:14px;"></i>
+      <span style="font-size:12px;color:#bbb;">Buscar por OT, cliente, N° serie, cédula, caso...</span>
+    </div>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <select class="ord-select"><option>Todos los talleres</option><option>Tecnoserv Panamá</option><option>Frío Total S.A.</option><option>ServiCentro</option></select>
+      <select class="ord-select"><option>Todas las líneas</option><option>Lavadoras</option><option>A/C</option><option>Refrigeradoras</option><option>TVs</option></select>
+      <div class="ord-vtab active"><i class="ti ti-list"></i></div>
+      <div class="ord-vtab"><i class="ti ti-layout-columns"></i></div>
+      <button class="btn-excel"><i class="ti ti-file-spreadsheet" style="font-size:13px;color:#16a34a"></i> Excel</button>
+      <button class="btn-nueva" onclick="showToast('Abriendo nueva OT...')"><i class="ti ti-plus" style="font-size:12px"></i> Nueva OT</button>
+      <button class="btn-caso" onclick="showToast('Abriendo nuevo Caso...')"><i class="ti ti-headset" style="font-size:12px"></i> Nuevo Caso</button>
+    </div>
+  </div>
 
-      <div class="search-bar">
-        <div class="search-input"><i class="ti ti-search" style="color:#ccc;font-size:15px"></i><span>Buscar ODT, cliente, equipo...</span></div>
-        <div class="vtab active"><i class="ti ti-list"></i></div>
-        <div class="vtab"><i class="ti ti-layout-columns"></i></div>
-      </div>
-
-      <div class="ot-table">
-        <div class="ot-table-header tcols">
-          <span>ID</span><span>Orden de trabajo</span><span>Cliente</span><span>Tipo OT</span><span>Prior.</span><span>Estado</span><span>Tipo asignación</span><span>Taller</span><span>Técnico</span><span></span>
-        </div>
-        <div class="ot-row tcols" data-e="bloqueada"><div class="ot-id">WO-2451</div><div><div class="ot-title">Reparación lavadora</div><div class="ot-sub">N/S: WM-2023-001</div></div><div class="cell">Familia Gómez</div><div><span class="tipo-badge tipo-rep">Reparación</span></div><div><span class="prio prio-alta">Alta</span></div><div><span class="estado-badge e-bloq">Esp. repuesto</span></div><div><span class="ta ta-int">Interno</span></div><div class="taller-int">Interno</div><div class="tec-cell-ord"><div class="tec-av-sm av-cr">CR</div><span class="tec-n">Carlos Ruiz</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-        <div class="ot-row tcols" data-e="progreso"><div class="ot-id">WO-2450</div><div><div class="ot-title">Mantenimiento A/C</div><div class="ot-sub">N/S: AC-4872-X</div></div><div class="cell">Torre Central Offices</div><div><span class="tipo-badge tipo-mant">Mantenimiento</span></div><div><span class="prio prio-media">Media</span></div><div><span class="estado-badge e-prog">En Progreso</span></div><div><span class="ta ta-int">Interno</span></div><div class="taller-int">Interno</div><div class="tec-cell-ord"><div class="tec-av-sm av-al">AL</div><span class="tec-n">Ana López</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-        <div class="ot-row tcols" data-e="completada"><div class="ot-id">WO-2449</div><div><div class="ot-title">Instalación refrigeradora</div><div class="ot-sub">N/S: RF-5588-FHZ</div></div><div class="cell">Restaurante La Plaza</div><div><span class="tipo-badge tipo-inst">Instalación</span></div><div><span class="prio prio-alta">Alta</span></div><div><span class="estado-badge e-comp">Completada</span></div><div><span class="ta ta-tal">Taller</span></div><div class="taller-cell"><div class="taller-dot" style="background:#2563eb"></div><span class="taller-name-cell">Tecnoserv Panamá</span></div><div class="tec-cell-ord"><div class="tec-av-sm" style="background:#6366f1">RV</div><span class="tec-n">Roberto Vargas</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-        <div class="ot-row tcols" data-e="pendiente"><div class="ot-id">WO-2448</div><div><div class="ot-title">Falla horno eléctrico</div><div class="ot-sub">N/S: HE-7610-MX</div></div><div class="cell">Hotel Continental</div><div><span class="tipo-badge tipo-rep">Reparación</span></div><div><span class="prio prio-baja">Baja</span></div><div><span class="estado-badge e-pend">Pendiente</span></div><div><span class="ta ta-int">Interno</span></div><div class="taller-int">Interno</div><div class="tec-cell-ord"><div class="tec-av-sm av-mc">MC</div><span class="tec-n">María Castro</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-        <div class="ot-row tcols" data-e="pendiente"><div class="ot-id">WO-2447</div><div><div class="ot-title">Reparación A/C central</div><div class="ot-sub">N/S: AC-0180-CC</div></div><div class="cell">Banco Nacional</div><div><span class="tipo-badge tipo-rep">Reparación</span></div><div><span class="prio prio-alta">Alta</span></div><div><span class="estado-badge e-pend">Pendiente</span></div><div><span class="ta ta-tal">Taller</span></div><div class="taller-cell"><div class="taller-dot" style="background:#0891b2"></div><span class="taller-name-cell">Frío Total S.A.</span></div><div class="tec-cell-ord"><div class="tec-av-sm" style="background:#ec4899">MA</div><span class="tec-n">Miguel Arias</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-        <div class="ot-row tcols" data-e="completada"><div class="ot-id">WO-2446</div><div><div class="ot-title">Mantenimiento preventivo</div><div class="ot-sub">N/S: LV-3314-PP</div></div><div class="cell">Familia Rodríguez</div><div><span class="tipo-badge tipo-mant">Mantenimiento</span></div><div><span class="prio prio-media">Media</span></div><div><span class="estado-badge e-comp">Completada</span></div><div><span class="ta ta-tal">Taller</span></div><div class="taller-cell"><div class="taller-dot" style="background:#2563eb"></div><span class="taller-name-cell">Tecnoserv Panamá</span></div><div class="tec-cell-ord"><div class="tec-av-sm" style="background:#06b6d4">JP</div><span class="tec-n">Jorge Pacheco</span></div><div class="chev"><i class="ti ti-chevron-right"></i></div></div>
-      </div>
-    </div><!-- /screen-ord -->
-
-    <!-- ══════ OVERLAY: PANEL DETALLE OT ══════ -->
-    <div id="ot-overlay" style="display:none;position:fixed;inset:0;z-index:200;background:rgba(20,20,40,0.45);display:none;align-items:flex-start;justify-content:flex-end;">
-      <div id="ot-panel" style="width:560px;height:100vh;background:#fff;overflow-y:auto;box-shadow:-4px 0 32px rgba(0,0,0,0.14);display:flex;flex-direction:column;">
-
-        <!-- HEADER -->
-        <div style="padding:18px 20px 14px;border-bottom:0.5px solid #f0f0f0;flex-shrink:0;background:#fff;position:sticky;top:0;z-index:10;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
-            <div>
-              <div style="font-size:11px;font-weight:700;color:#1A6DB5;margin-bottom:3px;">WO-2451 · Lavadora</div>
-              <div style="font-size:18px;font-weight:700;color:#0D2744;">Reparación lavadora LG</div>
-            </div>
-            <button onclick="closeOT()" style="width:28px;height:28px;border-radius:7px;border:0.5px solid #e5e5e5;background:#f9f9f9;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#888;font-size:15px;flex-shrink:0;">✕</button>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-            <span class="estado-badge e-bloq">Esp. repuesto</span>
-            <span class="tipo-badge tipo-rep">Reparación</span>
-            <span class="prio prio-alta" style="font-size:10px;background:#fff0f0;padding:2px 8px;border-radius:4px;">Alta</span>
-          </div>
-          <!-- TOGGLE ROL -->
-          <div style="display:flex;gap:4px;margin-top:12px;background:#f5f5f7;border-radius:8px;padding:3px;">
-            <button id="btn-rol-sup" onclick="setRol('supervisor')" style="flex:1;padding:5px 10px;border-radius:6px;border:none;font-size:11px;font-weight:600;cursor:pointer;background:#1A6DB5;color:#fff;">👔 Supervisor</button>
-            <button id="btn-rol-tal" onclick="setRol('taller')" style="flex:1;padding:5px 10px;border-radius:6px;border:none;font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:#888;">🔧 Taller / Técnico</button>
-          </div>
-        </div>
-
-        <!-- BODY SCROLL -->
-        <div style="padding:16px 20px;display:flex;flex-direction:column;gap:18px;">
-
-          <!-- ── LÍNEA DE TIEMPO ── -->
-          <div>
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-              <i class="ti ti-timeline" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Línea de tiempo</span>
-            </div>
-            <div style="position:relative;padding-left:24px;">
-              <!-- línea vertical -->
-              <div style="position:absolute;left:7px;top:8px;bottom:8px;width:1.5px;background:#eee;"></div>
-              <!-- estados -->
-              <div class="tl-item tl-done">
-                <div class="tl-dot tl-dot-done"></div>
-                <div class="tl-content"><div class="tl-label">Recibida</div><div class="tl-time">12 jun · 08:14 am — vía WhatsApp</div></div>
-              </div>
-              <div class="tl-item tl-done">
-                <div class="tl-dot tl-dot-done"></div>
-                <div class="tl-content"><div class="tl-label">Diagnóstico iniciado</div><div class="tl-time">12 jun · 09:30 am — Carlos Ruiz</div></div>
-              </div>
-              <div class="tl-item tl-done">
-                <div class="tl-dot tl-dot-done"></div>
-                <div class="tl-content"><div class="tl-label">Asignada a taller</div><div class="tl-time">12 jun · 10:00 am — Tecnoserv Panamá</div></div>
-              </div>
-              <div class="tl-item tl-done">
-                <div class="tl-dot tl-dot-done"></div>
-                <div class="tl-content"><div class="tl-label">En progreso</div><div class="tl-time">12 jun · 11:00 am — visita iniciada</div></div>
-              </div>
-              <div class="tl-item tl-blocked">
-                <div class="tl-dot tl-dot-blocked"></div>
-                <div class="tl-content">
-                  <div style="display:flex;align-items:center;gap:6px;"><div class="tl-label" style="color:#c0392b;">Bloqueada</div><span style="font-size:9px;font-weight:700;padding:1px 7px;border-radius:8px;background:#fff0f0;color:#c0392b;">Esp. repuesto</span></div>
-                  <div class="tl-time" style="color:#c0392b;">13 jun · 08:45 am · Correa LG 6602-001655</div>
-                </div>
-              </div>
-              <div class="tl-item tl-pending">
-                <div class="tl-dot tl-dot-pending"></div>
-                <div class="tl-content"><div class="tl-label" style="color:#bbb;">Lista para cerrar</div></div>
-              </div>
-              <div class="tl-item tl-pending" style="margin-bottom:0;">
-                <div class="tl-dot tl-dot-pending"></div>
-                <div class="tl-content"><div class="tl-label" style="color:#bbb;">Completada</div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ── CLIENTE Y EQUIPO ── -->
-          <div>
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-              <i class="ti ti-user" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Cliente y equipo</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <div class="det-field"><div class="det-label">Cliente</div><div class="det-val">Familia Gómez</div></div>
-              <div class="det-field"><div class="det-label">Equipo</div><div class="det-val">LG WM3997HWA</div></div>
-              <div class="det-field"><div class="det-label">Tipo de equipo</div><div class="det-val">Lavadora</div></div>
-              <div class="det-field"><div class="det-label">N° de serie</div><div class="det-val">LG2023001</div></div>
-              <div class="det-field"><div class="det-label">Teléfono</div><div class="det-val" style="color:#1A6DB5;">+507 6111-2222</div></div>
-              <div class="det-field" id="field-tec">
-                <div class="det-label">Técnico asignado</div>
-                <div class="det-val" style="display:flex;align-items:center;gap:6px;"><div class="av av-cr-a" style="width:20px;height:20px;font-size:8px;">CR</div>Carlos Ruiz</div>
-              </div>
-              <div class="det-field" style="grid-column:1/-1;"><div class="det-label">Dirección</div><div class="det-val">Bella Vista, Calle 50, Panamá</div></div>
-            </div>
-          </div>
-
-          <!-- ── TALLERES SUGERIDOS (solo supervisor) ── -->
-          <div id="sec-talleres">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px;">
-              <i class="ti ti-building-store" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Talleres sugeridos</span>
-            </div>
-            <div style="font-size:10px;color:#bbb;margin-bottom:10px;display:flex;align-items:center;gap:5px;"><i class="ti ti-map-pin" style="font-size:11px;color:#1A6DB5;"></i> Zona del cliente: <strong style="color:#555;">Bella Vista, Panamá</strong> · ordenados por proximidad y SLA</div>
-            <!-- Taller 1 - ASIGNADO -->
-            <div style="border:1.5px solid #1A6DB5;border-radius:10px;padding:12px 14px;margin-bottom:8px;background:#faf7ff;position:relative;">
-              <div style="position:absolute;top:10px;right:12px;font-size:9px;font-weight:700;padding:2px 8px;border-radius:8px;background:#f0e9fd;color:#1A6DB5;">✓ Asignado</div>
-              <div style="display:flex;align-items:flex-start;gap:10px;">
-                <div style="width:34px;height:34px;border-radius:9px;background:#e6f9f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-building-store" style="color:#16a34a;font-size:15px;"></i></div>
-                <div style="flex:1;">
-                  <div style="font-size:13px;font-weight:700;color:#0D2744;">Tecnoserv Panamá</div>
-                  <div style="font-size:10px;color:#aaa;margin-top:1px;">Zona Norte · 3 técnicos disponibles</div>
-                  <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;">
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#0D2744;">0.8 km</div><div style="font-size:9px;color:#bbb;">distancia</div></div>
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#16a34a;">★ 4.6</div><div style="font-size:9px;color:#bbb;">rating</div></div>
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#16a34a;">96%</div><div style="font-size:9px;color:#bbb;">SLA cumpl.</div></div>
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#0D2744;">3</div><div style="font-size:9px;color:#bbb;">disponibles</div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Taller 2 -->
-            <div style="border:0.5px solid #e8e8e8;border-radius:10px;padding:12px 14px;margin-bottom:8px;background:#fff;">
-              <div style="display:flex;align-items:flex-start;gap:10px;">
-                <div style="width:34px;height:34px;border-radius:9px;background:#e8f0fe;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-building-store" style="color:#2563eb;font-size:15px;"></i></div>
-                <div style="flex:1;">
-                  <div style="font-size:13px;font-weight:700;color:#0D2744;">Frío Total S.A.</div>
-                  <div style="font-size:10px;color:#aaa;margin-top:1px;">Zona Central · 1 técnico disponible</div>
-                  <div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;">
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#0D2744;">2.1 km</div><div style="font-size:9px;color:#bbb;">distancia</div></div>
-                    <div style="font-size:11px;font-weight:700;color:#c27b00;">★ 4.0</div>
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#c27b00;">84%</div><div style="font-size:9px;color:#bbb;">SLA cumpl.</div></div>
-                    <div style="text-align:center;"><div style="font-size:11px;font-weight:700;color:#0D2744;">1</div><div style="font-size:9px;color:#bbb;">disponible</div></div>
-                  </div>
-                </div>
-                <button onclick="asignarTaller(this,'Frío Total S.A.')" style="padding:6px 14px;border-radius:7px;background:#1A6DB5;color:#fff;border:none;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;align-self:center;">Asignar →</button>
-              </div>
-            </div>
-            <!-- Taller excluido -->
-            <div style="background:#fff8f8;border:0.5px solid #f5d0d0;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:7px;">
-              <i class="ti ti-alert-triangle" style="color:#c0392b;font-size:13px;flex-shrink:0;"></i>
-              <span style="font-size:10px;color:#c0392b;"><strong>ElectroFix Panamá</strong> excluido automáticamente — SLA 61% (mínimo requerido: 70%)</span>
-            </div>
-          </div>
-
-          <!-- ── DESCRIPCIÓN DEL PROBLEMA ── -->
-          <div>
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;">
-              <i class="ti ti-file-description" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Descripción del problema</span>
-            </div>
-            <div id="desc-readonly" style="background:#f9f9fb;border-radius:9px;padding:12px 14px;font-size:12px;color:#444;line-height:1.6;">Lavadora no centrifuga. El tambor gira lento y produce ruido extraño al final del ciclo de centrifugado.</div>
-            <textarea id="desc-edit" style="display:none;width:100%;background:#f9f9fb;border:1.5px solid #1A6DB5;border-radius:9px;padding:12px 14px;font-size:12px;color:#444;line-height:1.6;resize:none;height:80px;box-sizing:border-box;">Lavadora no centrifuga. El tambor gira lento y produce ruido extraño al final del ciclo de centrifugado.</textarea>
-          </div>
-
-          <!-- ── CHECKLIST ── -->
-          <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-              <div style="display:flex;align-items:center;gap:7px;">
-                <i class="ti ti-checklist" style="color:#1A6DB5;font-size:14px;"></i>
-                <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Checklist — Lavadora</span>
-              </div>
-              <span style="font-size:10px;color:#888;" id="chk-progress">2/8 · 25%</span>
-            </div>
-            <div style="height:3px;background:#f0f0f0;border-radius:2px;margin-bottom:12px;overflow:hidden;">
-              <div id="chk-bar" style="height:100%;width:25%;background:#1A6DB5;border-radius:2px;transition:width 0.3s;"></div>
-            </div>
-            <div id="checklist-wrap" style="display:flex;flex-direction:column;gap:6px;">
-              <div class="chk-item chk-done" onclick="toggleChk(this)"><div class="chk-box chk-box-done"><i class="ti ti-check" style="font-size:10px;color:#fff;"></i></div><span>Desconectar equipo y revisar alimentación eléctrica</span></div>
-              <div class="chk-item chk-done" onclick="toggleChk(this)"><div class="chk-box chk-box-done"><i class="ti ti-check" style="font-size:10px;color:#fff;"></i></div><span>Verificar motor de lavado y correa de transmisión</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Inspeccionar rodamientos del tambor (rotar manualmente)</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Comprobar amortiguadores y resortes de suspensión</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Revisar bomba de desagüe y filtro</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Probar ciclo completo incluyendo centrifugado</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Fotografiar antes y después de la reparación</span></div>
-              <div class="chk-item" onclick="toggleChk(this)"><div class="chk-box"></div><span>Obtener firma del cliente</span></div>
-            </div>
-          </div>
-
-          <!-- ── EVIDENCIA MULTIMEDIA ── -->
-          <div>
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-              <i class="ti ti-photo-video" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Evidencia multimedia</span>
-            </div>
-            <!-- Fotos -->
-            <div style="font-size:10px;font-weight:600;color:#888;margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;">Fotografías</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;">
-              <div class="media-slot"><i class="ti ti-camera-plus" style="font-size:18px;color:#ccc;"></i><span class="media-label">Antes</span></div>
-              <div class="media-slot"><i class="ti ti-camera-plus" style="font-size:18px;color:#ccc;"></i><span class="media-label">Durante</span></div>
-              <div class="media-slot"><i class="ti ti-camera-plus" style="font-size:18px;color:#ccc;"></i><span class="media-label">Después</span></div>
-            </div>
-            <!-- Videos -->
-            <div style="font-size:10px;font-weight:600;color:#888;margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;">Videos</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-              <div class="media-slot media-video"><i class="ti ti-video-plus" style="font-size:18px;color:#c9a8f5;"></i><span class="media-label">Video diagnóstico</span><span style="font-size:9px;color:#c9a8f5;">mp4 · máx 100MB</span></div>
-              <div class="media-slot media-video"><i class="ti ti-video-plus" style="font-size:18px;color:#c9a8f5;"></i><span class="media-label">Video de cierre</span><span style="font-size:9px;color:#c9a8f5;">mp4 · máx 100MB</span></div>
-            </div>
-          </div>
-
-          <!-- ── MATERIALES Y REPUESTOS ── -->
-          <div id="sec-materiales">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;">
-              <i class="ti ti-tool" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Materiales y repuestos</span>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:space-between;background:#f9f9fb;border-radius:8px;padding:10px 13px;margin-bottom:7px;">
-              <span style="font-size:12px;color:#333;">Correa LG 6602-001655</span>
-              <button style="background:none;border:none;color:#ccc;cursor:pointer;font-size:14px;" title="Eliminar">✕</button>
-            </div>
-            <div id="mat-input-wrap" style="display:flex;gap:7px;">
-              <input placeholder="Agregar material o repuesto..." style="flex:1;border:0.5px solid #ddd;border-radius:8px;padding:9px 13px;font-size:12px;color:#333;outline:none;" />
-              <button style="background:#1A6DB5;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;">Agregar</button>
-            </div>
-          </div>
-
-          <!-- ── OBSERVACIONES ── -->
-          <div id="sec-obs">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;">
-              <i class="ti ti-notes" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Observaciones del técnico</span>
-            </div>
-            <div id="obs-readonly" style="background:#f9f9fb;border-radius:9px;padding:12px 14px;font-size:12px;color:#444;line-height:1.6;">Correa muy desgastada. Rodamientos suenan anormalmente. Pendiente cotizar ambas piezas.</div>
-            <textarea id="obs-edit" style="display:none;width:100%;background:#f9f9fb;border:1.5px solid #1A6DB5;border-radius:9px;padding:12px 14px;font-size:12px;color:#444;line-height:1.6;resize:none;height:80px;box-sizing:border-box;">Correa muy desgastada. Rodamientos suenan anormalmente. Pendiente cotizar ambas piezas.</textarea>
-          </div>
-
-          <!-- ── FIRMAS ── -->
-          <div id="sec-firmas">
-            <div style="display:flex;align-items:center;gap:7px;margin-bottom:12px;">
-              <i class="ti ti-signature" style="color:#1A6DB5;font-size:14px;"></i>
-              <span style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;">Firmas de conformidad</span>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-              <div>
-                <div style="font-size:10px;color:#888;margin-bottom:5px;">Técnico responsable</div>
-                <div class="firma-slot"><i class="ti ti-pencil" style="font-size:20px;color:#ccc;"></i><span style="font-size:10px;color:#ccc;margin-top:4px;">Firmar aquí</span></div>
-              </div>
-              <div>
-                <div style="font-size:10px;color:#888;margin-bottom:5px;">Firma del cliente</div>
-                <div class="firma-slot"><i class="ti ti-user" style="font-size:20px;color:#ccc;"></i><span style="font-size:10px;color:#ccc;margin-top:4px;">Firmar aquí</span></div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /body scroll -->
-
-        <!-- FOOTER ACCIONES -->
-        <div id="panel-footer" style="padding:14px 20px;border-top:0.5px solid #f0f0f0;background:#fff;flex-shrink:0;position:sticky;bottom:0;">
-          <!-- Vista SUPERVISOR -->
-          <div id="footer-supervisor" style="display:flex;gap:8px;">
-            <button style="flex:1;padding:10px;border-radius:9px;border:0.5px solid #ddd;background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-edit" style="font-size:13px;"></i> Editar OT</button>
-            <button onclick="showModalBloqueo()" style="flex:1;padding:10px;border-radius:9px;border:1.5px solid #c0392b;background:#fff;font-size:12px;font-weight:600;color:#c0392b;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-lock" style="font-size:13px;"></i> Registrar bloqueo</button>
-            <button style="flex:1;padding:10px;border-radius:9px;border:none;background:#1A6DB5;font-size:12px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-circle-check" style="font-size:13px;"></i> Forzar cierre</button>
-          </div>
-          <!-- Vista TALLER -->
-          <div id="footer-taller" style="display:none;gap:8px;">
-            <button onclick="showModalBloqueo()" style="flex:1;padding:10px;border-radius:9px;border:1.5px solid #c0392b;background:#fff5f5;font-size:12px;font-weight:600;color:#c0392b;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-alert-circle" style="font-size:13px;"></i> No se puede cerrar</button>
-            <button onclick="showModalCierre()" style="flex:1;padding:10px;border-radius:9px;border:none;background:#16a34a;font-size:12px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;"><i class="ti ti-circle-check" style="font-size:13px;"></i> Cerrar OT ✓</button>
-          </div>
-        </div>
-
-      </div><!-- /ot-panel -->
-    </div><!-- /ot-overlay -->
-
-    <!-- MODAL: NO SE PUEDE CERRAR (bloqueo) -->
-    <div id="modal-bloqueo" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(20,20,40,0.5);align-items:center;justify-content:center;">
-      <div style="width:420px;background:#fff;border-radius:14px;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,0.18);">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:9px;background:#fff0f0;display:flex;align-items:center;justify-content:center;"><i class="ti ti-alert-circle" style="color:#c0392b;font-size:18px;"></i></div>
-          <div><div style="font-size:15px;font-weight:700;color:#0D2744;">¿Por qué no se puede cerrar?</div><div style="font-size:11px;color:#aaa;">WO-2451 · Reparación lavadora LG</div></div>
-        </div>
-        <div style="font-size:11px;color:#888;margin:14px 0 10px;">Selecciona el motivo del bloqueo:</div>
-        <div id="bloqueo-opts" style="display:flex;flex-direction:column;gap:7px;">
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="repuesto"> <span>🔩 Falta repuesto o pieza</span></label>
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="cliente"> <span>👤 Cliente no disponible / no autoriza</span></label>
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="visita"> <span>📅 Requiere segunda visita</span></label>
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="aprobacion"> <span>📋 Requiere aprobación de presupuesto</span></label>
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="garantia"> <span>🛡 Derivada a garantía</span></label>
-          <label class="bloqueo-opt"><input type="radio" name="bloqueo" value="otro"> <span>📝 Otro motivo</span></label>
-        </div>
-        <textarea id="bloqueo-nota" placeholder="Observaciones adicionales (opcional)..." style="width:100%;margin-top:10px;border:0.5px solid #ddd;border-radius:8px;padding:10px 12px;font-size:12px;color:#444;resize:none;height:64px;box-sizing:border-box;outline:none;"></textarea>
-        <div style="display:flex;gap:8px;margin-top:14px;">
-          <button onclick="closeModalBloqueo()" style="flex:1;padding:10px;border-radius:8px;border:0.5px solid #ddd;background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;">Cancelar</button>
-          <button onclick="confirmarBloqueo()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#c0392b;font-size:12px;font-weight:600;color:#fff;cursor:pointer;">Registrar bloqueo</button>
-        </div>
-      </div>
+  <!-- TABLE -->
+  <div class="ot-table">
+    <div class="ot-table-header ord-cols">
+      <span></span>
+      <span>ID · Caso</span>
+      <span>Cliente</span>
+      <span>Producto</span>
+      <span>Tipo</span>
+      <span>Estado</span>
+      <span>Taller · Técnico</span>
+      <span>Apertura</span>
+      <span>Últ. actualiz.</span>
+      <span>Días</span>
+      <span></span>
     </div>
 
-    <!-- MODAL: CERRAR OT -->
-    <div id="modal-cierre" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(20,20,40,0.5);align-items:center;justify-content:center;">
-      <div style="width:420px;background:#fff;border-radius:14px;padding:24px;box-shadow:0 8px 40px rgba(0,0,0,0.18);">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
-          <div style="width:36px;height:36px;border-radius:9px;background:#e6f9f0;display:flex;align-items:center;justify-content:center;"><i class="ti ti-circle-check" style="color:#16a34a;font-size:18px;"></i></div>
-          <div><div style="font-size:15px;font-weight:700;color:#0D2744;">Confirmar cierre de OT</div><div style="font-size:11px;color:#aaa;">WO-2451 · Reparación lavadora LG</div></div>
-        </div>
-        <div style="background:#f9f9fb;border-radius:9px;padding:12px;margin:14px 0;font-size:11px;color:#666;display:flex;flex-direction:column;gap:5px;">
-          <div style="display:flex;justify-content:space-between;"><span style="color:#aaa;">Checklist</span><span id="cierre-chk" style="font-weight:600;color:#0D2744;">2/8 completados</span></div>
-          <div style="display:flex;justify-content:space-between;"><span style="color:#aaa;">Evidencia</span><span style="font-weight:600;color:#c27b00;">Sin fotos subidas</span></div>
-          <div style="display:flex;justify-content:space-between;"><span style="color:#aaa;">Firmas</span><span style="font-weight:600;color:#c27b00;">Pendientes</span></div>
-        </div>
-        <div style="background:#fff4e0;border-radius:8px;padding:10px 12px;font-size:11px;color:#c27b00;margin-bottom:14px;display:flex;align-items:flex-start;gap:7px;"><i class="ti ti-alert-triangle" style="font-size:13px;flex-shrink:0;margin-top:1px;"></i> Hay items incompletos. Puedes cerrar igual, pero quedará registro de la advertencia.</div>
-        <textarea placeholder="Nota de cierre (opcional)..." style="width:100%;border:0.5px solid #ddd;border-radius:8px;padding:10px 12px;font-size:12px;color:#444;resize:none;height:64px;box-sizing:border-box;outline:none;"></textarea>
-        <div style="display:flex;gap:8px;margin-top:14px;">
-          <button onclick="closeModalCierre()" style="flex:1;padding:10px;border-radius:8px;border:0.5px solid #ddd;background:#fff;font-size:12px;font-weight:600;color:#555;cursor:pointer;">Cancelar</button>
-          <button onclick="confirmarCierre()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#16a34a;font-size:12px;font-weight:600;color:#fff;cursor:pointer;">Confirmar cierre ✓</button>
-        </div>
+    <!-- ROW 1 — bloqueada, con alerta IA -->
+    <div class="ot-row ord-cols" data-estado="bloqueada" onclick="openOT()">
+      <div class="ord-ia-flag"><i class="ti ti-sparkles" title="IA: reincidencia detectada" style="color:#f59e0b;font-size:12px;"></i></div>
+      <div>
+        <div class="ot-id">OT-08451</div>
+        <div class="ord-caso-link"><i class="ti ti-link" style="font-size:9px;"></i> C-2026-0312</div>
       </div>
+      <div>
+        <div class="ot-title">Familia Gómez</div>
+        <div class="ot-sub">8-123-456</div>
+      </div>
+      <div>
+        <div class="ot-title">Lavadora WM-3200</div>
+        <div class="ot-sub">S/N 84921-X</div>
+      </div>
+      <div><span class="tipo-badge tipo-rep">Reparación</span></div>
+      <div><span class="estado-badge e-bloq">Bloqueada</span></div>
+      <div class="ord-taller-tec">
+        <div class="taller-cell"><div class="taller-dot" style="background:#2563eb"></div><span class="taller-name-cell">Tecnoserv</span></div>
+        <div class="tec-cell-ord"><div class="tec-av-sm av-cr">CR</div><span class="tec-n">Carlos R.</span></div>
+      </div>
+      <div class="cell">12 jun · 08:14</div>
+      <div class="cell" style="color:#c27b00;">hace 18h</div>
+      <div><span class="ord-dias ord-dias-red">4 días</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
     </div>
+
+    <!-- ROW 2 — en análisis -->
+    <div class="ot-row ord-cols" data-estado="analisis" onclick="openOT()">
+      <div></div>
+      <div>
+        <div class="ot-id">OT-08450</div>
+        <div class="ord-caso-link"><i class="ti ti-link" style="font-size:9px;"></i> C-2026-0311</div>
+      </div>
+      <div>
+        <div class="ot-title">Torre Central Offices</div>
+        <div class="ot-sub">J-155-234</div>
+      </div>
+      <div>
+        <div class="ot-title">A/C Split 18K</div>
+        <div class="ot-sub">S/N AC-4872-X</div>
+      </div>
+      <div><span class="tipo-badge tipo-mant">Mantenimiento</span></div>
+      <div><span class="estado-badge" style="background:#f0f0f8;color:#555;border:1px solid #e0e0ee;">En análisis</span></div>
+      <div class="ord-taller-tec">
+        <div style="font-size:10px;color:#aaa;font-style:italic;">Interno</div>
+        <div class="tec-cell-ord"><div class="tec-av-sm av-al">AL</div><span class="tec-n">Ana L.</span></div>
+      </div>
+      <div class="cell">13 jun · 09:30</div>
+      <div class="cell">hace 3h</div>
+      <div><span class="ord-dias ord-dias-ok">1 día</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
+    </div>
+
+    <!-- ROW 3 — esperando retiro -->
+    <div class="ot-row ord-cols" data-estado="retiro" onclick="openOT()">
+      <div></div>
+      <div>
+        <div class="ot-id">OT-08449</div>
+        <div class="ord-caso-link" style="color:#bbb;"><i class="ti ti-unlink" style="font-size:9px;"></i> Sin caso</div>
+      </div>
+      <div>
+        <div class="ot-title">Restaurante La Plaza</div>
+        <div class="ot-sub">J-288-901</div>
+      </div>
+      <div>
+        <div class="ot-title">Refrigeradora RF-550</div>
+        <div class="ot-sub">S/N RF-5588-FHZ</div>
+      </div>
+      <div><span class="tipo-badge tipo-inst">Instalación</span></div>
+      <div><span class="estado-badge" style="background:#e6f9f0;color:#1a8753;">Esp. retiro</span></div>
+      <div class="ord-taller-tec">
+        <div class="taller-cell"><div class="taller-dot" style="background:#2563eb"></div><span class="taller-name-cell">Tecnoserv</span></div>
+        <div class="tec-cell-ord"><div class="tec-av-sm" style="background:#6366f1;">RV</div><span class="tec-n">Roberto V.</span></div>
+      </div>
+      <div class="cell">11 jun · 14:00</div>
+      <div class="cell" style="color:#16a34a;">hace 1h</div>
+      <div><span class="ord-dias ord-dias-ok">2 días</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
+    </div>
+
+    <!-- ROW 4 — esperando piezas, SLA en riesgo -->
+    <div class="ot-row ord-cols" data-estado="piezas" onclick="openOT()">
+      <div class="ord-ia-flag"><i class="ti ti-alert-triangle" title="SLA en riesgo — vence en 6h" style="color:#c0392b;font-size:12px;"></i></div>
+      <div>
+        <div class="ot-id">OT-08448</div>
+        <div class="ord-caso-link"><i class="ti ti-link" style="font-size:9px;"></i> C-2026-0309</div>
+      </div>
+      <div>
+        <div class="ot-title">Hotel Continental</div>
+        <div class="ot-sub">J-401-772</div>
+      </div>
+      <div>
+        <div class="ot-title">Horno HE-7600</div>
+        <div class="ot-sub">S/N HE-7610-MX</div>
+      </div>
+      <div><span class="tipo-badge tipo-rep">Reparación</span></div>
+      <div><span class="estado-badge e-pend">Esp. piezas</span></div>
+      <div class="ord-taller-tec">
+        <div style="font-size:10px;color:#aaa;font-style:italic;">Interno</div>
+        <div class="tec-cell-ord"><div class="tec-av-sm av-mc">MC</div><span class="tec-n">María C.</span></div>
+      </div>
+      <div class="cell">10 jun · 11:00</div>
+      <div class="cell" style="color:#c0392b;">hace 27h</div>
+      <div><span class="ord-dias ord-dias-red">3 días</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
+    </div>
+
+    <!-- ROW 5 — en reparación -->
+    <div class="ot-row ord-cols" data-estado="reparacion" onclick="openOT()">
+      <div></div>
+      <div>
+        <div class="ot-id">OT-08447</div>
+        <div class="ord-caso-link"><i class="ti ti-link" style="font-size:9px;"></i> C-2026-0307</div>
+      </div>
+      <div>
+        <div class="ot-title">Banco Nacional</div>
+        <div class="ot-sub">J-500-123</div>
+      </div>
+      <div>
+        <div class="ot-title">A/C Central 5TR</div>
+        <div class="ot-sub">S/N AC-0180-CC</div>
+      </div>
+      <div><span class="tipo-badge tipo-rep">Reparación</span></div>
+      <div><span class="estado-badge e-prog">En reparación</span></div>
+      <div class="ord-taller-tec">
+        <div class="taller-cell"><div class="taller-dot" style="background:#0891b2"></div><span class="taller-name-cell">Frío Total</span></div>
+        <div class="tec-cell-ord"><div class="tec-av-sm" style="background:#ec4899;">MA</div><span class="tec-n">Miguel A.</span></div>
+      </div>
+      <div class="cell">09 jun · 16:00</div>
+      <div class="cell">hace 4h</div>
+      <div><span class="ord-dias ord-dias-warn">4 días</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
+    </div>
+
+    <!-- ROW 6 — completada -->
+    <div class="ot-row ord-cols" data-estado="completada" onclick="openOT()">
+      <div></div>
+      <div>
+        <div class="ot-id" style="color:#aaa;">OT-08446</div>
+        <div class="ord-caso-link"><i class="ti ti-link" style="font-size:9px;"></i> C-2026-0305</div>
+      </div>
+      <div>
+        <div class="ot-title">Familia Rodríguez</div>
+        <div class="ot-sub">8-877-234</div>
+      </div>
+      <div>
+        <div class="ot-title">Lavadora LG WM-12K</div>
+        <div class="ot-sub">S/N LV-3314-PP</div>
+      </div>
+      <div><span class="tipo-badge tipo-mant">Mantenimiento</span></div>
+      <div><span class="estado-badge e-comp">Completada</span></div>
+      <div class="ord-taller-tec">
+        <div class="taller-cell"><div class="taller-dot" style="background:#2563eb"></div><span class="taller-name-cell">Tecnoserv</span></div>
+        <div class="tec-cell-ord"><div class="tec-av-sm" style="background:#06b6d4;">JP</div><span class="tec-n">Jorge P.</span></div>
+      </div>
+      <div class="cell">13 jun · 07:00</div>
+      <div class="cell" style="color:#16a34a;">hace 2h</div>
+      <div><span class="ord-dias ord-dias-ok">1 día</span></div>
+      <div class="ord-actions"><i class="ti ti-dots-vertical" style="color:#ccc;font-size:14px;"></i></div>
+    </div>
+
+  </div><!-- /ot-table -->
+
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 4px 0;">
+    <span style="font-size:11px;color:#aaa;">Mostrando 6 de 24 órdenes activas</span>
+    <div style="display:flex;gap:4px;">
+      <button class="ord-pgbtn active">1</button>
+      <button class="ord-pgbtn">2</button>
+      <button class="ord-pgbtn">3</button>
+      <button class="ord-pgbtn"><i class="ti ti-chevron-right" style="font-size:11px;"></i></button>
+    </div>
+  </div>
+
+</div>
+
 
     <!-- ══════ SCREEN: ASISTENTE IA ══════ -->
     <div class="screen" id="screen-ia">
