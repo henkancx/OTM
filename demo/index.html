@@ -1645,6 +1645,113 @@
   ::-webkit-scrollbar-thumb { background: #D1D9E0; border-radius: 2px; }
   ::-webkit-scrollbar-thumb:hover { background: #9BA8B8; }
 
+  
+  /* ── OT DETAIL PANEL ── */
+  #ot-overlay { transition: opacity .2s ease; }
+  #ot-panel { transition: transform .25s ease; }
+
+  .otp-tab {
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6B7A8D;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: color .15s;
+    margin-bottom: -1px;
+  }
+  .otp-tab:hover { color: #1A202C; }
+  .otp-tab.active {
+    color: #1A6DB5;
+    border-bottom-color: #1A6DB5;
+    font-weight: 600;
+  }
+
+  .otp-content { display: none; }
+  .otp-content.active { display: block; }
+
+  .otp-section {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F0F2F6;
+  }
+  .otp-section:last-child { border-bottom: none; margin-bottom: 0; }
+
+  .otp-section-title {
+    font-size: 10px;
+    font-weight: 600;
+    color: #6B7A8D;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .otp-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .otp-full { grid-column: 1 / -1; }
+
+  .otp-field {}
+  .otp-field-lbl {
+    font-size: 10px;
+    font-weight: 500;
+    color: #9BA8B8;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .otp-field-val {
+    font-size: 12px;
+    font-weight: 400;
+    color: #1A202C;
+    line-height: 1.4;
+  }
+
+  /* Timeline */
+  .otp-timeline { display: flex; flex-direction: column; }
+  .otl-item {
+    display: flex;
+    gap: 12px;
+    padding-bottom: 14px;
+    position: relative;
+  }
+  .otl-item:not(.otl-item-last)::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 14px;
+    bottom: 0;
+    width: 1px;
+    background: #E8ECF2;
+  }
+  .otl-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px currentColor;
+  }
+  .otl-dot-blue { background: #1A6DB5; color: #1A6DB5; }
+  .otl-dot-gray { background: #D1D9E0; color: #D1D9E0; }
+  .otl-dot-amber { background: #F59E0B; color: #F59E0B; }
+  .otl-dot-red { background: #EF4444; color: #EF4444; }
+  .otl-dot-ia { background: #7C3AED; color: #7C3AED; }
+  .otl-dot-active { box-shadow: 0 0 0 3px rgba(239,68,68,0.2); }
+
+  .otl-content { flex: 1; }
+  .otl-title { font-size: 12px; font-weight: 500; color: #1A202C; margin-bottom: 2px; line-height: 1.4; }
+  .otl-meta { font-size: 10px; color: #9BA8B8; font-weight: 300; }
+
   </style>
 
 <div class="lp">
@@ -3006,6 +3113,331 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 </div><!-- /app -->
 
 <!-- Overlay sidebar mobile -->
+
+<!-- ══════ OT DETAIL PANEL ══════ -->
+<div id="ot-overlay" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(13,23,36,0.45);backdrop-filter:blur(2px);justify-content:flex-end;">
+  <div id="ot-panel" style="width:580px;max-width:95vw;height:100vh;background:#fff;display:flex;flex-direction:column;border-left:1px solid #E8ECF2;overflow:hidden;">
+
+    <!-- PANEL HEADER -->
+    <div style="padding:16px 20px;border-bottom:1px solid #E8ECF2;display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0;background:#fff;">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <span style="font-size:15px;font-weight:700;color:#1A202C;">OT-08451</span>
+          <span class="estado-badge e-bloq"><i class="ti ti-lock" style="font-size:9px;"></i> Bloqueada</span>
+          <span style="font-size:10px;color:#9BA8B8;font-weight:300;">4 días abierta</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:11px;color:#6B7A8D;"><i class="ti ti-link" style="font-size:10px;color:#1A6DB5;"></i> Caso C-2026-0312</span>
+          <span style="font-size:11px;color:#6B7A8D;"><i class="ti ti-calendar" style="font-size:10px;"></i> Abierta 12 jun · 08:14</span>
+          <span class="tipo-badge tipo-rep">Reparación</span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <button onclick="showToast('Imprimiendo OT...')" style="width:30px;height:30px;border:1px solid #E8ECF2;background:#fff;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#6B7A8D;font-size:14px;"><i class="ti ti-printer"></i></button>
+        <button onclick="showToast('Opciones de OT...')" style="width:30px;height:30px;border:1px solid #E8ECF2;background:#fff;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#6B7A8D;font-size:14px;"><i class="ti ti-dots-vertical"></i></button>
+        <button onclick="closeOT()" style="width:30px;height:30px;border:1px solid #E8ECF2;background:#fff;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#6B7A8D;font-size:14px;"><i class="ti ti-x"></i></button>
+      </div>
+    </div>
+
+    <!-- IA INSIGHT BAR -->
+    <div style="padding:10px 20px;background:#FFFDF5;border-bottom:1px solid #FDE68A;display:flex;align-items:center;gap:10px;flex-shrink:0;">
+      <i class="ti ti-sparkles" style="color:#92400E;font-size:13px;flex-shrink:0;"></i>
+      <span style="font-size:11px;color:#92400E;font-weight:300;line-height:1.4;"><strong style="font-weight:600;">IA detectó reincidencia:</strong> Este modelo WM-3200 tiene 3 OTs con falla de compresor en los últimos 30 días. Posible defecto de fabricación. Se recomienda escalar a garantía.</span>
+    </div>
+
+    <!-- TABS -->
+    <div style="display:flex;border-bottom:1px solid #E8ECF2;padding:0 20px;flex-shrink:0;background:#fff;">
+      <button class="otp-tab active" onclick="otTab(this,'otp-resumen')">Resumen</button>
+      <button class="otp-tab" onclick="otTab(this,'otp-timeline')">Timeline</button>
+      <button class="otp-tab" onclick="otTab(this,'otp-piezas')">Piezas <span style="background:#E8ECF2;color:#6B7A8D;font-size:9px;padding:1px 5px;border-radius:2px;margin-left:4px;">2</span></button>
+      <button class="otp-tab" onclick="otTab(this,'otp-anexos')">Anexos <span style="background:#E8ECF2;color:#6B7A8D;font-size:9px;padding:1px 5px;border-radius:2px;margin-left:4px;">3</span></button>
+      <button class="otp-tab" onclick="otTab(this,'otp-interacciones')">Interacciones <span style="background:#1A6DB5;color:#fff;font-size:9px;padding:1px 5px;border-radius:2px;margin-left:4px;">1</span></button>
+    </div>
+
+    <!-- TAB CONTENT — scrollable -->
+    <div style="flex:1;overflow-y:auto;padding:0;">
+
+      <!-- ── TAB: RESUMEN ── -->
+      <div id="otp-resumen" class="otp-content" style="padding:16px 20px;display:block;">
+
+        <!-- Cliente -->
+        <div class="otp-section">
+          <div class="otp-section-title"><i class="ti ti-user"></i> Cliente</div>
+          <div class="otp-grid-2">
+            <div class="otp-field"><div class="otp-field-lbl">Nombre</div><div class="otp-field-val">Familia Gómez</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Documento</div><div class="otp-field-val">8-123-456</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Teléfono</div><div class="otp-field-val" style="color:#1A6DB5;">+507 6123-4567</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Email</div><div class="otp-field-val">familia.gomez@email.com</div></div>
+            <div class="otp-field otp-full"><div class="otp-field-lbl">Dirección</div><div class="otp-field-val">Calle 50, Edificio Plaza Mayor, Apto 4B, Ciudad de Panamá</div></div>
+          </div>
+        </div>
+
+        <!-- Producto -->
+        <div class="otp-section">
+          <div class="otp-section-title"><i class="ti ti-device-laptop"></i> Producto</div>
+          <div class="otp-grid-2">
+            <div class="otp-field"><div class="otp-field-lbl">Modelo</div><div class="otp-field-val">Lavadora WM-3200</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Línea</div><div class="otp-field-val">Lavadoras</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">N° de serie</div><div class="otp-field-val" style="font-family:monospace;font-size:11px;">84921-X</div></div>
+            <div class="otp-field">
+              <div class="otp-field-lbl">Garantía</div>
+              <div class="otp-field-val">
+                <span style="display:inline-flex;align-items:center;gap:4px;background:#F0FDF4;color:#166534;font-size:10px;font-weight:600;padding:2px 7px;border-radius:2px;">
+                  <i class="ti ti-shield-check" style="font-size:10px;"></i> Vigente hasta dic 2026
+                </span>
+              </div>
+            </div>
+            <div class="otp-field"><div class="otp-field-lbl">Fecha de compra</div><div class="otp-field-val">15 dic 2024</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Factura</div><div class="otp-field-val" style="color:#1A6DB5;">FAC-2024-88721</div></div>
+          </div>
+        </div>
+
+        <!-- Taller y técnico -->
+        <div class="otp-section">
+          <div class="otp-section-title"><i class="ti ti-building-store"></i> Taller y Técnico</div>
+          <div class="otp-grid-2">
+            <div class="otp-field"><div class="otp-field-lbl">Taller</div><div class="otp-field-val">Tecnoserv Panamá</div></div>
+            <div class="otp-field"><div class="otp-field-lbl">Tipo</div><div class="otp-field-val"><span class="origen-tag origen-taller">Autorizado</span></div></div>
+            <div class="otp-field">
+              <div class="otp-field-lbl">Técnico asignado</div>
+              <div class="otp-field-val" style="display:flex;align-items:center;gap:7px;">
+                <div style="width:24px;height:24px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">CR</div>
+                Carlos Ruiz
+              </div>
+            </div>
+            <div class="otp-field"><div class="otp-field-lbl">Asignado</div><div class="otp-field-val">12 jun · 09:00</div></div>
+          </div>
+        </div>
+
+        <!-- Defecto -->
+        <div class="otp-section">
+          <div class="otp-section-title"><i class="ti ti-tool"></i> Diagnóstico</div>
+          <div class="otp-grid-2">
+            <div class="otp-field otp-full">
+              <div class="otp-field-lbl">Defecto reclamado por el cliente</div>
+              <div class="otp-field-val">"La lavadora hace un ruido fuerte al girar y se detiene a mitad del ciclo"</div>
+            </div>
+            <div class="otp-field otp-full">
+              <div class="otp-field-lbl">Defecto constatado por técnico</div>
+              <div class="otp-field-val" style="display:flex;align-items:center;gap:8px;">
+                <span style="background:#FEF2F2;color:#991B1B;font-size:10px;font-weight:600;padding:2px 7px;border-radius:2px;">Falla de compresor</span>
+                <span style="font-size:11px;color:#6B7A8D;">— confirmado 12 jun · 11:30</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /otp-resumen -->
+
+      <!-- ── TAB: TIMELINE ── -->
+      <div id="otp-timeline" class="otp-content" style="padding:16px 20px;display:none;">
+        <div class="otp-timeline">
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-blue"></div>
+            <div class="otl-content">
+              <div class="otl-title">OT creada desde Caso C-2026-0312</div>
+              <div class="otl-meta">Contact Center · Agente Luciana V. · 12 jun · 08:14</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-gray"></div>
+            <div class="otl-content">
+              <div class="otl-title">Asignada a Taller Tecnoserv — Técnico Carlos Ruiz</div>
+              <div class="otl-meta">Sistema · 12 jun · 08:15</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-gray"></div>
+            <div class="otl-content">
+              <div class="otl-title">Estado → En análisis</div>
+              <div class="otl-meta">Carlos Ruiz (Técnico) · 12 jun · 09:00</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-gray"></div>
+            <div class="otl-content">
+              <div class="otl-title">Defecto constatado: Falla de compresor</div>
+              <div class="otl-meta">Carlos Ruiz (Técnico) · 12 jun · 11:30</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-amber"></div>
+            <div class="otl-content">
+              <div class="otl-title">Piezas solicitadas: Compresor LG MCK67876702 (x1)</div>
+              <div class="otl-meta">Carlos Ruiz (Técnico) · 12 jun · 11:45</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-amber"></div>
+            <div class="otl-content">
+              <div class="otl-title">Estado → Esperando piezas</div>
+              <div class="otl-meta">Sistema · 12 jun · 11:45</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-ia"></div>
+            <div class="otl-content">
+              <div class="otl-title" style="display:flex;align-items:center;gap:6px;">
+                <i class="ti ti-sparkles" style="color:#5B21B6;font-size:11px;"></i>
+                IA detectó reincidencia — 3 OTs con misma falla en 30 días
+              </div>
+              <div class="otl-meta">Agente IA · 12 jun · 12:00</div>
+            </div>
+          </div>
+
+          <div class="otl-item">
+            <div class="otl-dot otl-dot-red"></div>
+            <div class="otl-content">
+              <div class="otl-title">OT enviada a Auditoría de garantía — pieza crítica</div>
+              <div class="otl-meta">Sistema · 12 jun · 14:00</div>
+            </div>
+          </div>
+
+          <div class="otl-item otl-item-last">
+            <div class="otl-dot otl-dot-red otl-dot-active"></div>
+            <div class="otl-content">
+              <div class="otl-title" style="color:#991B1B;">Auditoría pendiente de resolución — 4 días</div>
+              <div class="otl-meta">Estado actual · 16 jun · 08:00</div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /otp-timeline -->
+
+      <!-- ── TAB: PIEZAS ── -->
+      <div id="otp-piezas" class="otp-content" style="padding:16px 20px;display:none;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <span style="font-size:11px;font-weight:600;color:#1A202C;">Repuestos solicitados</span>
+          <button onclick="showToast('Agregando pieza...')" style="font-size:11px;font-weight:600;color:#1A6DB5;background:none;border:1px solid #1A6DB5;border-radius:4px;padding:4px 10px;cursor:pointer;"><i class="ti ti-plus" style="font-size:10px;"></i> Agregar pieza</button>
+        </div>
+        <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;">
+          <div style="display:grid;grid-template-columns:1fr 60px 80px 80px 90px;padding:8px 12px;background:#F7F8FC;border-bottom:1px solid #E8ECF2;">
+            <span style="font-size:10px;font-weight:600;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;">Pieza</span>
+            <span style="font-size:10px;font-weight:600;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;">Cant.</span>
+            <span style="font-size:10px;font-weight:600;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;">Precio</span>
+            <span style="font-size:10px;font-weight:600;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;">Servicio</span>
+            <span style="font-size:10px;font-weight:600;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;">Estado</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 60px 80px 80px 90px;padding:10px 12px;border-bottom:1px solid #F0F2F6;align-items:center;">
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#1A202C;">Compresor LG MCK67876702</div>
+              <div style="font-size:10px;color:#9BA8B8;font-weight:300;">REF: LG-COMP-678</div>
+            </div>
+            <div style="font-size:12px;font-weight:500;color:#1A202C;">1</div>
+            <div style="font-size:12px;font-weight:500;color:#1A202C;">$186.00</div>
+            <div><span style="font-size:9px;font-weight:600;background:#EFF6FF;color:#1E40AF;padding:2px 6px;border-radius:2px;">CAMBIO</span></div>
+            <div><span style="font-size:9px;font-weight:600;background:#FFFBEB;color:#92400E;padding:2px 6px;border-radius:2px;"><i class="ti ti-clock" style="font-size:9px;"></i> PEDIDO</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 60px 80px 80px 90px;padding:10px 12px;align-items:center;">
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#1A202C;">Correa de transmisión</div>
+              <div style="font-size:10px;color:#9BA8B8;font-weight:300;">REF: LG-CORR-441</div>
+            </div>
+            <div style="font-size:12px;font-weight:500;color:#1A202C;">1</div>
+            <div style="font-size:12px;font-weight:500;color:#1A202C;">$24.00</div>
+            <div><span style="font-size:9px;font-weight:600;background:#EFF6FF;color:#1E40AF;padding:2px 6px;border-radius:2px;">CAMBIO</span></div>
+            <div><span style="font-size:9px;font-weight:600;background:#FFFBEB;color:#92400E;padding:2px 6px;border-radius:2px;"><i class="ti ti-clock" style="font-size:9px;"></i> PEDIDO</span></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;padding:10px 12px;background:#F7F8FC;border:1px solid #E8ECF2;border-radius:4px;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:11px;color:#6B7A8D;font-weight:300;">Total piezas</span>
+          <span style="font-size:14px;font-weight:700;color:#1A202C;">$210.00</span>
+        </div>
+      </div><!-- /otp-piezas -->
+
+      <!-- ── TAB: ANEXOS ── -->
+      <div id="otp-anexos" class="otp-content" style="padding:16px 20px;display:none;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;cursor:pointer;" onclick="showToast('Abriendo adjunto...')">
+            <div style="height:72px;background:#F7F8FC;display:flex;align-items:center;justify-content:center;">
+              <i class="ti ti-file-text" style="font-size:28px;color:#1A6DB5;"></i>
+            </div>
+            <div style="padding:8px 10px;border-top:1px solid #E8ECF2;">
+              <div style="font-size:10px;font-weight:600;color:#1A202C;">Factura</div>
+              <div style="font-size:9px;color:#9BA8B8;font-weight:300;">FAC-2024-88721.pdf</div>
+            </div>
+          </div>
+          <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;cursor:pointer;" onclick="showToast('Abriendo adjunto...')">
+            <div style="height:72px;background:#F7F8FC;display:flex;align-items:center;justify-content:center;">
+              <i class="ti ti-photo" style="font-size:28px;color:#6B7A8D;"></i>
+            </div>
+            <div style="padding:8px 10px;border-top:1px solid #E8ECF2;">
+              <div style="font-size:10px;font-weight:600;color:#1A202C;">Foto del producto</div>
+              <div style="font-size:9px;color:#9BA8B8;font-weight:300;">foto_lavadora.jpg</div>
+            </div>
+          </div>
+          <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;cursor:pointer;" onclick="showToast('Abriendo adjunto...')">
+            <div style="height:72px;background:#F7F8FC;display:flex;align-items:center;justify-content:center;">
+              <i class="ti ti-signature" style="font-size:28px;color:#6B7A8D;"></i>
+            </div>
+            <div style="padding:8px 10px;border-top:1px solid #E8ECF2;">
+              <div style="font-size:10px;font-weight:600;color:#1A202C;">Firma cliente</div>
+              <div style="font-size:9px;color:#9BA8B8;font-weight:300;">Pendiente</div>
+            </div>
+          </div>
+        </div>
+        <button onclick="showToast('Subiendo adjunto...')" style="margin-top:12px;width:100%;padding:9px;border:1px dashed #D1D9E0;border-radius:4px;background:none;color:#6B7A8D;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-family:'Nunito',sans-serif;">
+          <i class="ti ti-upload" style="font-size:13px;"></i> Subir adjunto
+        </button>
+      </div><!-- /otp-anexos -->
+
+      <!-- ── TAB: INTERACCIONES ── -->
+      <div id="otp-interacciones" class="otp-content" style="padding:16px 20px;display:none;">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px;">
+          <!-- Mensaje recibido -->
+          <div style="display:flex;gap:9px;align-items:flex-start;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">CR</div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                <span style="font-size:11px;font-weight:600;color:#1A202C;">Carlos Ruiz</span>
+                <span style="font-size:10px;color:#9BA8B8;font-weight:300;">Técnico · 12 jun · 11:45</span>
+              </div>
+              <div style="background:#F7F8FC;border:1px solid #E8ECF2;border-radius:0 4px 4px 4px;padding:10px 12px;font-size:12px;color:#3D4A5C;line-height:1.5;font-weight:300;">
+                Confirmé falla de compresor. Solicité las piezas. El cliente pregunta cuánto tiempo puede tomar la reparación una vez lleguen los repuestos.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Reply input -->
+        <div style="border-top:1px solid #E8ECF2;padding-top:12px;">
+          <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;">
+            <textarea placeholder="Escribe un mensaje al taller..." style="width:100%;padding:10px 12px;border:none;outline:none;font-family:'Nunito',sans-serif;font-size:12px;font-weight:300;color:#1A202C;resize:none;height:72px;background:#fff;"></textarea>
+            <div style="padding:8px 10px;border-top:1px solid #E8ECF2;display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;gap:6px;">
+                <button onclick="showToast('Adjuntando...')" style="border:none;background:none;cursor:pointer;color:#9BA8B8;font-size:14px;"><i class="ti ti-paperclip"></i></button>
+              </div>
+              <button onclick="showToast('Mensaje enviado al taller')" style="background:#1A6DB5;color:#fff;border:none;border-radius:4px;padding:6px 14px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:5px;"><i class="ti ti-send" style="font-size:11px;"></i> Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- /otp-interacciones -->
+
+    </div><!-- /scroll area -->
+
+    <!-- ACTION BAR — bottom -->
+    <div style="padding:12px 20px;border-top:1px solid #E8ECF2;background:#fff;display:flex;gap:8px;flex-shrink:0;">
+      <button onclick="showToast('Aprobando auditoría...')" style="flex:1;padding:9px;background:#1A6DB5;color:#fff;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <i class="ti ti-circle-check" style="font-size:13px;"></i> Aprobar auditoría
+      </button>
+      <button onclick="showToast('Rechazando garantía...')" style="padding:9px 14px;background:#fff;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;">
+        <i class="ti ti-shield-x" style="font-size:13px;"></i> Rechazar garantía
+      </button>
+      <button onclick="showToast('Bloqueando OT...')" style="padding:9px 14px;background:#fff;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;">
+        <i class="ti ti-lock" style="font-size:13px;"></i> Bloquear
+      </button>
+    </div>
+
+  </div><!-- /ot-panel -->
+</div><!-- /ot-overlay -->
+
+
 <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
 
 <script>
@@ -3415,6 +3847,15 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   const el = document.getElementById('dash-date');
   if(el) el.textContent = days[d.getDay()] + ' ' + d.getDate() + ' de ' + months[d.getMonth()];
 })();
+
+  /* ── OT PANEL TABS ── */
+  function otTab(btn, targetId) {
+    document.querySelectorAll('.otp-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.otp-content').forEach(c => c.style.display = 'none');
+    btn.classList.add('active');
+    document.getElementById(targetId).style.display = 'block';
+  }
+
 </script>
 
 </body>
