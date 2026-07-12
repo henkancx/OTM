@@ -774,7 +774,7 @@
     .login-card { width: calc(100vw - 32px); padding: 32px 24px 28px; }
   }
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 </head>
 <body>
 
@@ -2865,7 +2865,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   function doLogout() {
-    _sb.auth.signOut();
+    if(_sb) _sb.auth.signOut();
     const ls = document.getElementById('login-screen');
     ls.classList.remove('hidden');
     ls.style.opacity = '0';
@@ -2880,18 +2880,26 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   /* ── SUPABASE AUTH ── */
-  const _sb = supabase.createClient(
-    'https://vbxkahhidtkhfnxzeqyc.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZieGthaGhpZHRraGZueHplcXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MzAxNjMsImV4cCI6MjA5OTQwNjE2M30.3NLyQC8TPrH0Q84D-YxfPCL6aSNEPZpezjjdrQBrpYw'
-  );
+  let _sb = null;
 
-  // Check existing session on load
-  (async () => {
-    const { data: { session } } = await _sb.auth.getSession();
-    if (session) {
-      document.getElementById('login-screen').classList.add('hidden');
+  function initSupabase() {
+    if (typeof supabase === 'undefined' || !supabase.createClient) {
+      setTimeout(initSupabase, 100);
+      return;
     }
-  })();
+    _sb = supabase.createClient(
+      'https://vbxkahhidtkhfnxzeqyc.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZieGthaGhpZHRraGZueHplcXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM4MzAxNjMsImV4cCI6MjA5OTQwNjE2M30.3NLyQC8TPrH0Q84D-YxfPCL6aSNEPZpezjjdrQBrpYw'
+    );
+    // Check existing session
+    _sb.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        document.getElementById('login-screen').classList.add('hidden');
+      }
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', initSupabase);
 
   /* ── LOGIN ── */
 
@@ -2904,6 +2912,12 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
     if (!email || !pass) {
       document.getElementById('login-error-msg').textContent = 'Completa todos los campos.';
+      err.classList.add('show'); err.style.display = 'flex';
+      return;
+    }
+
+    if (!_sb) {
+      document.getElementById('login-error-msg').textContent = 'Cargando... intenta en un momento.';
       err.classList.add('show'); err.style.display = 'flex';
       return;
     }
@@ -2945,8 +2959,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   // Enter key support
-  document.getElementById('login-user').addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('login-pass').focus(); });
-  document.getElementById('login-pass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+  const _lu_el = document.getElementById('login-user'); if(_lu_el) _lu_el.addEventListener('keydown', e => { if (e.key === 'Enter') document.getElementById('login-pass').focus(); });
+  const _lp_el = document.getElementById('login-pass'); if(_lp_el) _lp_el.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 
   /* ── INIT ── */
   document.getElementById('tb-ord').style.display = 'none';
