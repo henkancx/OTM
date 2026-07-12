@@ -3311,10 +3311,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
     </div><!-- /screen-analytics -->
 
-  </div><!-- /main -->
-</div><!-- /app -->
 
-<!-- Overlay sidebar mobile -->
 
     
     <!-- ══════ SCREEN: HK STUDIO ══════ -->
@@ -3615,6 +3612,11 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       </div>
 
     </div>
+
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- Overlay sidebar mobile -->
 
 <!-- ══════ OT DETAIL PANEL ══════ -->
 <div id="ot-overlay" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(13,23,36,0.45);backdrop-filter:blur(2px);justify-content:flex-end;">
@@ -4093,6 +4095,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       });
       var inc = document.getElementById('hkm-included');
       if (inc) inc.style.display = 'block';
+
       var tabs = document.querySelectorAll('.hk-tab');
       tabs.forEach(function(t, i) {
         t.style.borderBottomColor = i===0 ? '#1A202C' : 'transparent';
