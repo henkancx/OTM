@@ -620,6 +620,17 @@
     .ia-input-area { padding: 10px 12px; }
   }
 
+    /* HK Marketplace & Studio — mobile */
+    .hk-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .hk-header-right { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .hk-plan-bar { flex-wrap: wrap; gap: 10px; }
+    .hk-plan-sep { display: none; }
+    .hk-plan-item { padding: 0; flex: 1 1 40%; }
+    .hkm-grid { grid-template-columns: 1fr; }
+    .hk-tabs { overflow-x: auto; flex-wrap: nowrap; }
+    .hk-tab { white-space: nowrap; padding: 10px 12px; font-size: 11px; }
+    .hk-tab-content { padding: 14px; }
+
   /* ─── LOGIN SCREEN ─── */
   #login-screen {
     position: fixed; inset: 0; z-index: 9999;
@@ -1885,6 +1896,34 @@
   .hk-tab-content[style*="display:block"],
   .hk-tab-content[style*="display: block"] { display: block !important; }
   #hkm-included { display: block !important; }
+
+
+  /* ══ HK SCREENS FINAL OVERRIDE ══ */
+  div#screen-hkmarketplace.screen.active {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 18px 22px !important;
+    gap: 14px !important;
+    background: #F7F8FC !important;
+    min-height: 0 !important;
+  }
+  div#screen-hkstudio.screen.active {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 18px 22px !important;
+    gap: 14px !important;
+    background: #F7F8FC !important;
+  }
+  div#screen-hkmarketplace .hk-header,
+  div#screen-hkmarketplace .hk-plan-bar,
+  div#screen-hkmarketplace .hk-tabs { display: flex !important; }
+  div#screen-hkmarketplace #hkm-included,
+  div#screen-hkmarketplace .hk-tab-content[style*="block"] { display: block !important; }
+  div#screen-hkmarketplace .hkm-grid { display: grid !important; }
 
 </style>
 
