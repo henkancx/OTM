@@ -1869,6 +1869,23 @@
     cursor:pointer;font-family:'Nunito',sans-serif;
   }
 
+
+  /* ── FORCE HK SCREENS VISIBLE ── */
+  #screen-hkmarketplace.active,
+  #screen-hkstudio.active {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    min-height: 0 !important;
+  }
+  #screen-hkmarketplace .hk-header { display: flex !important; }
+  #screen-hkmarketplace .hk-plan-bar { display: flex !important; }
+  #screen-hkmarketplace .hk-tabs { display: flex !important; }
+  .hk-tab-content[style*="display:block"],
+  .hk-tab-content[style*="display: block"] { display: block !important; }
+  #hkm-included { display: block !important; }
+
 </style>
 
 <div class="lp">
@@ -4085,6 +4102,13 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     const _sa = document.getElementById('stabs-analytics');
     if (_sa) _sa.style.display = id === 'analytics' ? 'flex' : 'none';
     if (navEl && navEl.classList) navEl.classList.add('active');
+    // Reset HK Marketplace tabs on navigation
+    if (id === 'hkmarketplace') {
+      document.querySelectorAll('.hk-tab-content').forEach(c => { c.style.display = 'none'; });
+      const inc = document.getElementById('hkm-included');
+      if (inc) inc.style.display = 'block';
+      document.querySelectorAll('.hk-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+    }
     closeSidebar();
   }
 
