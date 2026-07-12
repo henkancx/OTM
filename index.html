@@ -1752,7 +1752,124 @@
   .otl-title { font-size: 12px; font-weight: 500; color: #1A202C; margin-bottom: 2px; line-height: 1.4; }
   .otl-meta { font-size: 10px; color: #9BA8B8; font-weight: 300; }
 
-  </style>
+  
+  /* ══ HK MARKETPLACE ══ */
+  .hk-header {
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 20px;background:#0D2744;border-radius:6px;
+  }
+  .hk-header-left { display:flex;align-items:center; }
+  .hk-logo-wrap { display:flex;align-items:center;gap:10px; }
+  .hk-logo-icon {
+    width:36px;height:36px;background:rgba(131,58,224,0.25);
+    border:1px solid rgba(131,58,224,0.3);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    color:#CB6CE6;font-size:16px;
+  }
+  .hk-logo-name { font-size:14px;font-weight:700;color:#fff;letter-spacing:-0.2px; }
+  .hk-logo-sub { font-size:10px;color:rgba(255,255,255,0.4);font-weight:300;margin-top:1px; }
+  .hk-header-right { display:flex;align-items:center;gap:16px; }
+  .hk-plan-badge {
+    display:flex;align-items:center;gap:6px;
+    background:rgba(131,58,224,0.15);border:1px solid rgba(131,58,224,0.25);
+    border-radius:4px;padding:5px 10px;
+    font-size:11px;font-weight:600;color:#CB6CE6;
+  }
+  .hk-billing-info { font-size:11px;color:rgba(255,255,255,0.5);font-weight:300; }
+  .hk-billing-info strong { color:rgba(255,255,255,0.85);font-weight:600; }
+
+  .hk-plan-bar {
+    display:flex;align-items:center;gap:0;
+    background:#fff;border:1px solid #E8ECF2;border-radius:6px;
+    padding:12px 16px;
+  }
+  .hk-plan-item { display:flex;flex-direction:column;gap:2px;padding:0 16px; }
+  .hk-plan-item:first-child { padding-left:0; }
+  .hk-plan-lbl { font-size:10px;color:#9BA8B8;font-weight:300;text-transform:uppercase;letter-spacing:.5px; }
+  .hk-plan-val { font-size:13px;font-weight:600;color:#1A202C; }
+  .hk-plan-sep { width:1px;height:32px;background:#E8ECF2;flex-shrink:0; }
+  .hk-btn-outline {
+    display:flex;align-items:center;gap:6px;
+    padding:7px 13px;background:#fff;border:1px solid #E8ECF2;
+    border-radius:4px;font-size:11px;font-weight:500;color:#3D4A5C;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+    transition:border-color .15s;
+  }
+  .hk-btn-outline:hover { border-color:#1A6DB5;color:#1A6DB5; }
+
+  .hk-tabs {
+    display:flex;gap:0;border-bottom:1px solid #E8ECF2;background:#fff;
+    border-radius:6px 6px 0 0;padding:0 16px;
+  }
+  .hk-tab {
+    padding:12px 16px;font-size:12px;font-weight:500;color:#6B7A8D;
+    background:none;border:none;border-bottom:2px solid transparent;
+    cursor:pointer;font-family:'Nunito',sans-serif;margin-bottom:-1px;
+    transition:color .15s;
+  }
+  .hk-tab:hover { color:#1A202C; }
+  .hk-tab.active { color:#1A202C;border-bottom-color:#1A202C;font-weight:600; }
+  .hk-tab-content { background:#fff;border:1px solid #E8ECF2;border-top:none;border-radius:0 0 6px 6px;padding:20px; }
+  .hk-section-desc { font-size:12px;color:#6B7A8D;font-weight:300;margin-bottom:16px;line-height:1.6; }
+
+  .hkm-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px; }
+  .hkm-card {
+    background:#fff;border:1px solid #E8ECF2;border-radius:6px;
+    padding:16px;display:flex;flex-direction:column;gap:0;
+    transition:border-color .15s;
+  }
+  .hkm-card:hover { border-color:#1A6DB5; }
+  .hkm-card-active { border-color:#D1FAE5; }
+  .hkm-card-active:hover { border-color:#6EE7B7; }
+  .hkm-card-ent { border-color:#EDE9FE; }
+  .hkm-card-top { display:flex;align-items:center;justify-content:space-between;margin-bottom:12px; }
+  .hkm-icon {
+    width:32px;height:32px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:15px;
+  }
+  .hkm-status-badge {
+    font-size:9px;font-weight:700;padding:3px 8px;border-radius:2px;
+    display:flex;align-items:center;gap:4px;letter-spacing:.3px;text-transform:uppercase;
+  }
+  .hkm-active { background:#ECFDF5;color:#065F46; }
+  .hkm-inactive { background:#F7F8FC;color:#9BA8B8; }
+  .hkm-ent { background:#EDE9FE;color:#5B21B6; }
+  .hkm-card-name { font-size:13px;font-weight:600;color:#1A202C;margin-bottom:6px; }
+  .hkm-card-desc { font-size:11px;color:#6B7A8D;line-height:1.55;font-weight:300;flex:1;margin-bottom:14px; }
+  .hkm-card-footer { display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F0F2F6;padding-top:12px; }
+  .hkm-price-tag { font-size:11px;font-weight:500;color:#16a34a; }
+  .hkm-price-val { font-size:16px;font-weight:700;color:#1A202C; }
+  .hkm-price-mo { font-size:11px;color:#9BA8B8;font-weight:300; }
+  .hkm-btn-activate {
+    display:flex;align-items:center;gap:5px;
+    padding:6px 12px;background:#1A6DB5;color:#fff;
+    border:none;border-radius:4px;font-size:11px;font-weight:600;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+    transition:background .15s;
+  }
+  .hkm-btn-activate:hover { background:#0D4E87; }
+  .hkm-btn-deactivate {
+    display:flex;align-items:center;gap:5px;
+    padding:6px 12px;background:#fff;color:#6B7A8D;
+    border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+  }
+  .hkm-btn-config {
+    display:flex;align-items:center;gap:5px;
+    padding:6px 12px;background:#F7F8FC;color:#3D4A5C;
+    border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+    transition:border-color .15s;
+  }
+  .hkm-btn-config:hover { border-color:#1A6DB5;color:#1A6DB5; }
+  .hkm-btn-contact {
+    display:flex;align-items:center;gap:5px;
+    padding:6px 12px;background:#EDE9FE;color:#5B21B6;
+    border:1px solid #DDD6FE;border-radius:4px;font-size:11px;font-weight:600;
+    cursor:pointer;font-family:'Nunito',sans-serif;
+  }
+
+</style>
 
 <div class="lp">
 
@@ -1930,6 +2047,11 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     <div class="nav-section" style="margin-top:8px">
       <div class="nav-label">reportes</div>
       <div class="nav-item" onclick="goTo('analytics',this)"><i class="ti ti-chart-bar"></i><span>Analytics</span></div>
+    </div>
+    <div class="nav-section" style="margin-top:4px;border-top:1px solid rgba(255,255,255,0.07);padding-top:8px;">
+      <div class="nav-label" style="color:rgba(203,108,230,0.6);">HK Platform</div>
+      <div class="nav-item" onclick="goTo('hkmarketplace',this)"><i class="ti ti-layout-grid"></i><span>HK Marketplace</span></div>
+      <div class="nav-item" onclick="goTo('hkstudio',this)"><i class="ti ti-settings-2"></i><span>HK Studio</span></div>
     </div>
     <div class="sidebar-footer">
       <div class="sidebar-user">
@@ -3114,6 +3236,352 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
 <!-- Overlay sidebar mobile -->
 
+    <!-- ══════ SCREEN: HK MARKETPLACE ══════ -->
+    <div class="screen" id="screen-hkmarketplace">
+
+      <!-- HK Header -->
+      <div class="hk-header">
+        <div class="hk-header-left">
+          <div class="hk-logo-wrap">
+            <div class="hk-logo-icon"><i class="ti ti-layout-grid"></i></div>
+            <div>
+              <div class="hk-logo-name">HK Marketplace</div>
+              <div class="hk-logo-sub">by HenkanCX · OTManager</div>
+            </div>
+          </div>
+        </div>
+        <div class="hk-header-right">
+          <div class="hk-plan-badge">
+            <i class="ti ti-package"></i>
+            Plan Professional
+          </div>
+          <div class="hk-billing-info">
+            Próxima factura: <strong>$1,847/mes</strong> · 1 ago 2026
+          </div>
+        </div>
+      </div>
+
+      <!-- Plan summary bar -->
+      <div class="hk-plan-bar">
+        <div class="hk-plan-item">
+          <span class="hk-plan-lbl">Plan base</span>
+          <span class="hk-plan-val">$1,499/mes</span>
+        </div>
+        <div class="hk-plan-sep"></div>
+        <div class="hk-plan-item">
+          <span class="hk-plan-lbl">Módulos add-on activos</span>
+          <span class="hk-plan-val">2 módulos · $348/mes</span>
+        </div>
+        <div class="hk-plan-sep"></div>
+        <div class="hk-plan-item">
+          <span class="hk-plan-lbl">Usuarios</span>
+          <span class="hk-plan-val">12 activos · incluidos</span>
+        </div>
+        <div class="hk-plan-sep"></div>
+        <div class="hk-plan-item">
+          <span class="hk-plan-lbl">OTs este mes</span>
+          <span class="hk-plan-val">847 / 5,000</span>
+        </div>
+        <div style="margin-left:auto;">
+          <button class="hk-btn-outline" onclick="showToast('Abriendo historial de facturación...')"><i class="ti ti-file-invoice"></i> Ver facturación</button>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="hk-tabs">
+        <button class="hk-tab active" onclick="hkTab(this,'hkm-included')">Incluidos en tu plan</button>
+        <button class="hk-tab" onclick="hkTab(this,'hkm-addons')">Add-ons disponibles</button>
+        <button class="hk-tab" onclick="hkTab(this,'hkm-enterprise')">Enterprise</button>
+      </div>
+
+      <!-- TAB: INCLUDED -->
+      <div id="hkm-included" class="hk-tab-content" style="display:block;">
+        <p class="hk-section-desc">Estos módulos están activos en tu plan Professional sin costo adicional. Se desactivan solo si cambias de plan.</p>
+        <div class="hkm-grid">
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-clipboard-list"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M1 · Gestión de OT</div>
+            <div class="hkm-card-desc">Ciclo completo de órdenes de trabajo, estados configurables, auditorías y cierre con firma digital.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="goTo('hkstudio',document.querySelector('[onclick*=hkstudio]'))"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-users"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M2 · CRM</div>
+            <div class="hkm-card-desc">Gestión de clientes, productos, catálogos y historial completo de la relación postventa.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de CRM...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#FFFBEB;color:#92400E;"><i class="ti ti-shield"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M3 · Garantías</div>
+            <div class="hkm-card-desc">Validación automática, garantía extendida por pieza, reemplazos y flujo de auditoría.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Garantías...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-building-store"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M4 · Red de talleres</div>
+            <div class="hkm-card-desc">Talleres autorizados, técnicos, mapa geolocalizado, cálculo de KM y stock por taller.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Red de talleres...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-headset"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M5 · Contact Center</div>
+            <div class="hkm-card-desc">Gestión de Casos, protocolos, búsqueda omnicanal de clientes y derivación a talleres.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de Contact Center...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-sparkles"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M11 · AI Core</div>
+            <div class="hkm-card-desc">Asistente IA base por rol, alertas proactivas y diagnóstico asistido en OTs.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="showToast('Abriendo configuración de AI Core...')"><i class="ti ti-settings-2"></i> Configurar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-settings-2"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">HK Studio</div>
+            <div class="hkm-card-desc">Configurador de tenant — branding, flujos, campos custom y personalización del sistema.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag">Incluido</span>
+              <button class="hkm-btn-config" onclick="goTo('hkstudio',document.querySelector('[onclick*=hkstudio]'))"><i class="ti ti-settings-2"></i> Abrir Studio</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB: ADD-ONS -->
+      <div id="hkm-addons" class="hk-tab-content" style="display:none;">
+        <p class="hk-section-desc">Activa módulos adicionales cuando los necesites. El cargo se agrega a tu facturación mensual de forma inmediata. Puedes desactivarlos en cualquier momento.</p>
+        <div class="hkm-grid">
+
+          <div class="hkm-card">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-box"></i></div>
+              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
+            </div>
+            <div class="hkm-card-name">M6 · Inventario</div>
+            <div class="hkm-card-desc">Repuestos, tablas de precios, extracto de mano de obra y logística inversa (LGR).</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$149</span>
+                <span class="hkm-price-mo">/mes</span>
+              </div>
+              <button class="hkm-btn-activate" onclick="showActivateModal('M6 · Inventario','149')"><i class="ti ti-plus"></i> Activar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#ECFDF5;color:#065F46;"><i class="ti ti-plug"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M7 · Integraciones</div>
+            <div class="hkm-card-desc">API pública documentada, conectores ERP/CRM, webhooks salientes y carga SFTP.</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$199</span>
+                <span class="hkm-price-mo">/mes</span>
+              </div>
+              <button class="hkm-btn-deactivate" onclick="showToast('Para desactivar contacta a HenkanCX')"><i class="ti ti-minus"></i> Desactivar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#FFFBEB;color:#92400E;"><i class="ti ti-device-mobile"></i></div>
+              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
+            </div>
+            <div class="hkm-card-name">M8 · Portal cliente</div>
+            <div class="hkm-card-desc">Portal self-service público con branding propio, consulta de OT y mapa de talleres.</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$99</span>
+                <span class="hkm-price-mo">/mes</span>
+              </div>
+              <button class="hkm-btn-activate" onclick="showActivateModal('M8 · Portal cliente','99')"><i class="ti ti-plus"></i> Activar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-active">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-chart-bar"></i></div>
+              <span class="hkm-status-badge hkm-active"><i class="ti ti-circle-check"></i> Activo</span>
+            </div>
+            <div class="hkm-card-name">M9 · Analítica IA</div>
+            <div class="hkm-card-desc">Machine learning, predicción de demanda de repuestos, scoring de talleres y detección de anomalías.</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$249</span>
+                <span class="hkm-price-mo">/mes</span>
+              </div>
+              <button class="hkm-btn-deactivate" onclick="showToast('Para desactivar contacta a HenkanCX')"><i class="ti ti-minus"></i> Desactivar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#EFF6FF;color:#1E40AF;"><i class="ti ti-bell"></i></div>
+              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
+            </div>
+            <div class="hkm-card-name">M10 · Notificaciones</div>
+            <div class="hkm-card-desc">WhatsApp, SMS y Email multicanal con templates personalizables y fallback automático.</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$79</span>
+                <span class="hkm-price-mo">/mes <span style="font-size:9px;color:#9BA8B8;">+ por mensaje</span></span>
+              </div>
+              <button class="hkm-btn-activate" onclick="showActivateModal('M10 · Notificaciones','79')"><i class="ti ti-plus"></i> Activar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-robot"></i></div>
+              <span class="hkm-status-badge hkm-inactive">Inactivo</span>
+            </div>
+            <div class="hkm-card-name">M11 · AI Agéntica</div>
+            <div class="hkm-card-desc">Agentes autónomos completos — triaje, auditoría, comunicación proactiva y analítica ejecutiva.</div>
+            <div class="hkm-card-footer">
+              <div>
+                <span class="hkm-price-val">$399</span>
+                <span class="hkm-price-mo">/mes</span>
+              </div>
+              <button class="hkm-btn-activate" onclick="showActivateModal('M11 · AI Agéntica','399')"><i class="ti ti-plus"></i> Activar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB: ENTERPRISE -->
+      <div id="hkm-enterprise" class="hk-tab-content" style="display:none;">
+        <p class="hk-section-desc">Estos módulos requieren negociación con HenkanCX. Contáctanos para conocer condiciones, SLA y pricing personalizado.</p>
+        <div class="hkm-grid">
+
+          <div class="hkm-card hkm-card-ent">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-building"></i></div>
+              <span class="hkm-status-badge hkm-ent">Enterprise</span>
+            </div>
+            <div class="hkm-card-name">Multi-tenant</div>
+            <div class="hkm-card-desc">Opera múltiples tenants bajo una cuenta matriz con dashboard consolidado.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
+              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-ent">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-shield-lock"></i></div>
+              <span class="hkm-status-badge hkm-ent">Enterprise</span>
+            </div>
+            <div class="hkm-card-name">SSO Corporativo</div>
+            <div class="hkm-card-desc">SAML, Active Directory, Okta — autenticación corporativa integrada con tu IdP.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
+              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
+            </div>
+          </div>
+
+          <div class="hkm-card hkm-card-ent">
+            <div class="hkm-card-top">
+              <div class="hkm-icon" style="background:#F5F3FF;color:#5B21B6;"><i class="ti ti-database"></i></div>
+              <span class="hkm-status-badge hkm-ent">Enterprise</span>
+            </div>
+            <div class="hkm-card-name">Data Warehouse</div>
+            <div class="hkm-card-desc">Exportación directa a BigQuery, Snowflake o Redshift — todos los datos de tu tenant.</div>
+            <div class="hkm-card-footer">
+              <span class="hkm-price-tag" style="color:#5B21B6;">A convenir</span>
+              <button class="hkm-btn-contact" onclick="showToast('Contactando a HenkanCX...')"><i class="ti ti-mail"></i> Contactar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ACTIVATION MODAL -->
+    <div id="hkm-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(13,23,36,0.5);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:6px;width:460px;max-width:95vw;border:0.5px solid #E8ECF2;overflow:hidden;">
+        <div style="padding:20px 24px;border-bottom:1px solid #E8ECF2;">
+          <div style="font-size:14px;font-weight:600;color:#1A202C;margin-bottom:4px;">Activar módulo</div>
+          <div style="font-size:12px;color:#6B7A8D;font-weight:300;">Revisa el impacto en tu facturación antes de confirmar.</div>
+        </div>
+        <div style="padding:20px 24px;">
+          <div style="background:#F7F8FC;border:1px solid #E8ECF2;border-radius:4px;padding:14px 16px;margin-bottom:16px;">
+            <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:10px;" id="modal-module-name">M6 · Inventario</div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:12px;color:#6B7A8D;">Plan actual</span>
+              <span style="font-size:12px;font-weight:500;color:#1A202C;">$1,847/mes</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:12px;color:#6B7A8D;">Cargo del módulo</span>
+              <span style="font-size:12px;font-weight:500;color:#1A6DB5;">+ $<span id="modal-price">149</span>/mes</span>
+            </div>
+            <div style="height:1px;background:#E8ECF2;margin:8px 0;"></div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:12px;font-weight:600;color:#1A202C;">Nueva factura mensual</span>
+              <span style="font-size:14px;font-weight:700;color:#1A202C;">$<span id="modal-total">1,996</span>/mes</span>
+            </div>
+          </div>
+          <label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;margin-bottom:16px;">
+            <input type="checkbox" id="modal-terms" style="margin-top:2px;flex-shrink:0;">
+            <span style="font-size:11px;color:#6B7A8D;line-height:1.5;font-weight:300;">Acepto los <a href="#" style="color:#1A6DB5;">Términos de uso del módulo</a> y autorizo el cargo adicional a mi facturación mensual vigente.</span>
+          </label>
+          <div style="display:flex;gap:8px;">
+            <button onclick="closeModal()" style="flex:1;padding:10px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-weight:500;color:#6B7A8D;cursor:pointer;font-family:'Nunito',sans-serif;">Cancelar</button>
+            <button onclick="confirmActivation()" style="flex:1;padding:10px;background:#1A6DB5;border:none;border-radius:4px;font-size:13px;font-weight:600;color:#fff;cursor:pointer;font-family:'Nunito',sans-serif;"><i class="ti ti-circle-check" style="font-size:12px;"></i> Confirmar activación</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 <!-- ══════ OT DETAIL PANEL ══════ -->
 <div id="ot-overlay" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(13,23,36,0.45);backdrop-filter:blur(2px);justify-content:flex-end;">
   <div id="ot-panel" style="width:580px;max-width:95vw;height:100vh;background:#fff;display:flex;flex-direction:column;border-left:1px solid #E8ECF2;overflow:hidden;">
@@ -3854,6 +4322,42 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     document.querySelectorAll('.otp-content').forEach(c => c.style.display = 'none');
     btn.classList.add('active');
     document.getElementById(targetId).style.display = 'block';
+  }
+
+
+  /* ── HK MARKETPLACE ── */
+  function hkTab(btn, targetId) {
+    document.querySelectorAll('.hk-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.hk-tab-content').forEach(c => c.style.display = 'none');
+    btn.classList.add('active');
+    document.getElementById(targetId).style.display = 'block';
+  }
+
+  let _modalModule = '';
+  let _modalPrice = 0;
+
+  function showActivateModal(moduleName, price) {
+    _modalModule = moduleName;
+    _modalPrice = parseInt(price);
+    document.getElementById('modal-module-name').textContent = moduleName;
+    document.getElementById('modal-price').textContent = price;
+    document.getElementById('modal-total').textContent = (1847 + _modalPrice).toLocaleString();
+    document.getElementById('modal-terms').checked = false;
+    const modal = document.getElementById('hkm-modal');
+    modal.style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('hkm-modal').style.display = 'none';
+  }
+
+  function confirmActivation() {
+    if (!document.getElementById('modal-terms').checked) {
+      showToast('Debes aceptar los términos para continuar');
+      return;
+    }
+    closeModal();
+    showToast(_modalModule + ' activado correctamente. El cargo se reflejará en tu próxima factura.');
   }
 
 </script>
