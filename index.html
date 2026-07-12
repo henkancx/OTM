@@ -3316,18 +3316,524 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     
     <!-- ══════ SCREEN: HK STUDIO ══════ -->
         <!-- ══════ SCREEN: HK STUDIO ══════ -->
-    <div class="screen" id="screen-hkstudio">
-      <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:40px;text-align:center;">
-        <div style="width:48px;height:48px;background:#F5F3FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#CB6CE6;"><i class="ti ti-settings-2"></i></div>
-        <div style="font-size:18px;font-weight:700;color:#1A202C;margin-bottom:8px;font-family:Nunito,sans-serif;">HK Studio</div>
-        <div style="font-size:13px;color:#6B7A8D;max-width:380px;margin:0 auto;line-height:1.6;font-family:Nunito,sans-serif;">
-          Configurador del tenant — branding, flujos, campos custom y personalización.<br>
-          <span style="color:#CB6CE6;font-weight:600;">En construcción para este demo.</span>
+        <!-- ══════ SCREEN: HK STUDIO ══════ -->
+    <div class="screen" id="screen-hkstudio" style="padding:0;flex-direction:row;gap:0;overflow:hidden;">
+
+      <!-- LEFT NAV -->
+      <div id="hks-nav" style="width:220px;flex-shrink:0;background:#fff;border-right:1px solid #E8ECF2;overflow-y:auto;display:flex;flex-direction:column;">
+        <div style="padding:16px 16px 12px;border-bottom:1px solid #E8ECF2;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <div style="width:28px;height:28px;background:#F5F3FF;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#CB6CE6;font-size:13px;"><i class="ti ti-settings-2"></i></div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">HK Studio</div>
+              <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;">by HenkanCX</div>
+            </div>
+          </div>
+          <div style="margin-top:10px;background:#F7F8FC;border-radius:4px;height:4px;overflow:hidden;">
+            <div style="width:38%;height:100%;background:linear-gradient(90deg,#CB6CE6,#1A6DB5);border-radius:4px;"></div>
+          </div>
+          <div style="font-size:9px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">38% configurado</div>
+        </div>
+
+        <!-- Nivel 1 -->
+        <div style="padding:10px 12px 4px;">
+          <div style="font-size:9px;font-weight:700;color:#CB6CE6;letter-spacing:1.5px;text-transform:uppercase;font-family:Nunito,sans-serif;">Nivel 1 — Identidad</div>
+        </div>
+        <div class="hks-item active" onclick="hksNav(this,'hks-marca')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;background:#F5F3FF;border-left:3px solid #CB6CE6;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-palette" style="font-size:13px;color:#CB6CE6;"></i><span style="font-size:11px;font-weight:500;color:#1A202C;font-family:Nunito,sans-serif;">Marca y colores</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-region')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-world" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Idioma y región</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+
+        <!-- Nivel 2 -->
+        <div style="padding:12px 12px 4px;">
+          <div style="font-size:9px;font-weight:700;color:#1A6DB5;letter-spacing:1.5px;text-transform:uppercase;font-family:Nunito,sans-serif;">Nivel 2 — Operativo</div>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-ot')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-clipboard-list" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Gestión de OT</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-casos')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-headset" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Casos — Contact Center</span></div>
+          <span style="font-size:9px;background:#FFFBEB;color:#92400E;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">2/6</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-clientes')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-users" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Clientes y CRM</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-garantias')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-shield" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Garantías</span></div>
+          <span style="font-size:9px;background:#FFFBEB;color:#92400E;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">3/5</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-talleres')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-building-store" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Red de talleres</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-notif')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-bell" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Notificaciones</span></div>
+          <span style="font-size:9px;background:#FEF2F2;color:#991B1B;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">1/5</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-ia')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-sparkles" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Asistente IA</span></div>
+          <span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">OK</span>
+        </div>
+
+        <!-- Nivel 3 -->
+        <div style="padding:12px 12px 4px;">
+          <div style="font-size:9px;font-weight:700;color:#3D4A5C;letter-spacing:1.5px;text-transform:uppercase;font-family:Nunito,sans-serif;">Nivel 3 — Campos custom</div>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-campos-ot')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-forms" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Campos de OT</span></div>
+          <span style="font-size:9px;background:#EFF6FF;color:#1E40AF;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">3 campos</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-campos-cli')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-user-plus" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Campos de cliente</span></div>
+          <span style="font-size:9px;background:#EFF6FF;color:#1E40AF;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">1 campo</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-campos-prod')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-device-laptop" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Campos de producto</span></div>
+          <span style="font-size:9px;background:#F7F8FC;color:#9BA8B8;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Sin campos</span>
+        </div>
+        <div class="hks-item" onclick="hksNav(this,'hks-campos-tal')" style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;cursor:pointer;border-left:3px solid transparent;">
+          <div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-building-store" style="font-size:13px;color:#6B7A8D;"></i><span style="font-size:11px;font-weight:400;color:#3D4A5C;font-family:Nunito,sans-serif;">Campos de taller</span></div>
+          <span style="font-size:9px;background:#EFF6FF;color:#1E40AF;padding:1px 5px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">2 campos</span>
+        </div>
+        <div style="height:20px;"></div>
+      </div>
+
+      <!-- CENTER + RIGHT -->
+      <div style="flex:1;display:flex;flex-direction:row;overflow:hidden;min-width:0;">
+
+        <!-- CENTER: FORM -->
+        <div style="flex:1;overflow-y:auto;padding:24px;background:#F7F8FC;min-width:0;">
+
+          <!-- SECTION: MARCA -->
+          <div id="hks-marca" class="hks-section" style="display:block;">
+            <div style="margin-bottom:20px;">
+              <div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Marca y colores</div>
+              <div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Define la identidad visual del sistema para este tenant. Se aplica en el sidebar, topbar, login, emails y portal público.</div>
+            </div>
+
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Logo del sistema</div>
+              <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px;">
+                <div style="width:80px;height:80px;border:1px solid #E8ECF2;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#F7F8FC;"><i class="ti ti-photo" style="font-size:24px;color:#9BA8B8;"></i></div>
+                <div>
+                  <button onclick="showToast('Subiendo logo...')" style="display:block;padding:7px 14px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:6px;">Subir logo principal</button>
+                  <button onclick="showToast('Subiendo logo oscuro...')" style="display:block;padding:7px 14px;background:white;color:#3D4A5C;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;">Subir versión oscura (sidebar)</button>
+                </div>
+              </div>
+              <div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">PNG o SVG · máx. 2MB · recomendado 300×80px</div>
+              <div style="margin-top:10px;padding:8px 10px;background:#F5F3FF;border-radius:4px;font-size:10px;color:#5B21B6;font-family:Nunito,sans-serif;"><i class="ti ti-info-circle" style="font-size:11px;"></i> Se usa en: Login (panel blanco), topbar, emails, portal público</div>
+            </div>
+
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Nombre del sistema</div>
+              <div style="margin-bottom:6px;">
+                <label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Nombre del portal</label>
+                <input type="text" value="Portal de Gestión" oninput="updatePreview('preview-sys-name',this.value)" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;">
+                <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Se usa en: Login (bajo el logo), topbar, pestañas del browser</div>
+              </div>
+              <div>
+                <label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;margin-top:12px;font-family:Nunito,sans-serif;">Nombre del asistente IA</label>
+                <input type="text" value="Asistente IA" oninput="updatePreview('preview-ai-name',this.value)" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;">
+                <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Se usa en: Chat de IA, notificaciones automáticas, resúmenes</div>
+              </div>
+            </div>
+
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Paleta de colores</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div>
+                  <label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Color primario</label>
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <input type="color" value="#1A6DB5" oninput="updateColorPreview('preview-sidebar-color',this.value)" style="width:36px;height:36px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;padding:2px;">
+                    <input type="text" value="#1A6DB5" style="flex:1;padding:8px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:monospace;color:#1A202C;outline:none;">
+                  </div>
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Botones CTA, links activos, badges</div>
+                </div>
+                <div>
+                  <label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Color del sidebar</label>
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <input type="color" value="#0D2744" oninput="updateColorPreview('preview-sidebar-bg',this.value)" style="width:36px;height:36px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;padding:2px;">
+                    <input type="text" value="#0D2744" style="flex:1;padding:8px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:monospace;color:#1A202C;outline:none;">
+                  </div>
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Sidebar, login panel oscuro</div>
+                </div>
+              </div>
+              <div style="margin-top:10px;padding:8px 10px;background:#F5F3FF;border-radius:4px;font-size:10px;color:#5B21B6;font-family:Nunito,sans-serif;"><i class="ti ti-info-circle" style="font-size:11px;"></i> El preview a la derecha se actualiza en tiempo real</div>
+            </div>
+
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: REGION -->
+          <div id="hks-region" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;">
+              <div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Idioma y región</div>
+              <div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura el idioma por defecto, zona horaria, formato de fecha y moneda. Afecta todos los usuarios del tenant.</div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Idioma por defecto</label>
+                  <select style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;color:#1A202C;outline:none;">
+                    <option selected>Español (ES)</option><option>English (EN)</option><option>Português (PT)</option>
+                  </select>
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Idioma de la interfaz y notificaciones</div>
+                </div>
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Zona horaria</label>
+                  <select style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;color:#1A202C;outline:none;">
+                    <option selected>América/Panamá (UTC-5)</option><option>América/Costa Rica (UTC-6)</option><option>América/Bogotá (UTC-5)</option><option>América/Mexico City (UTC-6)</option>
+                  </select>
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Para timestamps, reportes y SLAs</div>
+                </div>
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Formato de fecha</label>
+                  <select style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;color:#1A202C;outline:none;">
+                    <option selected>DD/MM/YYYY</option><option>MM/DD/YYYY</option><option>YYYY-MM-DD</option>
+                  </select>
+                </div>
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Moneda</label>
+                  <select style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;color:#1A202C;outline:none;">
+                    <option selected>USD — Dólar estadounidense</option><option>PAB — Balboa panameño</option><option>CRC — Colón costarricense</option><option>COP — Peso colombiano</option><option>MXN — Peso mexicano</option><option>BRL — Real brasileño</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: GESTIÓN OT -->
+          <div id="hks-ot" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;">
+              <div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Gestión de OT</div>
+              <div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura el flujo de órdenes de trabajo: pasos del formulario, primer campo requerido, estados del ciclo de vida, tipos de atención y reglas de cierre.</div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Nomenclatura</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Nombre de la entidad</label>
+                  <input type="text" value="Orden de Trabajo" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;">
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Ej: "Ticket", "Servicio", "Solicitud"</div>
+                </div>
+                <div><label style="font-size:11px;font-weight:600;color:#3D4A5C;display:block;margin-bottom:5px;font-family:Nunito,sans-serif;">Prefijo del ID</label>
+                  <input type="text" value="OT-" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;">
+                  <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Ej: "WO-", "SVC-", "TKT-"</div>
+                </div>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Primer campo requerido en Nueva OT</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;border:1px solid #1A6DB5;border-radius:4px;background:#EFF6FF;">
+                  <input type="radio" name="primer-campo" checked style="accent-color:#1A6DB5;"> <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">N° de serie del producto</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">El sistema valida contra la BD y pre-llena datos del producto y garantía</div></div>
+                </label>
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;border:1px solid #E8ECF2;border-radius:4px;">
+                  <input type="radio" name="primer-campo" style="accent-color:#1A6DB5;"> <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Documento del cliente</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Busca el cliente primero, luego sus productos registrados</div></div>
+                </label>
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;border:1px solid #E8ECF2;border-radius:4px;">
+                  <input type="radio" name="primer-campo" style="accent-color:#1A6DB5;"> <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Número de factura</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Valida garantía desde la factura de compra</div></div>
+                </label>
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 12px;border:1px solid #E8ECF2;border-radius:4px;">
+                  <input type="radio" name="primer-campo" style="accent-color:#1A6DB5;"> <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Sin validación — campo libre</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">El agente ingresa los datos manualmente sin validación previa</div></div>
+                </label>
+              </div>
+              <div style="margin-top:10px;padding:8px 10px;background:#EFF6FF;border-radius:4px;font-size:10px;color:#1E40AF;font-family:Nunito,sans-serif;"><i class="ti ti-info-circle" style="font-size:11px;"></i> Se usa en: Formulario Nueva OT · Paso 1</div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">SLA por tipo de atención (días hábiles)</div>
+              <div style="display:grid;grid-template-columns:1fr 60px;gap:8px;align-items:center;row-gap:10px;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Garantía mostrador</span><input type="number" value="3" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Garantía desplazamiento</span><input type="number" value="5" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Fuera de garantía</span><input type="number" value="7" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Instalación</span><input type="number" value="2" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+              </div>
+              <div style="margin-top:10px;padding:8px 10px;background:#EFF6FF;border-radius:4px;font-size:10px;color:#1E40AF;font-family:Nunito,sans-serif;"><i class="ti ti-info-circle" style="font-size:11px;"></i> Se usa en: Indicador de días en lista de OTs · Alertas IA · Dashboard</div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: CASOS -->
+          <div id="hks-casos" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Casos — Contact Center</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura los flujos de atención del Contact Center: clasificaciones, orígenes de contacto, providencias y SLAs.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Nomenclatura del Caso</div>
+              <input type="text" value="Caso" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;margin-bottom:6px;">
+              <div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Ej: "Protocolo", "Ticket", "Solicitud", "Pre-OS"</div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;font-family:Nunito,sans-serif;">Orígenes de contacto</div><button onclick="showToast('Agregando origen...')" style="font-size:10px;font-weight:600;color:#1A6DB5;background:none;border:1px solid #1A6DB5;border-radius:4px;padding:3px 8px;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:10px;"></i> Agregar</button></div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;"><div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-phone" style="color:#1A6DB5;font-size:13px;"></i><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Teléfono</span></div><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 6px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Activo</span><i class="ti ti-grip-vertical" style="color:#D1D9E0;cursor:grab;"></i></div></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;"><div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-brand-whatsapp" style="color:#25D366;font-size:13px;"></i><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">WhatsApp</span></div><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 6px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Activo</span><i class="ti ti-grip-vertical" style="color:#D1D9E0;cursor:grab;"></i></div></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;"><div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-mail" style="color:#6B7A8D;font-size:13px;"></i><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Email</span></div><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;background:#F7F8FC;color:#9BA8B8;padding:1px 6px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Inactivo</span><i class="ti ti-grip-vertical" style="color:#D1D9E0;cursor:grab;"></i></div></div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;"><div style="display:flex;align-items:center;gap:8px;"><i class="ti ti-users" style="color:#6B7A8D;font-size:13px;"></i><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Presencial</span></div><div style="display:flex;align-items:center;gap:6px;"><span style="font-size:9px;background:#ECFDF5;color:#065F46;padding:1px 6px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Activo</span><i class="ti ti-grip-vertical" style="color:#D1D9E0;cursor:grab;"></i></div></div>
+              </div>
+              <div style="margin-top:10px;padding:8px 10px;background:#EFF6FF;border-radius:4px;font-size:10px;color:#1E40AF;font-family:Nunito,sans-serif;"><i class="ti ti-info-circle" style="font-size:11px;"></i> Se usa en: Formulario Nuevo Caso · Filtros en lista de Casos · Reportes por canal</div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: CLIENTES -->
+          <div id="hks-clientes" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Clientes y CRM</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Define el tipo de documento de identidad por país, campos obligatorios del cliente y reglas de validación.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Tipos de documento de identidad</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #1A6DB5;border-radius:4px;background:#EFF6FF;cursor:pointer;"><input type="checkbox" checked style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">Cédula (Panamá)</span></label>
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #1A6DB5;border-radius:4px;background:#EFF6FF;cursor:pointer;"><input type="checkbox" checked style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">RUC (Panamá)</span></label>
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="checkbox" style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">Cédula (Costa Rica)</span></label>
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="checkbox" style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">CPF (Brasil)</span></label>
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="checkbox" style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">NIT (Colombia)</span></label>
+                <label style="display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="checkbox" style="accent-color:#1A6DB5;"><span style="font-size:12px;font-family:Nunito,sans-serif;">CURP (México)</span></label>
+              </div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: GARANTÍAS -->
+          <div id="hks-garantias" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Garantías</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura cómo se calcula y valida la garantía en este tenant.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Cálculo de garantía</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #1A6DB5;border-radius:4px;background:#EFF6FF;cursor:pointer;"><input type="radio" name="calc-gar" checked style="accent-color:#1A6DB5;"><div><div style="font-size:12px;font-weight:600;font-family:Nunito,sans-serif;">Por días desde la fecha de compra</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Requiere factura con fecha · más común</div></div></label>
+                <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="radio" name="calc-gar" style="accent-color:#1A6DB5;"><div><div style="font-size:12px;font-weight:600;font-family:Nunito,sans-serif;">Por fecha fija del producto</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">La garantía vence en una fecha específica registrada en el catálogo</div></div></label>
+                <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #E8ECF2;border-radius:4px;cursor:pointer;"><input type="radio" name="calc-gar" style="accent-color:#1A6DB5;"><div><div style="font-size:12px;font-weight:600;font-family:Nunito,sans-serif;">Por tipo de producto</div><div style="font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Cada línea tiene su propia duración de garantía</div></div></label>
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Opciones adicionales</div>
+              <div style="display:flex;flex-direction:column;gap:10px;">
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;"><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Factura obligatoria para garantía</span><input type="checkbox" checked style="accent-color:#1A6DB5;width:16px;height:16px;"></label>
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;"><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Permitir garantía extendida por pieza</span><input type="checkbox" checked style="accent-color:#1A6DB5;width:16px;height:16px;"></label>
+                <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;"><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Ofrecer reembolso como alternativa</span><input type="checkbox" style="accent-color:#1A6DB5;width:16px;height:16px;"></label>
+              </div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: TALLERES -->
+          <div id="hks-talleres" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Red de talleres</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura nomenclatura de talleres, cálculo de KM y módulo de stock.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Nomenclatura del taller</div>
+              <input type="text" value="Taller" style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;outline:none;color:#1A202C;">
+              <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Ej: "Puesto autorizado", "Proveedor de servicio", "Agencia"</div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Módulo de stock</div>
+              <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;"><span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">Habilitar stock por taller</span><input type="checkbox" checked style="accent-color:#1A6DB5;width:16px;height:16px;"></label>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: NOTIFICACIONES -->
+          <div id="hks-notif" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Notificaciones</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura qué eventos disparan notificaciones, por qué canal y con qué mensaje.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Eventos y canales</div>
+              <div style="display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;font-size:10px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;font-family:Nunito,sans-serif;">
+                <span>Evento</span><span style="text-align:center;">WhatsApp</span><span style="text-align:center;">Email</span><span style="text-align:center;">SMS</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #F0F2F6;">
+                  <span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">OT creada</span>
+                  <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #F0F2F6;">
+                  <span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">OT asignada a técnico</span>
+                  <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #F0F2F6;">
+                  <span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">OT completada</span>
+                  <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 80px 80px 80px;gap:8px;align-items:center;padding:8px 0;">
+                  <span style="font-size:12px;color:#1A202C;font-family:Nunito,sans-serif;">SLA próximo a vencer</span>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                  <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                </div>
+              </div>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: IA -->
+          <div id="hks-ia" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Asistente IA</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Configura el comportamiento del agente IA: umbrales de alerta, tono y agentes habilitados.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Umbrales de alerta</div>
+              <div style="display:grid;grid-template-columns:1fr 80px;gap:8px;align-items:center;row-gap:12px;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Alertar SLA (horas antes de vencer)</span><input type="number" value="6" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Reincidencia (N° de OTs del mismo defecto)</span><input type="number" value="3" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+                <span style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;">Período de análisis de reincidencia (días)</span><input type="number" value="30" style="padding:6px 10px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;text-align:center;outline:none;">
+              </div>
+            </div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:20px;margin-bottom:12px;">
+              <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#6B7A8D;margin-bottom:14px;font-family:Nunito,sans-serif;">Tono del asistente</div>
+              <select style="width:100%;padding:8px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:13px;font-family:Nunito,sans-serif;color:#1A202C;outline:none;">
+                <option selected>Profesional y directo</option><option>Conversacional y amigable</option><option>Técnico y detallado</option>
+              </select>
+            </div>
+            <button onclick="showToast('Cambios guardados')" style="padding:10px 24px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:13px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Guardar cambios</button>
+          </div>
+
+          <!-- SECTION: CAMPOS OT -->
+          <div id="hks-campos-ot" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Campos personalizados — OT</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Agrega campos adicionales a las órdenes de trabajo. Se guardan en <code style="background:#F7F8FC;padding:1px 5px;border-radius:3px;font-size:11px;">custom_fields JSONB</code> y aparecen en el formulario y el detalle de la OT.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;margin-bottom:12px;">
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:10px 16px;background:#F7F8FC;border-bottom:1px solid #E8ECF2;font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;">
+                <span>Campo</span><span>Tipo</span><span>Obligatorio</span><span></span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;border-bottom:1px solid #F0F2F6;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Canal de venta</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Tienda / Distribuidor / E-commerce</div></div>
+                <span style="font-size:10px;background:#EFF6FF;color:#1E40AF;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Selector</span>
+                <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando campo...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando campo...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;border-bottom:1px solid #F0F2F6;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Código de reclamo Procon</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Texto libre</div></div>
+                <span style="font-size:10px;background:#F7F8FC;color:#6B7A8D;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Texto</span>
+                <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando campo...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando campo...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Región de cobertura</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Norte / Sur / Central / Este / Oeste</div></div>
+                <span style="font-size:10px;background:#EFF6FF;color:#1E40AF;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Selector</span>
+                <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando campo...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando campo...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+            </div>
+            <button onclick="showToast('Abriendo formulario de nuevo campo...')" style="display:flex;align-items:center;gap:6px;padding:10px 18px;background:white;color:#1A6DB5;border:1px solid #1A6DB5;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:13px;"></i> Agregar campo personalizado</button>
+          </div>
+
+          <!-- SECTION: CAMPOS CLI -->
+          <div id="hks-campos-cli" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Campos personalizados — Cliente</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Agrega campos adicionales a la ficha del cliente.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;margin-bottom:12px;">
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:10px 16px;background:#F7F8FC;border-bottom:1px solid #E8ECF2;font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;"><span>Campo</span><span>Tipo</span><span>Obligatorio</span><span></span></div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Segmento de cliente</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Residencial / Comercial / Corporativo</div></div>
+                <span style="font-size:10px;background:#EFF6FF;color:#1E40AF;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Selector</span>
+                <div style="text-align:center;"><input type="checkbox" style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando campo...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando campo...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+            </div>
+            <button onclick="showToast('Abriendo formulario de nuevo campo...')" style="display:flex;align-items:center;gap:6px;padding:10px 18px;background:white;color:#1A6DB5;border:1px solid #1A6DB5;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:13px;"></i> Agregar campo personalizado</button>
+          </div>
+
+          <!-- SECTION: CAMPOS PROD -->
+          <div id="hks-campos-prod" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Campos personalizados — Producto</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Agrega campos adicionales al catálogo de productos.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:32px;text-align:center;margin-bottom:12px;">
+              <i class="ti ti-forms" style="font-size:28px;color:#D1D9E0;display:block;margin-bottom:10px;"></i>
+              <div style="font-size:13px;font-weight:500;color:#6B7A8D;margin-bottom:6px;font-family:Nunito,sans-serif;">Sin campos personalizados aún</div>
+              <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;font-weight:300;">Agrega campos como voltaje, color, código fiscal o clasificación de línea</div>
+            </div>
+            <button onclick="showToast('Abriendo formulario de nuevo campo...')" style="display:flex;align-items:center;gap:6px;padding:10px 18px;background:white;color:#1A6DB5;border:1px solid #1A6DB5;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:13px;"></i> Agregar primer campo</button>
+          </div>
+
+          <!-- SECTION: CAMPOS TALLER -->
+          <div id="hks-campos-tal" class="hks-section" style="display:none;">
+            <div style="margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Campos personalizados — Taller</div><div style="font-size:12px;color:#6B7A8D;font-weight:300;font-family:Nunito,sans-serif;">Agrega campos adicionales a la ficha de los talleres.</div></div>
+            <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;margin-bottom:12px;">
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:10px 16px;background:#F7F8FC;border-bottom:1px solid #E8ECF2;font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;"><span>Campo</span><span>Tipo</span><span>Obligatorio</span><span></span></div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;border-bottom:1px solid #F0F2F6;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Zona de cobertura</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Norte / Sur / Central / Este / Oeste</div></div>
+                <span style="font-size:10px;background:#EFF6FF;color:#1E40AF;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Selector</span>
+                <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 100px 80px 80px;padding:12px 16px;align-items:center;">
+                <div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Tipo de contrato</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Mensual / Trimestral / Anual</div></div>
+                <span style="font-size:10px;background:#EFF6FF;color:#1E40AF;padding:2px 7px;border-radius:2px;font-weight:600;font-family:Nunito,sans-serif;">Selector</span>
+                <div style="text-align:center;"><input type="checkbox" checked style="accent-color:#1A6DB5;"></div>
+                <div style="display:flex;gap:6px;"><button onclick="showToast('Editando...')" style="border:none;background:none;cursor:pointer;color:#6B7A8D;font-size:13px;"><i class="ti ti-pencil"></i></button><button onclick="showToast('Eliminando...')" style="border:none;background:none;cursor:pointer;color:#c0392b;font-size:13px;"><i class="ti ti-trash"></i></button></div>
+              </div>
+            </div>
+            <button onclick="showToast('Abriendo formulario de nuevo campo...')" style="display:flex;align-items:center;gap:6px;padding:10px 18px;background:white;color:#1A6DB5;border:1px solid #1A6DB5;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-plus" style="font-size:13px;"></i> Agregar campo personalizado</button>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: PREVIEW -->
+        <div style="width:280px;flex-shrink:0;background:#1A202C;overflow-y:auto;border-left:1px solid #2D3748;" id="hks-preview-panel">
+          <div style="padding:12px 14px;border-bottom:1px solid #2D3748;display:flex;align-items:center;justify-content:space-between;">
+            <div style="font-size:10px;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1px;font-family:Nunito,sans-serif;">Preview en vivo</div>
+            <div style="display:flex;align-items:center;gap:4px;"><div style="width:6px;height:6px;border-radius:50%;background:#34D399;"></div><span style="font-size:9px;color:#34D399;font-family:Nunito,sans-serif;">En vivo</span></div>
+          </div>
+
+          <!-- Mini sidebar preview -->
+          <div style="padding:12px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.8px;font-family:Nunito,sans-serif;">Sidebar</div>
+            <div style="border-radius:6px;overflow:hidden;border:1px solid #2D3748;">
+              <div id="preview-sidebar-bg" style="background:#0D2744;padding:10px 10px 8px;">
+                <div style="font-size:11px;font-weight:700;color:white;font-family:Nunito,sans-serif;margin-bottom:8px;" id="preview-sys-name">Portal de Gestión</div>
+                <div style="display:flex;flex-direction:column;gap:1px;">
+                  <div style="padding:5px 8px;border-radius:3px;font-size:10px;color:rgba(255,255,255,0.5);font-family:Nunito,sans-serif;">Dashboard</div>
+                  <div id="preview-sidebar-color" style="padding:5px 8px;border-radius:3px;font-size:10px;color:white;background:rgba(26,109,181,0.3);font-family:Nunito,sans-serif;">Órdenes</div>
+                  <div style="padding:5px 8px;border-radius:3px;font-size:10px;color:rgba(255,255,255,0.5);font-family:Nunito,sans-serif;">Contact Center</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini topbar preview -->
+          <div style="padding:0 12px 12px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.8px;font-family:Nunito,sans-serif;">Topbar</div>
+            <div style="border-radius:6px;overflow:hidden;border:1px solid #2D3748;">
+              <div style="background:white;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;" id="preview-topbar-name">Órdenes de trabajo</span>
+                <div style="width:20px;height:20px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;color:white;font-family:Nunito,sans-serif;">GL</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini OT row preview -->
+          <div style="padding:0 12px 12px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.8px;font-family:Nunito,sans-serif;">Fila de OT</div>
+            <div style="border-radius:6px;overflow:hidden;border:1px solid #2D3748;background:white;">
+              <div style="padding:8px 10px;border-bottom:1px solid #F0F2F6;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+                  <span style="font-size:10px;font-weight:700;color:#1A6DB5;font-family:Nunito,sans-serif;" id="preview-ot-id">OT-08451</span>
+                  <span style="font-size:8px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:1px 5px;border-radius:2px;font-family:Nunito,sans-serif;">Bloqueada</span>
+                </div>
+                <div style="font-size:10px;color:#3D4A5C;font-family:Nunito,sans-serif;">Familia Gómez · Lavadora WM-3200</div>
+              </div>
+              <div style="padding:6px 10px;">
+                <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;">Campos custom del tenant:</div>
+                <div style="font-size:10px;color:#3D4A5C;margin-top:3px;font-family:Nunito,sans-serif;">Canal: <strong>Tienda propia</strong> · Región: <strong>Norte</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI preview -->
+          <div style="padding:0 12px 12px;">
+            <div style="font-size:9px;color:rgba(255,255,255,0.3);margin-bottom:8px;text-transform:uppercase;letter-spacing:.8px;font-family:Nunito,sans-serif;">Asistente IA</div>
+            <div style="border-radius:6px;border:1px solid #2D3748;background:rgba(255,255,255,0.04);padding:8px 10px;">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+                <div style="width:16px;height:16px;border-radius:4px;background:linear-gradient(135deg,#1A6DB5,#CB6CE6);display:flex;align-items:center;justify-content:center;font-size:8px;color:white;"><i class="ti ti-sparkles"></i></div>
+                <span style="font-size:10px;font-weight:600;color:white;font-family:Nunito,sans-serif;" id="preview-ai-name">Asistente IA</span>
+              </div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.6);line-height:1.5;font-family:Nunito,sans-serif;font-weight:300;">Hola Luciana, detecté una reincidencia en Lavadora WM-3200. ¿Deseas escalar a garantía?</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <!-- ══════ SCREEN: HK MARKETPLACE ══════ -->
+
     <div class="screen" id="screen-hkmarketplace">
 
       <!-- Header -->
@@ -4431,6 +4937,52 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       .find(el => el.getAttribute('onclick') && el.getAttribute('onclick').includes("'" + id + "'"))
       || document.querySelectorAll('.nav-item')[0];
     goTo(id, navEl);
+  }
+
+
+  /* ── HK STUDIO ── */
+  function hksNav(el, sectionId) {
+    // Update nav items
+    document.querySelectorAll('.hks-item').forEach(function(item) {
+      item.style.background = '';
+      item.style.borderLeft = '3px solid transparent';
+      var icon = item.querySelector('i');
+      if (icon) icon.style.color = '#6B7A8D';
+      var span = item.querySelector('span');
+      if (span) { span.style.color = '#3D4A5C'; span.style.fontWeight = '400'; }
+    });
+    el.style.background = '#F5F3FF';
+    el.style.borderLeft = '3px solid #CB6CE6';
+    var icon = el.querySelector('i');
+    if (icon) icon.style.color = '#CB6CE6';
+    var span = el.querySelector('span');
+    if (span) { span.style.color = '#1A202C'; span.style.fontWeight = '500'; }
+    // Show section
+    document.querySelectorAll('.hks-section').forEach(function(s) { s.style.display = 'none'; });
+    var target = document.getElementById(sectionId);
+    if (target) target.style.display = 'block';
+  }
+
+  function updatePreview(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = val;
+    // Also update topbar name if sys-name changes
+    if (id === 'preview-sys-name') {
+      var tb = document.getElementById('preview-topbar-name');
+      if (tb) tb.textContent = val + ' · Órdenes';
+    }
+  }
+
+  function updateColorPreview(id, val) {
+    var el = document.getElementById(id);
+    if (el) {
+      if (id === 'preview-sidebar-color') {
+        el.style.background = val + '33'; // 20% opacity
+      } else if (id === 'preview-sidebar-bg') {
+        var sidebar = document.getElementById('preview-sidebar-bg');
+        if (sidebar) sidebar.style.background = val;
+      }
+    }
   }
 
 </script>
