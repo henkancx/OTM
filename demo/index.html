@@ -9,7 +9,7 @@
 <title>Mystic · Portal de Gestión</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
   html, body { height: 100%; overflow: hidden; background: #f5f5f7; }
   .app { display: flex; height: 100vh; }
 
@@ -18,7 +18,7 @@
   .sidebar-logo { padding: 16px 16px 14px; display: flex; align-items: center; gap: 8px; border-bottom: 0.5px solid rgba(255,255,255,0.06); margin-bottom: 6px; }
   .logo-icon { display: none; }
   .logo-text { color: #fff; font-size: 13px; font-weight: 600; }
-  .role-badge { margin: 0 12px 14px; background: rgba(26,109,181,0.25); border-radius: 20px; padding: 4px 10px; text-align: center; }
+  .role-badge { margin: 0 12px 14px; background: rgba(26,109,181,0.25); border-radius:4px; padding: 4px 10px; text-align: center; }
   .role-badge span { color: #7DC8F5; font-size: 10px; font-weight: 500; }
   .nav-section { padding: 8px 0 4px; }
   .nav-label { color: #555b7a; font-size: 9px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 16px 7px; }
@@ -30,8 +30,8 @@
   .nav-item.active i { color: #7DC8F5; }
   .nav-item span { color: #888faa; font-size: 12px; }
   .nav-item.active span { color: #A8D8F8; }
-  .nav-badge { margin-left: auto; background: #1A6DB5; color: #fff; font-size: 9px; font-weight: 700; border-radius: 10px; padding: 1px 6px; }
-  .nav-badge-ia { margin-left: auto; background: #0D4E87; color: #fff; font-size: 9px; font-weight: 700; border-radius: 10px; padding: 1px 6px; }
+  .nav-badge { margin-left: auto; background: #1A6DB5; color: #fff; font-size: 9px; font-weight: 700; border-radius:4px; padding: 1px 6px; }
+  .nav-badge-ia { margin-left: auto; background: #0D4E87; color: #fff; font-size: 9px; font-weight: 700; border-radius:4px; padding: 1px 6px; }
   .sidebar-footer { padding: 12px 16px; border-top: 0.5px solid rgba(255,255,255,0.06); margin-top: auto; }
   .sidebar-user { display: flex; align-items: center; gap: 9px; }
   .user-av { width: 30px; height: 30px; border-radius: 50%; background: #2B5FAD; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; flex-shrink: 0; }
@@ -46,11 +46,11 @@
   .topbar { background: #fff; padding: 13px 22px; border-bottom: 0.5px solid #e5e5e5; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
   .topbar h1 { font-size: 16px; font-weight: 600; color: #0D2744; flex: 1; }
   .demo-badge { background: #1A6DB5; color: #fff; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 5px; white-space: nowrap; }
-  .btn-nueva { background: #1A6DB5; color: #fff; font-size: 11px; font-weight: 600; border: none; border-radius: 7px; padding: 7px 14px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+  .btn-nueva { background: #1A6DB5; color: #fff; font-size: 11px; font-weight: 600; border: none; border-radius:4px; padding: 7px 14px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
   .btn-excel { background: #fff; color: #555; font-size: 11px; font-weight: 600; border: 0.5px solid #ddd; border-radius: 7px; padding: 7px 12px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
   .icon-btn { color: #aaa; font-size: 19px; cursor: pointer; }
   .period-tabs { display: flex; gap: 4px; }
-  .ptab { padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 500; cursor: pointer; border: 0.5px solid #ddd; background: #fff; color: #666; }
+  .ptab { padding: 4px 10px; border-radius:4px; font-size: 11px; font-weight: 500; cursor: pointer; border: 0.5px solid #ddd; background: #fff; color: #666; }
   .ptab.active { background: #E8F2FB; border-color: #8BBEE0; color: #1A6DB5; }
 
   /* ─── SCREENS ─── */
@@ -102,10 +102,10 @@
   .av-cr{background:#1A6DB5;} .av-al{background:#2563eb;} .av-lm{background:#16a34a;} .av-mc{background:#d97706;} .av-dp{background:#0891b2;}
   .tec-name { font-size: 11px; font-weight: 600; color: #0D2744; }
   .tec-loc { font-size: 10px; color: #aaa; margin-top: 1px; }
-  .origen-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 5px; white-space: nowrap; }
+  .origen-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius:4px; white-space: nowrap; }
   .origen-interno{background:#f0e9fd;color:#1A6DB5;} .origen-taller{background:#e8f0fe;color:#2563eb;}
   .origen-sub { font-size: 9px; font-weight: 400; color: #aaa; margin-top: 2px; display: block; }
-  .tec-status { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius: 10px; white-space: nowrap; }
+  .tec-status { font-size: 10px; font-weight: 600; padding: 2px 9px; border-radius:4px; white-space: nowrap; }
   .ts-prog{background:#fff4e0;color:#c27b00;} .ts-disp{background:#e6f9f0;color:#16a34a;}
 
   /* ─── ÓRDENES STYLES ─── */
@@ -152,7 +152,7 @@
   .tipo-rep{color:#c0392b;background:#fef0ee;} .tipo-mant{color:#2563eb;background:#eff3fe;} .tipo-inst{color:#16a34a;background:#ecfdf5;}
   .prio{font-size:11px;font-weight:600;}
   .prio-alta{color:#c0392b;} .prio-media{color:#c27b00;} .prio-baja{color:#16a34a;}
-  .estado-badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:10px;white-space:nowrap;}
+  .estado-badge{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:4px;white-space:nowrap;}
   .e-prog{background:#fff4e0;color:#c27b00;} .e-pend{background:#ffe5e5;color:#c0392b;} .e-comp{background:#e6f9f0;color:#1a8753;} .e-bloq{background:#fff0f0;color:#c0392b;border:1px dashed #f5a0a0;}
   .ta{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;}
   .ta-int{background:#E8F2FB;color:#1A6DB5;} .ta-tal{background:#e8f0fe;color:#2563eb;}
@@ -230,7 +230,7 @@
   .sla-info{flex:1;}
   .sla-desc{font-size:11px;font-weight:500;color:#0D2744;}
   .sla-client{font-size:10px;color:#aaa;}
-  .sla-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;white-space:nowrap;}
+  .sla-badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;}
   .sla-crit{background:#fff0f0;color:#c0392b;} .sla-alert{background:#fff4e0;color:#c27b00;}
   /* ── TÉCNICOS INTERNOS — tabla espaciosa ── */
   .tec-table{background:#fff;border-radius:10px;border:0.5px solid #e8e8e8;overflow:hidden;}
@@ -273,7 +273,7 @@
   .rating-cell{display:flex;align-items:center;gap:5px;}
   .stars{color:#f59e0b;font-size:11px;letter-spacing:1px;}
   .rating-num{font-size:12px;font-weight:700;color:#0D2744;}
-  .sla-chip{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;}
+  .sla-chip{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;}
   .chip-ok{background:#e6f9f0;color:#16a34a;} .chip-warn{background:#fff4e0;color:#c27b00;} .chip-danger{background:#fff0f0;color:#c0392b;}
   .chevron{color:#ccc;font-size:14px;transition:transform 0.2s;}
   .chevron.open{transform:rotate(180deg);}
@@ -446,7 +446,7 @@
   .ia-typing span:nth-child(3){animation-delay:.4s;}
   @keyframes typing{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
   .ia-input-area{padding:14px 20px;border-top:0.5px solid #eee;background:#fff;display:flex;gap:10px;align-items:center;flex-shrink:0;}
-  .ia-input{flex:1;border:0.5px solid #e0e0e0;border-radius:10px;padding:10px 14px;font-size:12px;color:#333;outline:none;resize:none;height:40px;line-height:1.4;font-family:inherit;}
+  .ia-input{flex:1;border:0.5px solid #e0e0e0;border-radius:10px;padding:10px 14px;font-size:12px;color:#333;outline:none;resize:none;height:40px;line-height:1.4;font-family: 'Nunito', sans-serif;}
   .ia-input:focus{border-color:#1A6DB5;}
   .ia-send{width:40px;height:40px;border-radius:10px;background:#1A6DB5;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s;}
   .ia-send:hover{background:#6d2cc0;}
@@ -625,7 +625,7 @@
     position: fixed; inset: 0; z-index: 9999;
     display: block;
     background: #0D2744;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
   #login-screen .lp { position: absolute; inset: 0; height: 100%; }
   #login-screen.hidden { display: none; }
@@ -658,7 +658,7 @@
     position: relative; z-index: 1;
     background: rgba(26, 26, 46, 0.85);
     border: 0.5px solid rgba(26,109,181,0.35);
-    border-radius: 20px;
+    border-radius:4px;
     padding: 40px 44px 36px;
     width: 380px;
     box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(26,109,181,0.15);
@@ -776,6 +776,7 @@
   }
 </style>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -784,7 +785,7 @@
 <style>
 #login-screen {
   position: fixed; inset: 0; z-index: 9999;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 #login-screen.hidden { display: none; }
 .lp {
@@ -912,7 +913,7 @@
 .lp-powered-hcx { font-size:10px; color:rgba(255,255,255,0.4); font-weight:500; }
 .lp-lang { display:flex; gap:2px; }
 .lp-lang-btn {
-  padding:4px 10px; border-radius:5px;
+  padding:4px 10px; border-radius:4px;
   font-size:11px; font-weight:500;
   color:rgba(255,255,255,0.35);
   cursor:pointer; border:none; background:transparent; transition:all .15s;
@@ -957,7 +958,7 @@
 .lp-sso-btn {
   width:100%; padding:13px 16px;
   background:white; border:1.5px solid #DDE8F2;
-  border-radius:10px; font-family:inherit;
+  border-radius:6px; font-family: 'Nunito', sans-serif;
   font-size:14px; font-weight:500; color:#0D1B2A;
   cursor:pointer; transition:all .18s;
   display:flex; align-items:center; justify-content:center; gap:10px;
@@ -986,7 +987,7 @@
 .lp-inp {
   width:100%; padding:13px 13px 13px 40px;
   background:white; border:1.5px solid #DDE8F2;
-  border-radius:9px; font-family:inherit;
+  border-radius:9px; font-family: 'Nunito', sans-serif;
   font-size:14px; color:#0D1B2A;
   outline:none; transition:border-color .18s, box-shadow .18s;
 }
@@ -1016,8 +1017,8 @@
 /* Login button */
 .lp-btn {
   width:100%; padding:15px;
-  background:#1A6DB5; border:none; border-radius:10px;
-  font-family:inherit; font-size:15px; font-weight:700; color:white;
+  background:#1A6DB5; border:none; border-radius:4px;
+  font-family: 'Nunito', sans-serif; font-size:15px; font-weight:700; color:white;
   cursor:pointer; transition:all .2s;
   display:flex; align-items:center; justify-content:center; gap:7px;
   box-shadow:0 4px 18px rgba(26,109,181,.32);
@@ -1073,7 +1074,7 @@
   .ai-greeting-msg strong { color:#fff; }
   .ai-greeting-btn {
     background:rgba(58,143,214,0.2); border:1px solid rgba(58,143,214,0.4);
-    color:#7DC8F5; font-size:12px; font-weight:600; border-radius:8px;
+    color:#7DC8F5; font-size:12px; font-weight:600; border-radius:4px;
     padding:8px 14px; cursor:pointer; white-space:nowrap;
     display:flex; align-items:center; gap:6px; flex-shrink:0;
     transition:all .15s;
@@ -1106,7 +1107,7 @@
   @keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:.5} }
 
   .ia-alert-list { display:flex; flex-direction:column; gap:8px; }
-  .ia-alert { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:8px; border:0.5px solid transparent; }
+  .ia-alert { display:flex; align-items:flex-start; gap:10px; padding:10px 12px; border-radius:4px; border:0.5px solid transparent; }
   .ia-alert-red { background:#fff5f5; border-color:#f5a0a0; }
   .ia-alert-red .ia-alert-icon { color:#c0392b; }
   .ia-alert-amber { background:#fffbf0; border-color:#fbd38d; }
@@ -1127,7 +1128,7 @@
   .live-action { font-size:11px; color:#333; line-height:1.4; }
   .live-action strong { color:#1a1a2e; }
   .live-time { font-size:10px; color:#bbb; margin-top:1px; }
-  .live-badge { font-size:9px; font-weight:700; padding:2px 7px; border-radius:8px; white-space:nowrap; flex-shrink:0; }
+  .live-badge { font-size:9px; font-weight:700; padding:2px 7px; border-radius:4px; white-space:nowrap; flex-shrink:0; }
   .live-ok { background:#e6f9f0; color:#16a34a; }
   .live-prog { background:#EBF4FC; color:#1A6DB5; }
   .live-ia { background:#f0e9fd; color:#833AE0; }
@@ -1183,18 +1184,18 @@
   .ord-select { background:#fff; border:0.5px solid #ddd; border-radius:7px; padding:6px 10px; font-size:11px; color:#555; cursor:pointer; }
   .ord-vtab { width:30px; height:30px; display:flex; align-items:center; justify-content:center; border-radius:6px; border:0.5px solid #ddd; background:#fff; cursor:pointer; color:#aaa; font-size:14px; }
   .ord-vtab.active { background:#EBF4FC; border-color:#8BBEE0; color:#1A6DB5; }
-  .btn-caso { background:#0D2744; color:#fff; font-size:11px; font-weight:600; border:none; border-radius:7px; padding:7px 14px; cursor:pointer; display:flex; align-items:center; gap:5px; }
+  .btn-caso { background:#0D2744; color:#fff; font-size:11px; font-weight:600; border:none; border-radius:4px; padding:7px 14px; cursor:pointer; display:flex; align-items:center; gap:5px; }
 
   .ord-cols { grid-template-columns: 22px 110px 1fr 1fr 90px 110px 140px 90px 90px 60px 26px; }
   .ord-ia-flag { display:flex; align-items:center; justify-content:center; }
   .ord-caso-link { font-size:10px; color:#1A6DB5; margin-top:2px; display:flex; align-items:center; gap:3px; }
   .ord-taller-tec { display:flex; flex-direction:column; gap:3px; }
-  .ord-dias { font-size:10px; font-weight:700; padding:2px 7px; border-radius:8px; white-space:nowrap; }
+  .ord-dias { font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; white-space:nowrap; }
   .ord-dias-ok { background:#e6f9f0; color:#16a34a; }
   .ord-dias-warn { background:#fff4e0; color:#c27b00; }
   .ord-dias-red { background:#fff0f0; color:#c0392b; }
   .ord-actions { display:flex; align-items:center; justify-content:center; }
-  .ord-pgbtn { padding:4px 9px; border-radius:6px; border:0.5px solid #ddd; background:#fff; font-size:11px; color:#555; cursor:pointer; }
+  .ord-pgbtn { padding:4px 9px; border-radius:4px; border:0.5px solid #ddd; background:#fff; font-size:11px; color:#555; cursor:pointer; }
   .ord-pgbtn.active { background:#EBF4FC; border-color:#1A6DB5; color:#1A6DB5; font-weight:600; }
   .e-pend { background:#ffe5e5; color:#c0392b; }
 
@@ -1206,7 +1207,36 @@
     60%{transform:translateX(-6px)}
     80%{transform:translateX(6px)}
   }
-</style>
+
+  /* ══ DESIGN SYSTEM v1.0 ══ */
+  * { font-family: 'Nunito', sans-serif !important; }
+  body { font-weight: 300; }
+  h1,h2,h3,.dash-kpi-value,.ord-fcard-num,.lp-f-title,.lp-headline,.brand-headline { font-weight: 700 !important; }
+  .nav-item span, .ot-id, .ot-title, .panel-title, .dash-panel-title,
+  .ia-alert-title, .live-action strong, .lp-mvv-title,
+  .ai-greeting-title, .ord-ia-title { font-weight: 600 !important; }
+  .ot-sub, .dash-kpi-label, .ia-alert-sub, .live-time,
+  .lp-mission-txt, .lp-mvv-desc { font-weight: 300 !important; }
+
+  /* Badge/pill border-radius system: 4px max */
+  .estado-badge, .tipo-badge, .live-badge, .ord-dias,
+  .nav-badge, .nav-badge-ia, .dash-panel-badge,
+  .origen-tag, .tec-status, .lp-ot-badge, .ot-badge,
+  .role-badge, .alerta-titulo + *, .card-status,
+  .demo-badge, .ta-int, .sb-interno, .ptab, .vtab,
+  .fcard-label { border-radius: 4px !important; }
+
+  /* Buttons */
+  .btn-nueva, .btn-caso, .btn-excel, .lp-btn,
+  .ai-greeting-btn, .ord-pgbtn, .lp-sso-btn,
+  .lp-lang-btn { border-radius: 4px !important; }
+
+  /* Login form fields */
+  .lp-inp { border-radius: 4px !important; }
+  .lp-form { border-radius: 0 !important; }
+  .lp-mission { border-radius: 0 4px 4px 0 !important; }
+
+  </style>
 
 <div class="lp">
 
@@ -1632,7 +1662,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       <div class="chart-footer">
         <div><div class="cf-lbl">Promedio</div><div class="cf-val">51.4</div></div>
         <div><div class="cf-lbl">Mejor semana</div><div class="cf-val" style="color:#1A6DB5;">67 (S8)</div></div>
-        <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a;">↑ +63%</div></div>
+        <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a;"><i class="ti ti-trending-up" style="font-size:10px;"></i> +63%</div></div>
       </div>
     </div>
 
@@ -2280,7 +2310,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
             <div class="chart-footer-a">
               <div><div class="cf-lbl">Promedio semanal</div><div class="cf-val">51.4</div></div>
               <div><div class="cf-lbl">Mejor semana</div><div class="cf-val" style="color:#1A6DB5">67 (S8)</div></div>
-              <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a">↑ +63%</div></div>
+              <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a"><i class="ti ti-trending-up" style="font-size:10px;"></i> +63%</div></div>
             </div>
           </div>
           <div class="panel">
@@ -2325,10 +2355,10 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
             <div class="aging-row"><div class="aging-label">Pendiente de asignación</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:18%;background:#16a34a"></div></div><div class="aging-val ok">0.9d</div></div>
             <div class="aging-row"><div class="aging-label">Asignada / Agendada</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:30%;background:#16a34a"></div></div><div class="aging-val ok">1.5d</div></div>
             <div class="aging-row"><div class="aging-label">En diagnóstico</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:22%;background:#f59e0b"></div></div><div class="aging-val warn">1.1d</div></div>
-            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. repuesto 🔴</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:85%;background:#e24b4a"></div></div><div class="aging-val danger">4.2d</div></div>
-            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. taller 🔴</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:64%;background:#e24b4a"></div></div><div class="aging-val danger">3.2d</div></div>
-            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. cliente 🔴</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:54%;background:#f59e0b"></div></div><div class="aging-val warn">2.7d</div></div>
-            <div class="aging-row"><div class="aging-label" style="color:#c27b00;font-weight:500">Esp. aprobación 🔴</div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:40%;background:#f59e0b"></div></div><div class="aging-val warn">2.0d</div></div>
+            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. repuesto <i class="ti ti-circle-filled" style="color:#c0392b;font-size:10px;"></i></div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:85%;background:#e24b4a"></div></div><div class="aging-val danger">4.2d</div></div>
+            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. taller <i class="ti ti-circle-filled" style="color:#c0392b;font-size:10px;"></i></div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:64%;background:#e24b4a"></div></div><div class="aging-val danger">3.2d</div></div>
+            <div class="aging-row"><div class="aging-label" style="color:#c0392b;font-weight:500">Esp. cliente <i class="ti ti-circle-filled" style="color:#c0392b;font-size:10px;"></i></div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:54%;background:#f59e0b"></div></div><div class="aging-val warn">2.7d</div></div>
+            <div class="aging-row"><div class="aging-label" style="color:#c27b00;font-weight:500">Esp. aprobación <i class="ti ti-circle-filled" style="color:#c0392b;font-size:10px;"></i></div><div class="aging-bar-wrap"><div class="aging-bar-fill" style="width:40%;background:#f59e0b"></div></div><div class="aging-val warn">2.0d</div></div>
           </div>
           <div class="panel">
             <div class="panel-header"><div class="panel-title"><i class="ti ti-clock-check"></i> SLA mensual</div><div class="panel-sub">meta 90%</div></div>
@@ -2462,7 +2492,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
             <!-- ElectroFix Panamá -->
             <div class="taller-card-a alert-border" id="tc3">
               <div class="taller-header" onclick="toggleT('tc3')" style="background:#fffafa;">
-                <div class="taller-id-cell"><div class="taller-icon warn"><i class="ti ti-building-store"></i></div><div><div class="taller-name-a" style="display:flex;align-items:center;gap:6px">ElectroFix Panamá <span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:8px;background:#fff0f0;color:#c0392b">⚠ En revisión</span></div><div class="taller-sub-txt">Zona Sur · 2 técnicos</div></div></div>
+                <div class="taller-id-cell"><div class="taller-icon warn"><i class="ti ti-building-store"></i></div><div><div class="taller-name-a" style="display:flex;align-items:center;gap:6px">ElectroFix Panamá <span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:#fff0f0;color:#c0392b">⚠ En revisión</span></div><div class="taller-sub-txt">Zona Sur · 2 técnicos</div></div></div>
                 <div><div class="tkpi-val danger">2</div><div class="tkpi-lbl">OTs activas</div></div>
                 <div><div class="tkpi-val danger">9.1h</div><div class="tkpi-lbl">T. respuesta</div></div>
                 <div><div class="tkpi-val danger">51%</div><div class="tkpi-lbl">Resolución</div></div>
