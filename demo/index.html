@@ -4606,6 +4606,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     const _sa = document.getElementById('stabs-analytics');
     if (_sa) _sa.style.display = id === 'analytics' ? 'flex' : 'none';
     if (navEl && navEl.classList) navEl.classList.add('active');
+    // Persist current screen in URL hash
+    history.replaceState(null, '', '#' + id);
     // Reset HK Marketplace tabs on navigation
     if (id === 'hkmarketplace') {
       ['hkm-included','hkm-addons','hkm-enterprise'].forEach(function(eid) {
@@ -4879,6 +4881,18 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   document.getElementById('tb-ord').style.display = 'none';
   document.getElementById('tb-analytics').style.display = 'none';
   setFilter('todas');
+
+  // Restore screen from URL hash on load
+  (function restoreFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    const validScreens = ['dash','ord','ia','agenda','analytics','hkmarketplace','hkstudio'];
+    if (hash && validScreens.includes(hash)) {
+      // Find the nav item for this screen
+      const navEl = Array.from(document.querySelectorAll('.nav-item'))
+        .find(el => el.getAttribute('onclick') && el.getAttribute('onclick').includes("'" + hash + "'"));
+      goTo(hash, navEl || document.querySelectorAll('.nav-item')[0]);
+    }
+  })();
 </script>
 
 <script>
