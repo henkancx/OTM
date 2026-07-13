@@ -2658,7 +2658,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 1 — bloqueada, con alerta IA -->
-    <div class="ot-row ord-cols" data-estado="bloqueada" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="bloqueada" onclick="openOT('OT-08451','Familia Gómez — Lavadora WM-3200')">
       <div class="ord-ia-flag"><i class="ti ti-sparkles" title="IA: reincidencia detectada" style="color:#f59e0b;font-size:12px;"></i></div>
       <div>
         <div class="ot-id">OT-08451</div>
@@ -2685,7 +2685,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 2 — en análisis -->
-    <div class="ot-row ord-cols" data-estado="analisis" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="analisis" onclick="openOT('OT-08450','Torre Central — A/C Split 18K')">
       <div></div>
       <div>
         <div class="ot-id">OT-08450</div>
@@ -2712,7 +2712,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 3 — esperando retiro -->
-    <div class="ot-row ord-cols" data-estado="retiro" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="retiro" onclick="openOT('OT-08449','Restaurante La Plaza — Refrigeradora RF-550')">
       <div></div>
       <div>
         <div class="ot-id">OT-08449</div>
@@ -2739,7 +2739,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 4 — esperando piezas, SLA en riesgo -->
-    <div class="ot-row ord-cols" data-estado="piezas" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="piezas" onclick="openOT('OT-08448','Hotel Continental — Horno HE-7600')">
       <div class="ord-ia-flag"><i class="ti ti-alert-triangle" title="SLA en riesgo — vence en 6h" style="color:#c0392b;font-size:12px;"></i></div>
       <div>
         <div class="ot-id">OT-08448</div>
@@ -2766,7 +2766,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 5 — en reparación -->
-    <div class="ot-row ord-cols" data-estado="reparacion" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="reparacion" onclick="openOT('OT-08447','Banco Nacional — A/C Central 5TR')">
       <div></div>
       <div>
         <div class="ot-id">OT-08447</div>
@@ -2793,7 +2793,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ROW 6 — completada -->
-    <div class="ot-row ord-cols" data-estado="completada" onclick="openOT()">
+    <div class="ot-row ord-cols" data-estado="completada" onclick="openOT('OT-08446','Familia Rodríguez — Lavadora LG WM-12K')">
       <div></div>
       <div>
         <div class="ot-id" style="color:#aaa;">OT-08446</div>
@@ -4398,7 +4398,185 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
     </div>
 
-  </div><!-- /main -->
+  
+      <!-- TAB CONTENT: OT DETAIL (shared, updates on tab switch) -->
+      <div id="ot-detail-form" class="ord-tab-content" style="display:none;flex:1;overflow-y:auto;background:#F7F8FC;flex-direction:row;gap:0;">
+
+        <!-- Main content -->
+        <div style="flex:1;overflow-y:auto;padding:20px 24px;display:flex;flex-direction:column;gap:14px;min-width:0;">
+
+          <!-- Header -->
+          <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:16px 20px;display:flex;align-items:center;gap:12px;">
+            <div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                <span id="otd-id" style="font-size:16px;font-weight:700;color:#1A6DB5;font-family:Nunito,sans-serif;">OT-08451</span>
+                <span id="otd-badge" style="font-size:9px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:2px 8px;border-radius:2px;text-transform:uppercase;letter-spacing:.3px;font-family:Nunito,sans-serif;">Bloqueada</span>
+                <span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">· Garantía mostrador · 12 días abierta</span>
+              </div>
+              <div style="font-size:12px;color:#6B7A8D;font-family:Nunito,sans-serif;font-weight:300;">
+                Caso vinculado: <span style="color:#1A6DB5;font-weight:500;">C-2026-0312</span>
+              </div>
+            </div>
+            <div style="margin-left:auto;display:flex;gap:8px;">
+              <button onclick="showToast('Imprimiendo...')" style="padding:7px 12px;background:white;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:5px;"><i class="ti ti-printer" style="font-size:12px;"></i> Imprimir</button>
+              <button onclick="showToast('Más opciones...')" style="padding:7px 10px;background:white;border:1px solid #E8ECF2;border-radius:4px;font-size:11px;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-dots" style="font-size:12px;"></i></button>
+            </div>
+          </div>
+
+          <!-- IA Alert -->
+          <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:6px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+            <i class="ti ti-sparkles" style="color:#92400E;font-size:14px;flex-shrink:0;"></i>
+            <span style="font-size:12px;color:#78350F;font-family:Nunito,sans-serif;font-weight:300;">IA detectó reincidencia: este equipo tuvo una OT anterior por falla de centrifugado hace 45 días. Sugiere escalar a garantía técnica.</span>
+          </div>
+
+          <!-- Tabs -->
+          <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;">
+            <div style="display:flex;border-bottom:1px solid #E8ECF2;padding:0 16px;" id="otd-tabs">
+              <button onclick="otdTab(this,'otd-resumen')" style="padding:11px 14px;font-size:11px;font-weight:600;color:#1A202C;background:none;border:none;border-bottom:2px solid #1A202C;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Resumen</button>
+              <button onclick="otdTab(this,'otd-timeline')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Timeline</button>
+              <button onclick="otdTab(this,'otd-piezas')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Piezas</button>
+              <button onclick="otdTab(this,'otd-anexos')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Anexos</button>
+              <button onclick="otdTab(this,'otd-interacciones')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Interacciones</button>
+            </div>
+
+            <!-- Tab: Resumen -->
+            <div id="otd-resumen" style="display:flex;flex-direction:column;gap:0;padding:16px;gap:14px;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <!-- Cliente -->
+                <div style="background:#F7F8FC;border-radius:4px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;font-family:Nunito,sans-serif;">Cliente</div>
+                  <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:3px;font-family:Nunito,sans-serif;">Familia Gómez</div>
+                  <div style="font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;">Cédula: 8-123-456</div>
+                  <div style="font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;">+507 6612-3456 · familia.gomez@gmail.com</div>
+                </div>
+                <!-- Producto -->
+                <div style="background:#F7F8FC;border-radius:4px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;font-family:Nunito,sans-serif;">Producto</div>
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                    <span style="font-size:13px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Lavadora WM-3200</span>
+                    <span style="font-size:8px;font-weight:700;background:#ECFDF5;color:#065F46;padding:1px 5px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;">En garantía</span>
+                  </div>
+                  <div style="font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;">N/S: SN B4921-X · Garantía hasta 15 dic 2025</div>
+                </div>
+                <!-- Taller -->
+                <div style="background:#F7F8FC;border-radius:4px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;font-family:Nunito,sans-serif;">Taller asignado</div>
+                  <div style="font-size:13px;font-weight:600;color:#1A202C;margin-bottom:3px;font-family:Nunito,sans-serif;">Tecnoserv Panamá</div>
+                  <div style="font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;">Técnico: Carlos R. · Zona Norte</div>
+                  <div style="font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;">FCR 96% · Rating 4.6</div>
+                </div>
+                <!-- Diagnóstico -->
+                <div style="background:#F7F8FC;border-radius:4px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;font-family:Nunito,sans-serif;">Diagnóstico</div>
+                  <div style="font-size:11px;color:#3D4A5C;margin-bottom:4px;font-family:Nunito,sans-serif;"><span style="font-weight:600;">Reclamado:</span> Equipo no centrifuga en ningún ciclo</div>
+                  <div style="font-size:11px;color:#3D4A5C;font-family:Nunito,sans-serif;font-weight:300;"><span style="font-weight:600;">Constatado:</span> <span style="color:#9BA8B8;">Pendiente revisión técnica</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Timeline -->
+            <div id="otd-timeline" style="display:none;padding:16px;">
+              <div style="display:flex;flex-direction:column;gap:0;">
+                <div style="display:flex;gap:12px;padding-bottom:14px;border-left:2px solid #E8ECF2;margin-left:7px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#1A6DB5;flex-shrink:0;margin-left:-8px;margin-top:2px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">OT creada</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">12 jun · 08:14 · Agente Maria V.</div></div>
+                </div>
+                <div style="display:flex;gap:12px;padding-bottom:14px;border-left:2px solid #E8ECF2;margin-left:7px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#065F46;flex-shrink:0;margin-left:-8px;margin-top:2px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Asignada a Tecnoserv</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">12 jun · 08:30 · Sistema automático (IA)</div></div>
+                </div>
+                <div style="display:flex;gap:12px;padding-bottom:14px;border-left:2px solid #E8ECF2;margin-left:7px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#c27b00;flex-shrink:0;margin-left:-8px;margin-top:2px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Esperando piezas: motor centrifugado</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">13 jun · 10:22 · Carlos R.</div></div>
+                </div>
+                <div style="display:flex;gap:12px;margin-left:7px;">
+                  <div style="width:14px;height:14px;border-radius:50%;background:#991B1B;flex-shrink:0;margin-left:-8px;margin-top:2px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#991B1B;font-family:Nunito,sans-serif;">Bloqueada — proveedor sin stock</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">14 jun · 15:00 · Carlos R.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Piezas -->
+            <div id="otd-piezas" style="display:none;padding:16px;">
+              <table style="width:100%;border-collapse:collapse;font-family:Nunito,sans-serif;">
+                <thead><tr style="border-bottom:1px solid #E8ECF2;">
+                  <td style="font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;padding:6px 8px;">Referencia</td>
+                  <td style="font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;padding:6px 8px;">Descripción</td>
+                  <td style="font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;padding:6px 8px;text-align:center;">Cant.</td>
+                  <td style="font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;padding:6px 8px;text-align:right;">Precio</td>
+                  <td style="font-size:10px;font-weight:700;color:#6B7A8D;text-transform:uppercase;padding:6px 8px;">Estado</td>
+                </tr></thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid #F0F2F6;">
+                    <td style="font-size:11px;color:#1A6DB5;padding:8px;font-weight:600;">MOT-WM-32</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;">Motor centrifugado WM-3200</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;text-align:center;">1</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;text-align:right;">$89.00</td>
+                    <td style="padding:8px;"><span style="font-size:9px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:2px 6px;border-radius:2px;text-transform:uppercase;">Sin stock</span></td>
+                  </tr>
+                  <tr>
+                    <td style="font-size:11px;color:#1A6DB5;padding:8px;font-weight:600;">COR-WM-01</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;">Correa de transmisión</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;text-align:center;">2</td>
+                    <td style="font-size:11px;color:#1A202C;padding:8px;text-align:right;">$12.00</td>
+                    <td style="padding:8px;"><span style="font-size:9px;font-weight:700;background:#ECFDF5;color:#065F46;padding:2px 6px;border-radius:2px;text-transform:uppercase;">Disponible</span></td>
+                  </tr>
+                </tbody>
+                <tfoot><tr style="border-top:2px solid #E8ECF2;">
+                  <td colspan="3" style="font-size:12px;font-weight:600;color:#1A202C;padding:8px;text-align:right;">Total:</td>
+                  <td style="font-size:13px;font-weight:700;color:#1A202C;padding:8px;text-align:right;">$101.00</td>
+                  <td></td>
+                </tr></tfoot>
+              </table>
+            </div>
+
+            <!-- Tab: Anexos -->
+            <div id="otd-anexos" style="display:none;padding:16px;">
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;">
+                <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;cursor:pointer;" onclick="showToast('Abriendo anexo...')">
+                  <div style="height:70px;background:#F7F8FC;display:flex;align-items:center;justify-content:center;"><i class="ti ti-file-invoice" style="font-size:24px;color:#1A6DB5;"></i></div>
+                  <div style="padding:6px 8px;font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Factura.pdf</div>
+                </div>
+                <div style="border:1px solid #E8ECF2;border-radius:4px;overflow:hidden;cursor:pointer;" onclick="showToast('Abriendo foto...')">
+                  <div style="height:70px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;"><i class="ti ti-photo" style="font-size:24px;color:#065F46;"></i></div>
+                  <div style="padding:6px 8px;font-size:10px;color:#6B7A8D;font-family:Nunito,sans-serif;">Foto equipo.jpg</div>
+                </div>
+                <div style="border:1px dashed #E8ECF2;border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;min-height:88px;flex-direction:column;gap:4px;" onclick="showToast('Subiendo archivo...')">
+                  <i class="ti ti-plus" style="font-size:18px;color:#9BA8B8;"></i>
+                  <span style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Agregar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Interacciones -->
+            <div id="otd-interacciones" style="display:none;padding:16px;">
+              <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:12px;">
+                <div style="background:#F7F8FC;border-radius:4px;padding:10px 12px;">
+                  <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                    <div style="width:22px;height:22px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:white;font-family:Nunito,sans-serif;">CR</div>
+                    <span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Carlos R. (Tecnoserv)</span>
+                    <span style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">14 jun · 15:00</span>
+                  </div>
+                  <div style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;font-weight:300;">Proveedor confirma que MOT-WM-32 no tiene stock disponible hasta la próxima semana. OT queda bloqueada en espera.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px;">
+                <input type="text" placeholder="Escribir mensaje al taller..." style="flex:1;padding:9px 12px;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-family:Nunito,sans-serif;outline:none;" onfocus="this.style.borderColor='#1A6DB5'" onblur="this.style.borderColor='#E8ECF2'">
+                <button onclick="showToast('Mensaje enviado')" style="padding:9px 14px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:12px;cursor:pointer;font-family:Nunito,sans-serif;"><i class="ti ti-send" style="font-size:12px;"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action bar -->
+          <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:8px;">
+            <button onclick="showToast('Auditoría aprobada')" style="padding:8px 16px;background:#1A6DB5;color:white;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-circle-check" style="font-size:12px;"></i> Aprobar auditoría</button>
+            <button onclick="showToast('Garantía rechazada')" style="padding:8px 16px;background:white;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;">Rechazar garantía</button>
+            <button onclick="showToast('OT bloqueada')" style="padding:8px 16px;background:white;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;font-family:Nunito,sans-serif;">Bloquear</button>
+            <div style="margin-left:auto;font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">SLA: <span style="color:#991B1B;font-weight:600;">Vencido hace 2 días</span></div>
+          </div>
+        </div>
+      </div>
+</div><!-- /main -->
 </div><!-- /app -->
 
 <!-- Overlay sidebar mobile -->
@@ -4923,11 +5101,15 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
   /* ── PANEL DETALLE OT ── */
-  function openOT() {
-    const overlay = document.getElementById('ot-overlay');
-    overlay.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    setRol('supervisor'); // default
+  function openOT(otId, otLabel) {
+    if (!otId) { otId = 'OT-08451'; otLabel = 'Familia Gómez — Lavadora WM-3200'; }
+    // Update header with this OT's data
+    var el = document.getElementById('otd-id');
+    if (el) el.textContent = otId;
+    // Open as tab
+    openTab(otId, otId, 'ot-detail-form');
+    // Reset to Resumen tab
+    otdTab(document.querySelector('#otd-tabs button'), 'otd-resumen');
   }
 
   function closeOT() {
@@ -5278,7 +5460,29 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     }
   }
 
+
+  function otdTab(btn, targetId) {
+    document.querySelectorAll('#otd-tabs button').forEach(function(b) {
+      b.style.borderBottomColor = 'transparent';
+      b.style.color = '#6B7A8D';
+      b.style.fontWeight = '500';
+    });
+    if (btn) {
+      btn.style.borderBottomColor = '#1A202C';
+      btn.style.color = '#1A202C';
+      btn.style.fontWeight = '600';
+    }
+    ['otd-resumen','otd-timeline','otd-piezas','otd-anexos','otd-interacciones'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = id === targetId ? 'flex' : 'none';
+    });
+    var target = document.getElementById(targetId);
+    if (target && targetId !== 'otd-resumen') target.style.display = 'block';
+  }
+
 </script>
 
 </body>
 </html>
+
+
