@@ -1941,6 +1941,18 @@
   #screen-hkstudio.active > * { min-height: 0; }
   #hks-nav { height: 100%; }
 
+
+  /* screen-ord tab container */
+  #screen-ord.active {
+    padding: 0 !important;
+    overflow: hidden !important;
+    gap: 0 !important;
+  }
+  .ord-tab-content {
+    flex: 1;
+    min-height: 0;
+  }
+
 </style>
 
 <div class="lp">
@@ -2146,7 +2158,11 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     });
     // Show target
     var target = document.getElementById(contentId);
-    if (target) target.style.display = 'flex';
+    if (target) {
+      target.style.display = 'flex';
+      target.style.flex = '1';
+      target.style.minHeight = '0';
+    }
     // If it's an OT detail tab, update the OT ID shown
     if (tab && tab.contentId === 'ot-detail-form') {
       var otdEl = document.getElementById('otd-id');
