@@ -4906,7 +4906,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       if (match) visible++;
     });
     const map = { all:'24 órdenes', todas:'6 órdenes', progreso:'1 orden en progreso', pendiente:'2 órdenes pendientes', completada:'2 órdenes completadas', bloqueada:'1 orden bloqueada' };
-    document.getElementById('ord-count').textContent = map[filter] || visible + ' órdenes';
+    var _oc=document.getElementById('ord-count'); if(_oc) _oc.textContent = map[filter] || visible + ' órdenes';
   }
 
   function toggleT(id) {
@@ -5269,9 +5269,6 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       }
     }
   }
-
-
-}
 
 </script>
 
