@@ -2125,8 +2125,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
   function switchTab(id) {
     // Update tab styling
-    var tabIds = ['lista-ot', ..._tabs.map(t => t.id)];
-    tabIds.forEach(function(tid) {
+    var allTabIds = ['lista-ot'].concat(_tabs.map(function(t){ return t.id; }));
+    allTabIds.forEach(function(tid) {
       var el = document.getElementById('tab-' + tid);
       if (!el) return;
       var isActive = tid === id;
@@ -2135,15 +2135,23 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       el.style.fontWeight = isActive ? '600' : '500';
       el.style.borderBottom = isActive ? '2px solid #1A6DB5' : '1px solid #E8ECF2';
     });
-    // Show/hide content
-    var allContent = ['lista-ot-form', ..._tabs.map(t => t.contentId)];
-    allContent.forEach(function(cid) {
+    // Determine what content to show
+    var tab = _tabs.find(function(t){ return t.id === id; });
+    var contentId = tab ? tab.contentId : 'lista-ot-form';
+    if (id === 'lista-ot') contentId = 'lista-ot-form';
+    // Hide all known content areas
+    ['lista-ot-form', 'nueva-ot-form', 'nuevo-caso-form', 'ot-detail-form'].forEach(function(cid) {
       var el = document.getElementById(cid);
-      if (el) {
-        var isTarget = (id === 'lista-ot' && cid === 'lista-ot-form') || _tabs.find(t => t.id === id && t.contentId === cid);
-        el.style.display = isTarget ? 'flex' : 'none';
-      }
+      if (el) el.style.display = 'none';
     });
+    // Show target
+    var target = document.getElementById(contentId);
+    if (target) target.style.display = 'flex';
+    // If it's an OT detail tab, update the OT ID shown
+    if (tab && tab.contentId === 'ot-detail-form') {
+      var otdEl = document.getElementById('otd-id');
+      if (otdEl) otdEl.textContent = id;
+    }
   }
 
   function closeTab(id) {
@@ -5107,7 +5115,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     var el = document.getElementById('otd-id');
     if (el) el.textContent = otId;
     // Open as tab
-    openTab(otId, otId, 'ot-detail-form');
+    openTab(otId, otLabel || otId, 'ot-detail-form');
     // Reset to Resumen tab
     otdTab(document.querySelector('#otd-tabs button'), 'otd-resumen');
   }
@@ -5121,10 +5129,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   const _ov = document.getElementById('ot-overlay');
   if (_ov) _ov.addEventListener('click', function(e) { if (e.target === this) closeOT(); });
 
-  // Abrir al click en cualquier fila de OT
-  document.querySelectorAll('.ot-row').forEach(row => {
-    row.addEventListener('click', openOT);
-  });
+  // OT rows use inline onclick with proper params - no need for addEventListener
 
   /* ── ROL TOGGLE ── */
   let rolActual = 'supervisor';
