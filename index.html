@@ -7,7 +7,11 @@
   <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mystic · Portal de Gestión</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+/* Icon fallback — if CDN fails, show nothing cleanly */
+.ti { font-family: "tabler-icons", sans-serif; font-style: normal; display: inline-block; line-height: 1; }
+</style>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
   html, body { height: 100%; overflow: hidden; background: #f5f5f7; }
@@ -2069,8 +2073,8 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
     <div class="nav-section">
       <div class="nav-label">gestión</div>
-      <div class="nav-item"><i class="ti ti-users"></i><span>Clientes</span></div>
-      <div class="nav-item"><i class="ti ti-settings"></i><span>Administración</span></div>
+      <div class="nav-item" onclick="goTo('clientes',this)"><i class="ti ti-users"></i><span>Clientes</span></div>
+      <div class="nav-item" onclick="goTo('admin',this)"><i class="ti ti-settings"></i><span>Administración</span></div>
     </div>
     <div class="nav-section" style="margin-top:8px">
       <div class="nav-label">reportes</div>
@@ -4131,6 +4135,309 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
 
+    <!-- ══════════════ CLIENTES ══════════════ -->
+    <div class="screen" id="screen-clientes" style="padding:0;flex-direction:column;">
+
+      <!-- Topbar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-size:15px;font-weight:700;color:#1a1a2e;">Clientes</span>
+          <span style="font-size:11px;background:#e8f0fe;color:#1A6DB5;padding:2px 9px;border-radius:4px;font-weight:600;">1,284 registros</span>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button onclick="showToast('Exportando clientes...')" style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;color:#555;cursor:pointer;display:flex;align-items:center;gap:5px;">
+            <i class="ti ti-file-spreadsheet" style="font-size:13px;"></i> Excel
+          </button>
+          <button onclick="showToast('Formulario de nuevo cliente')" style="background:#1A6DB5;border:none;border-radius:6px;padding:7px 14px;font-size:11px;font-weight:700;color:#fff;cursor:pointer;display:flex;align-items:center;gap:5px;">
+            <i class="ti ti-plus" style="font-size:13px;"></i> Nuevo cliente
+          </button>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:16px 20px;background:#f8f9fb;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <div style="background:#fff;border-radius:8px;border:1px solid #e8e8e4;padding:14px 16px;">
+          <div style="font-size:9px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">Total clientes</div>
+          <div style="font-size:26px;font-weight:700;color:#1a1a2e;letter-spacing:-.5px;">1,284</div>
+          <div style="font-size:10px;color:#16a34a;margin-top:3px;">↑ +48 este mes</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;border:1px solid #e8e8e4;padding:14px 16px;">
+          <div style="font-size:9px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">Con OT activa</div>
+          <div style="font-size:26px;font-weight:700;color:#1a1a2e;letter-spacing:-.5px;">24</div>
+          <div style="font-size:10px;color:#888;margin-top:3px;">1.9% del total</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;border:1px solid #e8e8e4;padding:14px 16px;">
+          <div style="font-size:9px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">Reincidentes 90d</div>
+          <div style="font-size:26px;font-weight:700;color:#c0392b;letter-spacing:-.5px;">12</div>
+          <div style="font-size:10px;color:#c0392b;margin-top:3px;">↑ +3 vs mes ant.</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;border:1px solid #e8e8e4;padding:14px 16px;">
+          <div style="font-size:9px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;">NPS promedio</div>
+          <div style="font-size:26px;font-weight:700;color:#1a1a2e;letter-spacing:-.5px;">+54</div>
+          <div style="font-size:10px;color:#16a34a;margin-top:3px;">↑ +6 vs mes ant.</div>
+        </div>
+      </div>
+
+      <!-- Search & Filters -->
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <div style="flex:1;display:flex;align-items:center;gap:8px;background:#f8f9fb;border:1px solid #e8e8e4;border-radius:7px;padding:8px 12px;">
+          <i class="ti ti-search" style="font-size:14px;color:#aaa;"></i>
+          <span style="font-size:12px;color:#aaa;">Buscar por nombre, cédula, RUC, teléfono, email...</span>
+        </div>
+        <select style="background:#fff;border:1px solid #e8e8e4;border-radius:6px;padding:7px 10px;font-size:11px;color:#555;cursor:pointer;">
+          <option>Todos los segmentos</option>
+          <option>Residencial</option>
+          <option>Comercial</option>
+          <option>Corporativo</option>
+        </select>
+        <select style="background:#fff;border:1px solid #e8e8e4;border-radius:6px;padding:7px 10px;font-size:11px;color:#555;cursor:pointer;">
+          <option>Todos los países</option>
+          <option>Panamá</option>
+          <option>Venezuela</option>
+          <option>México</option>
+        </select>
+      </div>
+
+      <!-- Table Header -->
+      <div style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:8px 20px;background:#f8f9fb;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">Cliente</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">Documento</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">Contacto</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">Productos</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">OTs total</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">OT activa</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.07em;">Últ. servicio</span>
+      </div>
+
+      <!-- Table Body -->
+      <div style="flex:1;overflow-y:auto;">
+
+        <!-- Row 1 -->
+        <div onclick="openClienteDetalle('FG')" style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">FG</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Familia Gómez</div>
+              <div style="font-size:10px;color:#888;">Residencial · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">8-123-456</div>
+          <div style="font-size:11px;color:#555;">+507 6612-3456</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">2</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">4</div>
+          <div style="text-align:center;"><span style="font-size:10px;font-weight:600;background:#fff0f0;color:#c0392b;padding:2px 8px;border-radius:4px;">OT-08451</span></div>
+          <div style="font-size:11px;color:#888;">hace 4 días</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div onclick="openClienteDetalle('TC')" style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#0891b2;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">TC</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Torre Central Offices</div>
+              <div style="font-size:10px;color:#888;">Corporativo · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">J-155-234</div>
+          <div style="font-size:11px;color:#555;">+507 6800-1234</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">5</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">11</div>
+          <div style="text-align:center;"><span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 8px;border-radius:4px;">OT-08450</span></div>
+          <div style="font-size:11px;color:#888;">hace 1 día</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div onclick="openClienteDetalle('LP')" style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#d97706;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">LP</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Restaurante La Plaza</div>
+              <div style="font-size:10px;color:#888;">Comercial · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">J-288-901</div>
+          <div style="font-size:11px;color:#555;">+507 6750-8821</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">3</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">6</div>
+          <div style="text-align:center;"><span style="font-size:10px;font-weight:600;background:#fff0f0;color:#c0392b;padding:2px 8px;border-radius:4px;">OT-08449</span></div>
+          <div style="font-size:11px;color:#888;">hace 2 días</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div onclick="openClienteDetalle('HC')" style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">HC</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Hotel Continental</div>
+              <div style="font-size:10px;color:#888;">Corporativo · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">J-401-772</div>
+          <div style="font-size:11px;color:#555;">+507 6900-4400</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">8</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">19</div>
+          <div style="text-align:center;"><span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 8px;border-radius:4px;">OT-08448</span></div>
+          <div style="font-size:11px;color:#888;">hace 3 días</div>
+        </div>
+
+        <!-- Row 5 -->
+        <div onclick="openClienteDetalle('BN')" style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#059669;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">BN</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Banco Nacional</div>
+              <div style="font-size:10px;color:#888;">Corporativo · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">J-500-123</div>
+          <div style="font-size:11px;color:#555;">+507 6500-0001</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">12</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">28</div>
+          <div style="text-align:center;"><span style="font-size:10px;font-weight:600;background:#fff4e0;color:#c27b00;padding:2px 8px;border-radius:4px;">OT-08447</span></div>
+          <div style="font-size:11px;color:#888;">hace 4 días</div>
+        </div>
+
+        <!-- Row 6 -->
+        <div style="display:grid;grid-template-columns:2fr 1.2fr 1fr 80px 80px 90px 100px;gap:10px;padding:12px 20px;border-bottom:1px solid #f0f0f0;cursor:pointer;transition:background .1s;align-items:center;" onmouseover="this.style.background='#f8f9fb'" onmouseout="this.style.background=''">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="width:30px;height:30px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;">FR</div>
+            <div>
+              <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Familia Rodríguez</div>
+              <div style="font-size:10px;color:#888;">Residencial · Panamá</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:#555;">8-877-234</div>
+          <div style="font-size:11px;color:#555;">+507 6634-7788</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">1</div>
+          <div style="font-size:12px;font-weight:600;color:#1a1a2e;text-align:center;">3</div>
+          <div style="text-align:center;"><span style="font-size:10px;color:#aaa;">—</span></div>
+          <div style="font-size:11px;color:#888;">hace 1 día</div>
+        </div>
+
+        <!-- More rows placeholder -->
+        <div style="padding:20px;text-align:center;color:#aaa;font-size:12px;">
+          Mostrando 6 de 1,284 clientes
+          <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;">
+            <span style="width:28px;height:28px;background:#1A6DB5;color:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;cursor:pointer;">1</span>
+            <span style="width:28px;height:28px;background:#f0f0f0;color:#555;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;">2</span>
+            <span style="width:28px;height:28px;background:#f0f0f0;color:#555;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;">3</span>
+            <span style="color:#aaa;font-size:14px;">›</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETALLE CLIENTE PANEL (slide-in) -->
+      <div id="cliente-detalle-panel" style="position:absolute;right:-420px;top:0;bottom:0;width:420px;background:#fff;border-left:1px solid #e8e8e4;display:flex;flex-direction:column;transition:right .3s ease;z-index:50;">
+        <div style="padding:14px 16px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:13px;font-weight:700;color:#1a1a2e;">Ficha del cliente</span>
+          <button onclick="closeClienteDetalle()" style="background:none;border:none;cursor:pointer;color:#aaa;font-size:18px;">✕</button>
+        </div>
+        <div style="flex:1;overflow-y:auto;padding:16px;">
+
+          <!-- Client header -->
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid #f0f0f0;">
+            <div style="width:44px;height:44px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#fff;flex-shrink:0;">FG</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#1a1a2e;">Familia Gómez</div>
+              <div style="font-size:11px;color:#888;">Residencial · Panamá · Cliente desde ene 2024</div>
+            </div>
+          </div>
+
+          <!-- Fields -->
+          <div style="margin-bottom:14px;">
+            <div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Datos de contacto</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;">
+                <div style="font-size:9px;color:#aaa;margin-bottom:3px;">Cédula</div>
+                <div style="font-size:12px;font-weight:600;color:#1a1a2e;">8-123-456</div>
+              </div>
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;">
+                <div style="font-size:9px;color:#aaa;margin-bottom:3px;">WhatsApp</div>
+                <div style="font-size:12px;font-weight:600;color:#1a1a2e;">+507 6612-3456</div>
+              </div>
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;grid-column:1/-1;">
+                <div style="font-size:9px;color:#aaa;margin-bottom:3px;">Email</div>
+                <div style="font-size:12px;font-weight:600;color:#1a1a2e;">familia.gomez@gmail.com</div>
+              </div>
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;grid-column:1/-1;">
+                <div style="font-size:9px;color:#aaa;margin-bottom:3px;">Dirección</div>
+                <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Calle 50, Edif. Plaza Mayor Apto 4B, Panamá</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div style="margin-bottom:14px;">
+            <div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Productos registrados</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Lavadora WM-3200</div>
+                  <div style="font-size:10px;color:#888;">S/N: WM-2023-001-PAN · Garantía hasta dic 2026</div>
+                </div>
+                <span style="font-size:10px;background:#e6f9f0;color:#16a34a;padding:2px 7px;border-radius:4px;font-weight:600;">En garantía</span>
+              </div>
+              <div style="background:#f8f9fb;border-radius:6px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:12px;font-weight:600;color:#1a1a2e;">Refrigeradora RF-400</div>
+                  <div style="font-size:10px;color:#888;">S/N: RF-2022-552-PAN · Garantía vencida</div>
+                </div>
+                <span style="font-size:10px;background:#f0f0f0;color:#888;padding:2px 7px;border-radius:4px;font-weight:600;">Vencida</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OT History -->
+          <div>
+            <div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Historial de OTs (4)</div>
+            <div style="display:flex;flex-direction:column;gap:0;">
+              <div style="padding:10px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+                  <span style="font-size:12px;font-weight:600;color:#1a1a2e;">OT-08451</span>
+                  <span style="font-size:10px;background:#fff0f0;color:#c0392b;padding:1px 7px;border-radius:4px;font-weight:600;">Bloqueada</span>
+                </div>
+                <div style="font-size:11px;color:#888;">Lavadora WM-3200 · Falla centrifugado · 12 jun 2026</div>
+              </div>
+              <div style="padding:10px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+                  <span style="font-size:12px;font-weight:600;color:#1a1a2e;">OT-08245</span>
+                  <span style="font-size:10px;background:#e6f9f0;color:#16a34a;padding:1px 7px;border-radius:4px;font-weight:600;">Cerrada</span>
+                </div>
+                <div style="font-size:11px;color:#888;">Lavadora WM-3200 · Falla centrifugado · 28 abr 2026</div>
+              </div>
+              <div style="padding:10px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+                  <span style="font-size:12px;font-weight:600;color:#1a1a2e;">OT-07891</span>
+                  <span style="font-size:10px;background:#e6f9f0;color:#16a34a;padding:1px 7px;border-radius:4px;font-weight:600;">Cerrada</span>
+                </div>
+                <div style="font-size:11px;color:#888;">Refrigeradora RF-400 · No enfría · 10 feb 2026</div>
+              </div>
+              <div style="padding:10px 0;">
+                <div style="display:flex;justify-content:space-between;margin-bottom:2px;">
+                  <span style="font-size:12px;font-weight:600;color:#1a1a2e;">OT-07540</span>
+                  <span style="font-size:10px;background:#e6f9f0;color:#16a34a;padding:1px 7px;border-radius:4px;font-weight:600;">Cerrada</span>
+                </div>
+                <div style="font-size:11px;color:#888;">Lavadora WM-3200 · Instalación · 15 dic 2024</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div style="padding:12px 16px;border-top:1px solid #f0f0f0;display:flex;gap:8px;">
+          <button onclick="showToast('Nueva OT creada para Familia Gómez')" style="flex:1;background:#1A6DB5;border:none;border-radius:6px;padding:10px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;">Nueva OT</button>
+          <button onclick="showToast('Editando cliente...')" style="background:#fff;border:1px solid #ddd;border-radius:6px;padding:10px 14px;font-size:12px;font-weight:600;color:#555;cursor:pointer;">Editar</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════ ADMINISTRACIÓN ══════════════ -->
+    <div class="screen" id="screen-admin" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+      <div style="font-size:40px;">⚙️</div>
+      <div style="font-size:18px;font-weight:700;color:#1a1a2e;">Administración</div>
+      <div style="font-size:13px;color:#888;text-align:center;max-width:280px;">Gestión de usuarios, roles, permisos y configuración del sistema. Próximamente.</div>
+    </div>
+
     <div class="screen" id="screen-hkmarketplace">
 
       <!-- Header -->
@@ -4878,6 +5185,15 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   function closeSidebar() {
     document.querySelector('.sidebar').classList.remove('open');
     document.getElementById('sidebar-overlay').classList.remove('open');
+  }
+
+  function openClienteDetalle(id) {
+    const panel = document.getElementById('cliente-detalle-panel');
+    if (panel) panel.style.right = '0';
+  }
+  function closeClienteDetalle() {
+    const panel = document.getElementById('cliente-detalle-panel');
+    if (panel) panel.style.right = '-420px';
   }
 
   function goTo(id, navEl) {
