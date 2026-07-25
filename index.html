@@ -3095,11 +3095,117 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
           <!-- Tabs -->
           <div style="background:white;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;">
             <div style="display:flex;border-bottom:1px solid #E8ECF2;padding:0 16px;" id="otd-tabs">
-              <button onclick="otdTab(this,'otd-resumen')" style="padding:11px 14px;font-size:11px;font-weight:600;color:#1A202C;background:none;border:none;border-bottom:2px solid #1A202C;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Resumen</button>
+              <button onclick="otdTab(this,'otd-trazabilidad')" style="padding:11px 14px;font-size:11px;font-weight:600;color:#1A202C;background:none;border:none;border-bottom:2px solid #1A202C;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;display:flex;align-items:center;gap:5px;"><i class="ti ti-timeline" style="font-size:12px;color:#1A6DB5;"></i> Trazabilidad</button>
+              <button onclick="otdTab(this,'otd-resumen')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Resumen</button>
               <button onclick="otdTab(this,'otd-timeline')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Timeline</button>
               <button onclick="otdTab(this,'otd-piezas')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Piezas</button>
               <button onclick="otdTab(this,'otd-anexos')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Anexos</button>
               <button onclick="otdTab(this,'otd-interacciones')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#6B7A8D;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;">Interacciones</button>
+              <div style="flex:1;"></div>
+              <button onclick="otdTab(this,'otd-desincorporacion')" style="padding:11px 14px;font-size:11px;font-weight:500;color:#991B1B;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;margin-bottom:-1px;display:flex;align-items:center;gap:5px;"><i class="ti ti-alert-triangle" style="font-size:11px;"></i> Desincorporación</button>
+            </div>
+
+            <!-- Tab: Trazabilidad — PRIMERO QUE SE VE -->
+            <div id="otd-trazabilidad" style="display:flex;flex-direction:column;padding:20px 24px;gap:20px;">
+
+              <!-- Workflow horizontal del ciclo de vida -->
+              <div>
+                <div style="font-size:10px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:14px;font-family:Nunito,sans-serif;">Ciclo de vida de la orden</div>
+
+                <!-- Estados del flujo principal -->
+                <div style="display:flex;align-items:center;gap:0;overflow-x:auto;padding-bottom:4px;">
+
+                  <!-- Paso 1: Apertura -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;"><i class="ti ti-plus" style="font-size:14px;color:#fff;"></i></div>
+                    <div style="font-size:10px;font-weight:600;color:#1A6DB5;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Apertura</div>
+                    <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;text-align:center;">12 jun · 08:14</div>
+                  </div>
+                  <div style="flex:1;min-width:24px;height:2px;background:#1A6DB5;margin-bottom:22px;"></div>
+
+                  <!-- Paso 2: Asignado -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;"><i class="ti ti-user-check" style="font-size:14px;color:#fff;"></i></div>
+                    <div style="font-size:10px;font-weight:600;color:#1A6DB5;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Asignado</div>
+                    <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;text-align:center;">12 jun · 08:30</div>
+                  </div>
+                  <div style="flex:1;min-width:24px;height:2px;background:#1A6DB5;margin-bottom:22px;"></div>
+
+                  <!-- Paso 3: Diagnóstico -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;"><i class="ti ti-tool" style="font-size:14px;color:#fff;"></i></div>
+                    <div style="font-size:10px;font-weight:600;color:#1A6DB5;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Diagnóstico</div>
+                    <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;text-align:center;">13 jun · 09:00</div>
+                  </div>
+                  <div style="flex:1;min-width:24px;height:2px;background:#E8ECF2;margin-bottom:22px;"></div>
+
+                  <!-- Paso 4: Esp. Piezas (estado activo) -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:#fff;border:3px solid #c27b00;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(194,123,0,0.12);"><i class="ti ti-package" style="font-size:14px;color:#c27b00;"></i></div>
+                    <div style="font-size:10px;font-weight:700;color:#c27b00;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Esp. piezas</div>
+                    <div style="font-size:9px;color:#c27b00;font-family:Nunito,sans-serif;text-align:center;font-weight:600;">← AHORA</div>
+                  </div>
+                  <div style="flex:1;min-width:24px;height:2px;background:#E8ECF2;margin-bottom:22px;border-style:dashed;border-top:2px dashed #E8ECF2;height:0;"></div>
+
+                  <!-- Paso 5: Reparación (pendiente) -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;opacity:0.4;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;"><i class="ti ti-settings" style="font-size:14px;color:#9BA8B8;"></i></div>
+                    <div style="font-size:10px;font-weight:500;color:#9BA8B8;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Reparación</div>
+                  </div>
+                  <div style="flex:1;min-width:24px;height:0;border-top:2px dashed #E8ECF2;margin-bottom:22px;"></div>
+
+                  <!-- Paso 6: Cierre (pendiente) -->
+                  <div style="display:flex;flex-direction:column;align-items:center;min-width:90px;opacity:0.4;">
+                    <div style="width:32px;height:32px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;"><i class="ti ti-circle-check" style="font-size:14px;color:#9BA8B8;"></i></div>
+                    <div style="font-size:10px;font-weight:500;color:#9BA8B8;margin-top:6px;font-family:Nunito,sans-serif;text-align:center;">Cierre</div>
+                  </div>
+
+                </div>
+
+                <!-- Ramal de desincorporación (se muestra cuando aplica) -->
+                <div style="margin-top:14px;padding:12px 16px;background:#FFF5F5;border:1px solid #FCCACA;border-radius:6px;display:flex;align-items:center;gap:10px;">
+                  <i class="ti ti-git-branch" style="font-size:16px;color:#991B1B;flex-shrink:0;"></i>
+                  <div style="flex:1;">
+                    <div style="font-size:11px;font-weight:700;color:#991B1B;font-family:Nunito,sans-serif;">Ramal disponible: Desincorporación</div>
+                    <div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">Si el equipo es irreparable, este flujo puede activarse desde el botón "Declarar Irreparable"</div>
+                  </div>
+                  <button onclick="otdTab(document.querySelector('#otd-tabs button:last-child'),'otd-desincorporacion')" style="background:#991B1B;color:#fff;border:none;border-radius:4px;padding:6px 12px;font-size:10px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;white-space:nowrap;">Ver flujo</button>
+                </div>
+              </div>
+
+              <!-- SLA y tiempo -->
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+                <div style="background:#fff;border:1px solid #E8ECF2;border-radius:6px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-family:Nunito,sans-serif;">Días abierta</div>
+                  <div style="font-size:22px;font-weight:700;color:#991B1B;font-family:Nunito,sans-serif;line-height:1;">12</div>
+                  <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">SLA máx: 10 días</div>
+                </div>
+                <div style="background:#fff;border:1px solid #E8ECF2;border-radius:6px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-family:Nunito,sans-serif;">Estado actual</div>
+                  <div style="font-size:11px;font-weight:700;color:#c27b00;font-family:Nunito,sans-serif;margin-top:4px;">Esp. piezas</div>
+                  <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">Desde 13 jun</div>
+                </div>
+                <div style="background:#fff;border:1px solid #E8ECF2;border-radius:6px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-family:Nunito,sans-serif;">Cambios de estado</div>
+                  <div style="font-size:22px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;line-height:1;">4</div>
+                  <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">Ver timeline →</div>
+                </div>
+                <div style="background:#fff;border:1px solid #E8ECF2;border-radius:6px;padding:12px 14px;">
+                  <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-family:Nunito,sans-serif;">Garantía</div>
+                  <div style="font-size:11px;font-weight:700;color:#065F46;font-family:Nunito,sans-serif;margin-top:4px;">Activa</div>
+                  <div style="font-size:9px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">Vence 15 dic 2026</div>
+                </div>
+              </div>
+
+              <!-- Acciones disponibles según estado -->
+              <div style="display:flex;gap:8px;align-items:center;padding-top:4px;">
+                <button onclick="showToast('Aprobando auditoría...')" style="background:#1A6DB5;color:#fff;border:none;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-check" style="font-size:12px;"></i> Aprobar auditoría</button>
+                <button onclick="showToast('Rechazando garantía...')" style="background:#fff;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Rechazar garantía</button>
+                <button onclick="showToast('Bloqueando OT...')" style="background:#fff;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Bloquear</button>
+                <div style="flex:1;"></div>
+                <button onclick="otdTab(document.querySelectorAll('#otd-tabs button')[5],'otd-desincorporacion')" style="background:#FFF5F5;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-alert-triangle" style="font-size:12px;"></i> Declarar Irreparable</button>
+              </div>
+
             </div>
 
             <!-- Tab: Resumen -->
@@ -3158,6 +3264,70 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
                 </div>
               </div>
             </div>
+
+            <!-- Tab: Desincorporación -->
+            <div id="otd-desincorporacion" style="display:none;padding:20px 24px;flex-direction:column;gap:16px;">
+
+              <!-- Header estado -->
+              <div style="background:#FFF5F5;border:1px solid #FCCACA;border-radius:6px;padding:14px 18px;display:flex;align-items:center;gap:12px;">
+                <i class="ti ti-alert-triangle" style="font-size:20px;color:#991B1B;flex-shrink:0;"></i>
+                <div>
+                  <div style="font-size:13px;font-weight:700;color:#991B1B;font-family:Nunito,sans-serif;">Flujo de Desincorporación</div>
+                  <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:2px;">Para equipos declarados irreparables. Este flujo requiere aprobación en dos niveles antes de generar la Nota de Crédito en el ERP.</div>
+                </div>
+              </div>
+
+              <!-- Workflow de aprobación -->
+              <div style="background:#fff;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;">
+                <div style="padding:12px 16px;border-bottom:1px solid #E8ECF2;font-size:10px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.8px;font-family:Nunito,sans-serif;">Estado del flujo</div>
+
+                <!-- Paso 1 -->
+                <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-bottom:1px solid #F7F8FC;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="ti ti-tool" style="font-size:13px;color:#9BA8B8;"></i></div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#6B7A8D;font-family:Nunito,sans-serif;">Momento 1 — Declaración de irreparabilidad</div>
+                    <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:3px;">Técnico declara el equipo irreparable con diagnóstico y foto de evidencia</div>
+                  </div>
+                  <span style="font-size:9px;font-weight:700;background:#E8ECF2;color:#6B7A8D;padding:3px 8px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;white-space:nowrap;">Pendiente</span>
+                </div>
+
+                <!-- Paso 2 -->
+                <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-bottom:1px solid #F7F8FC;opacity:0.5;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="ti ti-user-check" style="font-size:13px;color:#9BA8B8;"></i></div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#6B7A8D;font-family:Nunito,sans-serif;">Momento 2 — Aprobación Gerencia (Nivel 1)</div>
+                    <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:3px;">Gerencia revisa el acta, el diagnóstico y el valor de NC del ERP</div>
+                  </div>
+                  <span style="font-size:9px;font-weight:700;background:#E8ECF2;color:#6B7A8D;padding:3px 8px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;white-space:nowrap;">En espera</span>
+                </div>
+
+                <!-- Paso 3 -->
+                <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border-bottom:1px solid #F7F8FC;opacity:0.5;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="ti ti-building" style="font-size:13px;color:#9BA8B8;"></i></div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#6B7A8D;font-family:Nunito,sans-serif;">Momento 3 — Aprobación Dirección (Nivel 2)</div>
+                    <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:3px;">Dirección aprueba y el sistema genera la NC en el ERP automáticamente</div>
+                    <div style="font-size:10px;color:#991B1B;font-family:Nunito,sans-serif;margin-top:4px;display:flex;align-items:center;gap:4px;"><i class="ti ti-alert-circle" style="font-size:11px;"></i> Esta acción es irreversible — la NC se crea directamente en el ERP</div>
+                  </div>
+                  <span style="font-size:9px;font-weight:700;background:#E8ECF2;color:#6B7A8D;padding:3px 8px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;white-space:nowrap;">En espera</span>
+                </div>
+
+                <!-- Paso 4 -->
+                <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;opacity:0.5;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;"><i class="ti ti-package-export" style="font-size:13px;color:#9BA8B8;"></i></div>
+                  <div style="flex:1;">
+                    <div style="font-size:12px;font-weight:600;color:#6B7A8D;font-family:Nunito,sans-serif;">Momento 4 — Cierre del ciclo del equipo</div>
+                    <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:3px;">Devolución física confirmada. Destino: Outlet (buen estado) o Despiece (banco de repuestos)</div>
+                  </div>
+                  <span style="font-size:9px;font-weight:700;background:#E8ECF2;color:#6B7A8D;padding:3px 8px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;white-space:nowrap;">En espera</span>
+                </div>
+              </div>
+
+              <!-- CTA principal -->
+              <div style="display:flex;gap:8px;align-items:center;">
+                <button onclick="showToast('Abriendo formulario de declaración de irreparabilidad...')" style="background:#991B1B;color:#fff;border:none;border-radius:4px;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:8px;"><i class="ti ti-alert-triangle" style="font-size:13px;"></i> Declarar Irreparable</button>
+                <span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Requiere permiso: <code style="font-size:10px;background:#F7F8FC;padding:1px 5px;border-radius:2px;">desincorporacion.declarar</code></span>
+              </div>
 
             <!-- Tab: Piezas -->
             <div id="otd-piezas" style="display:none;padding:16px;">
@@ -5512,7 +5682,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     // Open as tab
     openTab(otId, otLabel || otId, 'ot-detail-form');
     // Reset to Resumen tab
-    otdTab(document.querySelector('#otd-tabs button'), 'otd-resumen');
+    otdTab(document.querySelector('#otd-tabs button'), 'otd-trazabilidad');
   }
 
   function closeOT() {
@@ -5873,12 +6043,12 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       btn.style.color = '#1A202C';
       btn.style.fontWeight = '600';
     }
-    ['otd-resumen','otd-timeline','otd-piezas','otd-anexos','otd-interacciones'].forEach(function(id) {
+    ['otd-trazabilidad','otd-resumen','otd-timeline','otd-piezas','otd-anexos','otd-interacciones','otd-desincorporacion'].forEach(function(id) {
       var el = document.getElementById(id);
-      if (el) el.style.display = id === targetId ? 'flex' : 'none';
+      if (el) el.style.display = 'none';
     });
     var target = document.getElementById(targetId);
-    if (target && targetId !== 'otd-resumen') target.style.display = 'block';
+    if (target) target.style.display = targetId === 'otd-trazabilidad' ? 'flex' : 'block';
   }
 
 </script>
