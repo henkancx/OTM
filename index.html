@@ -3203,7 +3203,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
                 <button onclick="showToast('Rechazando garantía...')" style="background:#fff;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Rechazar garantía</button>
                 <button onclick="showToast('Bloqueando OT...')" style="background:#fff;color:#6B7A8D;border:1px solid #E8ECF2;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Bloquear</button>
                 <div style="flex:1;"></div>
-                <button onclick="otdTab(document.querySelectorAll('#otd-tabs button')[5],'otd-desincorporacion')" style="background:#FFF5F5;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-alert-triangle" style="font-size:12px;"></i> Declarar Irreparable</button>
+                <button onclick="abrirDeclararIrreperable()" style="background:#FFF5F5;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:8px 16px;font-size:11px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-alert-triangle" style="font-size:12px;"></i> Declarar Irreparable</button>
               </div>
 
             </div>
@@ -3325,7 +3325,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
               <!-- CTA principal -->
               <div style="display:flex;gap:8px;align-items:center;">
-                <button onclick="showToast('Abriendo formulario de declaración de irreparabilidad...')" style="background:#991B1B;color:#fff;border:none;border-radius:4px;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:8px;"><i class="ti ti-alert-triangle" style="font-size:13px;"></i> Declarar Irreparable</button>
+                <button onclick="abrirDeclararIrreperable()" style="background:#991B1B;color:#fff;border:none;border-radius:4px;padding:10px 20px;font-size:12px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:8px;"><i class="ti ti-alert-triangle" style="font-size:13px;"></i> Declarar Irreparable</button>
                 <span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Requiere permiso: <code style="font-size:10px;background:#F7F8FC;padding:1px 5px;border-radius:2px;">desincorporacion.declarar</code></span>
               </div>
 
@@ -5466,6 +5466,138 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
   </div><!-- /ot-panel -->
+
+<!-- ══ MODAL: DECLARAR IRREPARABLE (Momento 1) ══ -->
+<div id="modal-declarar-irreparable" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(13,23,36,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:8px;width:560px;max-width:calc(100vw - 32px);max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid #E8ECF2;">
+      <div style="width:36px;height:36px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <i class="ti ti-alert-triangle" style="font-size:17px;color:#991B1B;"></i>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">Declarar equipo irreparable</div>
+        <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:1px;">OT-08451 · Lavadora WM-3200 · Familia Gómez</div>
+      </div>
+      <button onclick="cerrarDeclararIrreperable()" style="margin-left:auto;background:none;border:none;cursor:pointer;color:#9BA8B8;padding:4px;"><i class="ti ti-x" style="font-size:18px;"></i></button>
+    </div>
+
+    <!-- Pasos indicator -->
+    <div style="display:flex;align-items:center;padding:14px 22px;background:#F7F8FC;border-bottom:1px solid #E8ECF2;gap:0;">
+      <div id="di-step-dot-1" style="width:24px;height:24px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:11px;font-weight:700;color:#fff;font-family:Nunito,sans-serif;">1</span></div>
+      <div style="font-size:11px;font-weight:600;color:#1A6DB5;margin-left:6px;font-family:Nunito,sans-serif;" id="di-step-label-1">Diagnóstico</div>
+      <div id="di-line-1" style="flex:1;height:1px;background:#1A6DB5;margin:0 10px;"></div>
+      <div id="di-step-dot-2" style="width:24px;height:24px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:11px;font-weight:700;color:#9BA8B8;font-family:Nunito,sans-serif;">2</span></div>
+      <div style="font-size:11px;font-weight:500;color:#9BA8B8;margin-left:6px;font-family:Nunito,sans-serif;" id="di-step-label-2">Evidencia</div>
+      <div id="di-line-2" style="flex:1;height:1px;background:#E8ECF2;margin:0 10px;"></div>
+      <div id="di-step-dot-3" style="width:24px;height:24px;border-radius:50%;background:#E8ECF2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-size:11px;font-weight:700;color:#9BA8B8;font-family:Nunito,sans-serif;">3</span></div>
+      <div style="font-size:11px;font-weight:500;color:#9BA8B8;margin-left:6px;font-family:Nunito,sans-serif;" id="di-step-label-3">Confirmar</div>
+    </div>
+
+    <!-- Paso 1: Diagnóstico -->
+    <div id="di-paso-1" style="padding:22px;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:6px;padding:10px 14px;display:flex;gap:9px;align-items:flex-start;">
+        <i class="ti ti-info-circle" style="font-size:14px;color:#92400E;flex-shrink:0;margin-top:1px;"></i>
+        <span style="font-size:11px;color:#78350F;font-family:Nunito,sans-serif;line-height:1.5;">Al confirmar este formulario se iniciará el proceso de desincorporación. La OT cambiará a estado <strong>Irreparable</strong> y se notificará al nivel de aprobación correspondiente.</span>
+      </div>
+
+      <div>
+        <label style="display:block;font-size:11px;font-weight:700;color:#3D4A5C;margin-bottom:6px;font-family:Nunito,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Diagnóstico técnico <span style="color:#991B1B;">*</span></label>
+        <textarea id="di-diagnostico" rows="4" placeholder="Describe detalladamente la falla encontrada y las razones por las que el equipo no tiene reparación viable..." style="width:100%;box-sizing:border-box;border:1px solid #E8ECF2;border-radius:4px;padding:10px 12px;font-size:12px;font-family:Nunito,sans-serif;color:#1A202C;resize:vertical;outline:none;line-height:1.5;"></textarea>
+        <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Mínimo 50 caracteres. Este texto aparecerá en el Acta de Desincorporación.</div>
+      </div>
+
+      <div>
+        <label style="display:block;font-size:11px;font-weight:700;color:#3D4A5C;margin-bottom:6px;font-family:Nunito,sans-serif;text-transform:uppercase;letter-spacing:.5px;">N° de serie del equipo</label>
+        <input type="text" value="SN B4921-X" readonly style="width:100%;box-sizing:border-box;border:1px solid #E8ECF2;border-radius:4px;padding:9px 12px;font-size:12px;font-family:Nunito,sans-serif;color:#6B7A8D;background:#F7F8FC;outline:none;">
+        <div style="font-size:10px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">Se usará para localizar la factura original en el ERP.</div>
+      </div>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:4px;">
+        <button onclick="cerrarDeclararIrreperable()" style="padding:9px 18px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:600;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;">Cancelar</button>
+        <button onclick="diPaso(2)" style="padding:9px 18px;background:#1A6DB5;border:none;border-radius:4px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;">Siguiente <i class="ti ti-arrow-right" style="font-size:12px;"></i></button>
+      </div>
+    </div>
+
+    <!-- Paso 2: Evidencia fotográfica -->
+    <div id="di-paso-2" style="padding:22px;display:none;flex-direction:column;gap:16px;">
+      <div>
+        <label style="display:block;font-size:11px;font-weight:700;color:#3D4A5C;margin-bottom:6px;font-family:Nunito,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Foto de evidencia <span style="color:#991B1B;">*</span></label>
+        <div id="di-dropzone" onclick="document.getElementById('di-foto-input').click()" style="border:2px dashed #E8ECF2;border-radius:6px;padding:32px 20px;text-align:center;cursor:pointer;background:#F7F8FC;transition:border-color .15s;" onmouseover="this.style.borderColor='#1A6DB5'" onmouseout="this.style.borderColor='#E8ECF2'">
+          <i class="ti ti-camera" style="font-size:28px;color:#9BA8B8;display:block;margin-bottom:8px;"></i>
+          <div style="font-size:12px;font-weight:600;color:#3D4A5C;font-family:Nunito,sans-serif;">Arrastra una foto o haz clic para seleccionar</div>
+          <div style="font-size:11px;color:#9BA8B8;margin-top:4px;font-family:Nunito,sans-serif;">JPG, PNG o HEIC · Máx. 10 MB</div>
+          <input type="file" id="di-foto-input" accept="image/*" style="display:none;" onchange="diPreviewFoto(this)">
+        </div>
+        <!-- Preview foto (oculto hasta subir) -->
+        <div id="di-foto-preview" style="display:none;margin-top:10px;border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;position:relative;">
+          <img id="di-foto-img" style="width:100%;max-height:200px;object-fit:cover;display:block;">
+          <button onclick="diQuitarFoto()" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,0.5);border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><i class="ti ti-x" style="font-size:13px;color:#fff;"></i></button>
+          <div id="di-foto-nombre" style="padding:8px 12px;font-size:11px;color:#6B7A8D;font-family:Nunito,sans-serif;background:#F7F8FC;"></div>
+        </div>
+      </div>
+
+      <!-- Demo: simular foto ya cargada -->
+      <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:6px;padding:10px 14px;display:flex;gap:9px;align-items:center;">
+        <i class="ti ti-info-circle" style="font-size:14px;color:#065F46;flex-shrink:0;"></i>
+        <span style="font-size:11px;color:#065F46;font-family:Nunito,sans-serif;">Demo: puedes continuar sin foto real. En producción la foto es obligatoria.</span>
+      </div>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:4px;">
+        <button onclick="diPaso(1)" style="padding:9px 18px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:600;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;">Atrás</button>
+        <button onclick="diPaso(3)" style="padding:9px 18px;background:#1A6DB5;border:none;border-radius:4px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;">Siguiente <i class="ti ti-arrow-right" style="font-size:12px;"></i></button>
+      </div>
+    </div>
+
+    <!-- Paso 3: Confirmar -->
+    <div id="di-paso-3" style="padding:22px;display:none;flex-direction:column;gap:16px;">
+
+      <!-- Preview Acta -->
+      <div style="border:1px solid #E8ECF2;border-radius:6px;overflow:hidden;">
+        <div style="background:#0D2744;padding:12px 18px;display:flex;align-items:center;gap:10px;">
+          <i class="ti ti-file-description" style="font-size:16px;color:rgba(255,255,255,0.7);"></i>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:#fff;font-family:Nunito,sans-serif;">Acta de Desincorporación</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.5);font-family:Nunito,sans-serif;">Se generará automáticamente al confirmar</div>
+          </div>
+          <span style="margin-left:auto;font-size:10px;font-weight:600;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);padding:3px 8px;border-radius:3px;font-family:Nunito,sans-serif;">PDF</span>
+        </div>
+        <div style="padding:16px 18px;background:#F7F8FC;display:flex;flex-direction:column;gap:8px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div><div style="font-size:9px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;">OT</div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">OT-08451</div></div>
+            <div><div style="font-size:9px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;">Fecha</div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;" id="di-fecha-acta">—</div></div>
+            <div><div style="font-size:9px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;">Cliente</div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Familia Gómez</div></div>
+            <div><div style="font-size:9px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;">N° Serie</div><div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">SN B4921-X</div></div>
+            <div style="grid-column:1/-1;"><div style="font-size:9px;color:#9BA8B8;text-transform:uppercase;letter-spacing:.6px;font-family:Nunito,sans-serif;margin-bottom:3px;">Diagnóstico</div><div style="font-size:11px;color:#3D4A5C;font-family:Nunito,sans-serif;font-style:italic;" id="di-resumen-diagnostico">—</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning crítico -->
+      <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:6px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start;">
+        <i class="ti ti-alert-circle" style="font-size:16px;color:#991B1B;flex-shrink:0;margin-top:1px;"></i>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:#991B1B;font-family:Nunito,sans-serif;margin-bottom:3px;">Al confirmar ocurrirá lo siguiente:</div>
+          <ul style="margin:0;padding-left:16px;font-size:11px;color:#7F1D1D;font-family:Nunito,sans-serif;line-height:1.8;">
+            <li>La OT pasará a estado <strong>Irreparable</strong></li>
+            <li>Se generará el PDF del Acta automáticamente</li>
+            <li>El sistema buscará la factura original en el ERP por número de serie</li>
+            <li>Se notificará al responsable de aprobación Nivel 1</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;padding-top:4px;">
+        <button onclick="diPaso(2)" style="padding:9px 18px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:600;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;">Atrás</button>
+        <button onclick="diConfirmar()" style="padding:9px 20px;background:#991B1B;border:none;border-radius:4px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:6px;"><i class="ti ti-check" style="font-size:13px;"></i> Confirmar declaración</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /modal-declarar-irreparable -->
+
 </div><!-- /ot-overlay -->
 
 
@@ -6032,7 +6164,112 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
 
-  function otdTab(btn, targetId) {
+  // ══ DESINCORPORACIÓN — Momento 1 ══
+  function abrirDeclararIrreperable() {
+    var m = document.getElementById('modal-declarar-irreparable');
+    m.style.display = 'flex';
+    diPaso(1);
+  }
+
+  function cerrarDeclararIrreperable() {
+    document.getElementById('modal-declarar-irreparable').style.display = 'none';
+    // Reset
+    document.getElementById('di-diagnostico').value = '';
+    diQuitarFoto();
+  }
+
+  function diPaso(n) {
+    [1,2,3].forEach(function(i) {
+      document.getElementById('di-paso-'+i).style.display = 'none';
+      var dot = document.getElementById('di-step-dot-'+i);
+      var lbl = document.getElementById('di-step-label-'+i);
+      if (i < n) {
+        dot.style.background = '#16a34a';
+        dot.innerHTML = '<i class="ti ti-check" style="font-size:12px;color:#fff;"></i>';
+        lbl.style.color = '#16a34a';
+      } else if (i === n) {
+        dot.style.background = '#1A6DB5';
+        dot.innerHTML = '<span style="font-size:11px;font-weight:700;color:#fff;font-family:Nunito,sans-serif;">'+i+'</span>';
+        lbl.style.color = '#1A6DB5';
+        lbl.style.fontWeight = '600';
+      } else {
+        dot.style.background = '#E8ECF2';
+        dot.innerHTML = '<span style="font-size:11px;font-weight:700;color:#9BA8B8;font-family:Nunito,sans-serif;">'+i+'</span>';
+        lbl.style.color = '#9BA8B8';
+        lbl.style.fontWeight = '500';
+      }
+      if (i < 3) {
+        var line = document.getElementById('di-line-'+i);
+        if (line) line.style.background = i < n ? '#16a34a' : '#E8ECF2';
+      }
+    });
+    var paso = document.getElementById('di-paso-'+n);
+    paso.style.display = 'flex';
+    paso.style.flexDirection = 'column';
+
+    // Populate step 3 preview
+    if (n === 3) {
+      var d = new Date();
+      document.getElementById('di-fecha-acta').textContent =
+        d.getDate()+' '+ ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'][d.getMonth()]+' '+d.getFullYear();
+      var diag = document.getElementById('di-diagnostico').value.trim();
+      document.getElementById('di-resumen-diagnostico').textContent =
+        diag.length > 0 ? (diag.length > 120 ? diag.substring(0,120)+'...' : diag) : '(sin diagnóstico ingresado)';
+    }
+  }
+
+  function diPreviewFoto(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('di-foto-img').src = e.target.result;
+        document.getElementById('di-foto-nombre').textContent = input.files[0].name + ' · ' + (input.files[0].size/1024).toFixed(0) + ' KB';
+        document.getElementById('di-foto-preview').style.display = 'block';
+        document.getElementById('di-dropzone').style.display = 'none';
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function diQuitarFoto() {
+    document.getElementById('di-foto-input').value = '';
+    document.getElementById('di-foto-preview').style.display = 'none';
+    document.getElementById('di-dropzone').style.display = 'block';
+  }
+
+  function diConfirmar() {
+    cerrarDeclararIrreperable();
+    // Update OT status badge
+    var badge = document.getElementById('otd-badge');
+    if (badge) { badge.textContent = 'Irreparable'; badge.style.background = '#FEF2F2'; badge.style.color = '#991B1B'; }
+    // Switch to desincorporacion tab
+    var tabs = document.querySelectorAll('#otd-tabs button');
+    otdTab(tabs[tabs.length-1], 'otd-desincorporacion');
+    // Update desincorporacion paso 1 status
+    diActualizarEstadoMomento1();
+    showToast('✓ OT declarada irreparable. Notificación enviada a Gerencia de Garantías.');
+  }
+
+  function diActualizarEstadoMomento1() {
+    // Find the Momento 1 row and update its badge to "Completado"
+    var rows = document.querySelectorAll('#otd-desincorporacion [style*="Momento 1"]');
+    if (rows.length > 0) {
+      var parent = rows[0].closest('[style*="display:flex;align-items:flex-start"]');
+      if (parent) {
+        var badge = parent.querySelector('span[style*="Pendiente"]');
+        if (badge) { badge.textContent = 'Completado'; badge.style.background = '#ECFDF5'; badge.style.color = '#065F46'; }
+        parent.style.opacity = '1';
+      }
+    }
+    // Also activate Momento 2
+    var paso2 = document.querySelectorAll('#otd-desincorporacion [style*="Momento 2"]');
+    if (paso2.length > 0) {
+      var p2 = paso2[0].closest('[style*="opacity:0.5"]');
+      if (p2) p2.style.opacity = '1';
+    }
+  }
+
+    function otdTab(btn, targetId) {
     document.querySelectorAll('#otd-tabs button').forEach(function(b) {
       b.style.borderBottomColor = 'transparent';
       b.style.color = '#6B7A8D';
