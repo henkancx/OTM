@@ -2386,6 +2386,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     <div class="nav-section">
       <div class="nav-label">gestión</div>
       <div class="nav-item" onclick="goTo('clientes',this)"><i class="ti ti-users"></i><span>Clientes</span></div>
+      <div class="nav-item" onclick="goTo('aprobaciones',this)" id="nav-aprobaciones"><i class="ti ti-clipboard-check"></i><span>Aprobaciones</span><span class="nav-badge" style="background:#991B1B;">1</span></div>
       <div class="nav-item" onclick="goTo('admin',this)"><i class="ti ti-settings"></i><span>Administración</span></div>
     </div>
     <div class="nav-section" style="margin-top:8px">
@@ -4854,7 +4855,241 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       <div style="font-size:13px;color:#888;text-align:center;max-width:280px;">Gestión de usuarios, roles, permisos y configuración del sistema. Próximamente.</div>
     </div>
 
-    <div class="screen" id="screen-hkmarketplace">
+        <!-- ══════ SCREEN: APROBACIONES ══════ -->
+    <div class="screen" id="screen-aprobaciones" data-notopbar="1" style="padding:0;flex-direction:column;overflow-y:auto;">
+
+      <!-- Topbar -->
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:15px;font-weight:700;color:#1a1a2e;font-family:Nunito,sans-serif;">Cola de aprobaciones</span>
+          <span style="font-size:10px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:2px 8px;border-radius:3px;font-family:Nunito,sans-serif;">1 pendiente</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Rol activo: <strong style="color:#1A202C;">Gerente Postventa</strong></span>
+          <span style="font-size:10px;font-weight:600;background:#E8F2FB;color:#1A6DB5;padding:2px 8px;border-radius:3px;font-family:Nunito,sans-serif;">desincorporacion.aprobar_nivel_1</span>
+        </div>
+      </div>
+
+      <!-- Tabs de filtro -->
+      <div style="display:flex;gap:0;border-bottom:1px solid #e8e8e4;background:#fff;flex-shrink:0;padding:0 20px;">
+        <div onclick="aprobTab(this,'apb-desinc')" style="padding:10px 16px;font-size:11px;font-weight:700;color:#1A202C;border-bottom:2px solid #1A202C;cursor:pointer;font-family:Nunito,sans-serif;">Desincorporaciones <span style="background:#991B1B;color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:4px;">1</span></div>
+        <div onclick="aprobTab(this,'apb-otros')" style="padding:10px 16px;font-size:11px;font-weight:500;color:#9BA8B8;border-bottom:2px solid transparent;cursor:pointer;font-family:Nunito,sans-serif;">Otros flujos <span style="background:#E8ECF2;color:#9BA8B8;font-size:9px;font-weight:700;padding:1px 6px;border-radius:10px;margin-left:4px;">0</span></div>
+      </div>
+
+      <!-- Tab: Desincorporaciones -->
+      <div id="apb-desinc" style="padding:20px;display:flex;flex-direction:column;gap:12px;">
+
+        <!-- Card de aprobación — OT-08451 -->
+        <div id="apb-card-08451" style="background:#fff;border:1px solid #E8ECF2;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+
+          <!-- Card header -->
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #F7F8FC;background:#FFFBF5;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ti ti-alert-triangle" style="font-size:16px;color:#991B1B;"></i>
+            </div>
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px;">
+                <span style="font-size:13px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">OT-08451 · Lavadora WM-3200</span>
+                <span style="font-size:9px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:2px 7px;border-radius:2px;text-transform:uppercase;font-family:Nunito,sans-serif;">Irreparable</span>
+              </div>
+              <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Familia Gómez · N/S: SN B4921-X · Declarado por Carlos R. · Tecnoserv Panamá</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Recibido</div>
+              <div style="font-size:12px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">Hace 5 min</div>
+            </div>
+          </div>
+
+          <!-- Card body: 3 columnas -->
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;">
+
+            <!-- Col 1: Diagnóstico técnico -->
+            <div style="padding:16px 18px;border-right:1px solid #F7F8FC;">
+              <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px;font-family:Nunito,sans-serif;">Diagnóstico técnico</div>
+              <p style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;margin:0;line-height:1.55;">Compresor de la lavadora con falla mecánica irreversible. Costo de reparación estimado supera el 90% del valor del equipo. No viable económicamente para el cliente.</p>
+              <div style="margin-top:10px;display:flex;align-items:center;gap:6px;cursor:pointer;" onclick="showToast('Abriendo Acta de Desincorporación PDF...')">
+                <i class="ti ti-file-description" style="font-size:13px;color:#1A6DB5;"></i>
+                <span style="font-size:11px;color:#1A6DB5;font-weight:600;font-family:Nunito,sans-serif;text-decoration:underline;">Ver Acta de Desincorporación PDF</span>
+              </div>
+            </div>
+
+            <!-- Col 2: Datos ERP -->
+            <div style="padding:16px 18px;border-right:1px solid #F7F8FC;">
+              <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px;font-family:Nunito,sans-serif;">Factura original · ERP</div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">N° Factura</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">FAC-2024-08812</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Fecha compra</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">14 dic 2024</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Valor original</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">$689.00</span></div>
+                <div style="margin-top:4px;padding-top:8px;border-top:1px solid #F7F8FC;display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:11px;font-weight:700;color:#3D4A5C;font-family:Nunito,sans-serif;">Valor NC sugerido</span>
+                  <span style="font-size:16px;font-weight:800;color:#1A202C;font-family:Nunito,sans-serif;">$689.00</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:5px;margin-top:2px;">
+                  <i class="ti ti-circle-check" style="font-size:12px;color:#16a34a;"></i>
+                  <span style="font-size:10px;color:#16a34a;font-weight:600;font-family:Nunito,sans-serif;">Factura encontrada en ERP</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Col 3: Historial del cliente -->
+            <div style="padding:16px 18px;">
+              <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px;font-family:Nunito,sans-serif;">Historial del equipo</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;gap:8px;align-items:flex-start;">
+                  <div style="width:6px;height:6px;border-radius:50%;background:#9BA8B8;flex-shrink:0;margin-top:4px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">OT-08312 · Reparado</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">hace 45 días · Falla centrifugado</div></div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:flex-start;">
+                  <div style="width:6px;height:6px;border-radius:50%;background:#9BA8B8;flex-shrink:0;margin-top:4px;"></div>
+                  <div><div style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">OT-08451 · Irreparable</div><div style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">hoy · Falla compresor</div></div>
+                </div>
+                <div style="margin-top:4px;background:#FFF5F5;border-radius:4px;padding:7px 10px;display:flex;gap:6px;align-items:center;">
+                  <i class="ti ti-repeat" style="font-size:12px;color:#991B1B;"></i>
+                  <span style="font-size:10px;color:#991B1B;font-weight:600;font-family:Nunito,sans-serif;">2ª falla en 45 días — reincidencia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card footer: acciones -->
+          <div style="display:flex;align-items:center;gap:8px;padding:14px 18px;background:#F7F8FC;border-top:1px solid #E8ECF2;">
+            <button onclick="apbAprobarN1()" style="background:#1A6DB5;color:#fff;border:none;border-radius:4px;padding:9px 20px;font-size:12px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:7px;"><i class="ti ti-arrow-up-right" style="font-size:13px;"></i> Enviar a Dirección</button>
+            <button onclick="apbRechazarN1()" style="background:#fff;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:9px 16px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Rechazar</button>
+            <div style="flex:1;"></div>
+            <span style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;">Nivel 1 de 2 · Tu aprobación enviará a Dirección para decisión final</span>
+          </div>
+
+        </div>
+
+        <!-- Estado vacío (oculto por ahora) -->
+        <div id="apb-empty" style="display:none;text-align:center;padding:60px 20px;">
+          <i class="ti ti-clipboard-check" style="font-size:36px;color:#E8ECF2;display:block;margin-bottom:12px;"></i>
+          <div style="font-size:14px;font-weight:600;color:#9BA8B8;font-family:Nunito,sans-serif;">Sin aprobaciones pendientes</div>
+          <div style="font-size:12px;color:#C4CDD6;margin-top:4px;font-family:Nunito,sans-serif;">Las solicitudes de desincorporación aparecerán aquí</div>
+        </div>
+
+      </div>
+
+      <!-- Tab: Otros flujos -->
+      <div id="apb-otros" style="display:none;padding:60px 20px;text-align:center;">
+        <i class="ti ti-clock" style="font-size:36px;color:#E8ECF2;display:block;margin-bottom:12px;"></i>
+        <div style="font-size:14px;font-weight:600;color:#9BA8B8;font-family:Nunito,sans-serif;">Próximamente</div>
+        <div style="font-size:12px;color:#C4CDD6;margin-top:4px;font-family:Nunito,sans-serif;">Otros flujos de aprobación se mostrarán aquí</div>
+      </div>
+
+      <!-- Modal Rechazar N1 -->
+      <div id="modal-rechazar-n1" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(13,23,36,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+        <div style="background:#fff;border-radius:8px;width:440px;max-width:calc(100vw - 32px);padding:24px;box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+          <div style="font-size:14px;font-weight:700;color:#1A202C;margin-bottom:4px;font-family:Nunito,sans-serif;">Rechazar desincorporación</div>
+          <div style="font-size:11px;color:#9BA8B8;margin-bottom:16px;font-family:Nunito,sans-serif;">OT-08451 · La OT regresará al técnico con el motivo indicado</div>
+          <label style="display:block;font-size:11px;font-weight:700;color:#3D4A5C;margin-bottom:6px;font-family:Nunito,sans-serif;text-transform:uppercase;letter-spacing:.5px;">Motivo de rechazo <span style="color:#991B1B;">*</span></label>
+          <textarea id="rechazo-motivo" rows="3" placeholder="Explica al técnico por qué se rechaza la declaración..." style="width:100%;box-sizing:border-box;border:1px solid #E8ECF2;border-radius:4px;padding:10px 12px;font-size:12px;font-family:Nunito,sans-serif;color:#1A202C;resize:vertical;outline:none;"></textarea>
+          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+            <button onclick="document.getElementById('modal-rechazar-n1').style.display='none'" style="padding:9px 16px;background:#fff;border:1px solid #E8ECF2;border-radius:4px;font-size:12px;font-weight:600;color:#6B7A8D;cursor:pointer;font-family:Nunito,sans-serif;">Cancelar</button>
+            <button onclick="apbConfirmarRechazoN1()" style="padding:9px 16px;background:#991B1B;border:none;border-radius:4px;font-size:12px;font-weight:700;color:#fff;cursor:pointer;font-family:Nunito,sans-serif;">Confirmar rechazo</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /screen-aprobaciones -->
+
+    <!-- ══════ SCREEN: APROBACIONES DIRECCIÓN (NIVEL 2) ══════ -->
+    <div class="screen" id="screen-aprobaciones-dir" data-notopbar="1" style="padding:0;flex-direction:column;overflow-y:auto;">
+
+      <!-- Topbar -->
+      <div style="display:flex;align-items:center;gap:12px;padding:13px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+        <button onclick="goTo('aprobaciones',document.getElementById('nav-aprobaciones'))" style="background:none;border:none;cursor:pointer;color:#9BA8B8;padding:2px;display:flex;align-items:center;"><i class="ti ti-arrow-left" style="font-size:16px;"></i></button>
+        <span style="font-size:15px;font-weight:700;color:#1a1a2e;font-family:Nunito,sans-serif;">Aprobación de Dirección</span>
+        <span style="font-size:10px;font-weight:700;background:#FEF2F2;color:#991B1B;padding:2px 8px;border-radius:3px;font-family:Nunito,sans-serif;">Nivel 2 · Decisión final</span>
+        <div style="flex:1;"></div>
+        <span style="font-size:10px;font-weight:600;background:#F3E8FF;color:#6B21A8;padding:2px 8px;border-radius:3px;font-family:Nunito,sans-serif;">desincorporacion.aprobar_nivel_2</span>
+      </div>
+
+      <div style="padding:20px;display:flex;flex-direction:column;gap:16px;max-width:720px;width:100%;">
+
+        <!-- Trail de aprobación -->
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:6px;">
+          <i class="ti ti-circle-check" style="font-size:15px;color:#16a34a;flex-shrink:0;"></i>
+          <span style="font-size:11px;color:#065F46;font-family:Nunito,sans-serif;"><strong>Gerencia de Garantías</strong> aprobó en Nivel 1 · hace 2 min · La desincorporación cumple los criterios operativos.</span>
+        </div>
+
+        <!-- Card principal -->
+        <div style="background:#fff;border:1px solid #E8ECF2;border-radius:8px;overflow:hidden;">
+          <div style="padding:16px 20px;border-bottom:1px solid #F7F8FC;display:flex;align-items:center;gap:12px;background:#FAFAFA;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;"><i class="ti ti-alert-triangle" style="font-size:16px;color:#991B1B;"></i></div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">OT-08451 · Lavadora WM-3200 · Familia Gómez</div>
+              <div style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-top:1px;">N/S: SN B4921-X · Factura: FAC-2024-08812 · 14 dic 2024</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+            <div style="padding:16px 20px;border-right:1px solid #F7F8FC;">
+              <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px;font-family:Nunito,sans-serif;">Diagnóstico del técnico</div>
+              <p style="font-size:12px;color:#3D4A5C;font-family:Nunito,sans-serif;margin:0;line-height:1.55;">Compresor de la lavadora con falla mecánica irreversible. Costo de reparación estimado supera el 90% del valor del equipo. No viable económicamente para el cliente.</p>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="font-size:9px;font-weight:700;color:#9BA8B8;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px;font-family:Nunito,sans-serif;">Nota de Crédito a generar</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Tipo transacción</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">NC · Tipo 10</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Referencia factura</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">FAC-2024-08812</span></div>
+                <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Cliente ERP</span><span style="font-size:11px;font-weight:600;color:#1A202C;font-family:Nunito,sans-serif;">CLI-004821</span></div>
+                <div style="padding-top:8px;border-top:1px solid #F7F8FC;display:flex;justify-content:space-between;align-items:center;">
+                  <span style="font-size:12px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">Monto de la NC</span>
+                  <span style="font-size:20px;font-weight:800;color:#1A202C;font-family:Nunito,sans-serif;">$689.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WARNING CRÍTICO -->
+        <div style="background:#FEF2F2;border:2px solid #FECACA;border-radius:8px;padding:18px 20px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <i class="ti ti-alert-circle" style="font-size:20px;color:#991B1B;flex-shrink:0;"></i>
+            <div style="font-size:13px;font-weight:800;color:#991B1B;font-family:Nunito,sans-serif;">Acción irreversible — leer antes de aprobar</div>
+          </div>
+          <ul style="margin:0;padding-left:18px;font-size:12px;color:#7F1D1D;font-family:Nunito,sans-serif;line-height:2;">
+            <li>Al aprobar, el sistema ejecutará <strong>inmediatamente</strong> el endpoint <code style="background:rgba(0,0,0,0.08);padding:1px 5px;border-radius:3px;">POST /api/v1/Inventario/CrearDocumento</code> en el ERP</li>
+            <li>La Nota de Crédito de <strong>$689.00</strong> quedará creada en el ERP <strong>sin estado borrador</strong></li>
+            <li>No es posible deshacer esta acción desde OT Manager</li>
+            <li>Si el ERP retorna un error, se notificará al administrador — <strong>no se reintentará automáticamente</strong></li>
+          </ul>
+        </div>
+
+        <!-- Acciones -->
+        <div style="display:flex;gap:10px;align-items:center;padding:16px 20px;background:#fff;border:1px solid #E8ECF2;border-radius:8px;">
+          <button onclick="apbAprobarN2()" style="background:#991B1B;color:#fff;border:none;border-radius:4px;padding:11px 24px;font-size:13px;font-weight:800;cursor:pointer;font-family:Nunito,sans-serif;display:flex;align-items:center;gap:8px;"><i class="ti ti-check" style="font-size:15px;"></i> Aprobar y generar NC en ERP</button>
+          <button onclick="apbRechazarN2()" style="background:#fff;color:#991B1B;border:1px solid #FCCACA;border-radius:4px;padding:11px 18px;font-size:12px;font-weight:600;cursor:pointer;font-family:Nunito,sans-serif;">Rechazar</button>
+          <div style="flex:1;"></div>
+          <span style="font-size:10px;color:#9BA8B8;font-family:Nunito,sans-serif;text-align:right;max-width:200px;">Esta decisión quedará registrada en el timeline de la OT con tu usuario y timestamp</span>
+        </div>
+
+      </div>
+
+      <!-- Modal resultado NC generada -->
+      <div id="modal-nc-generada" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(13,23,36,0.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;">
+        <div style="background:#fff;border-radius:8px;width:460px;max-width:calc(100vw - 32px);padding:28px;box-shadow:0 24px 64px rgba(0,0,0,0.3);text-align:center;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#ECFDF5;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <i class="ti ti-circle-check" style="font-size:28px;color:#16a34a;"></i>
+          </div>
+          <div style="font-size:16px;font-weight:800;color:#1A202C;font-family:Nunito,sans-serif;margin-bottom:6px;">Nota de Crédito generada</div>
+          <div style="font-size:12px;color:#9BA8B8;font-family:Nunito,sans-serif;margin-bottom:20px;">La NC fue creada exitosamente en el ERP</div>
+          <div style="background:#F7F8FC;border-radius:6px;padding:14px 18px;margin-bottom:20px;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">N° Nota de Crédito</span><span style="font-size:13px;font-weight:800;color:#1A6DB5;font-family:Nunito,sans-serif;">NC-2026-00441</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Monto</span><span style="font-size:13px;font-weight:700;color:#1A202C;font-family:Nunito,sans-serif;">$689.00</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:11px;color:#9BA8B8;font-family:Nunito,sans-serif;">Estado OT</span><span style="font-size:11px;font-weight:700;color:#c27b00;font-family:Nunito,sans-serif;">Pendiente devolución física</span></div>
+          </div>
+          <div style="background:#EFF6FF;border-radius:6px;padding:10px 14px;margin-bottom:20px;font-size:11px;color:#1D4ED8;font-family:Nunito,sans-serif;">
+            <i class="ti ti-brand-whatsapp" style="font-size:13px;"></i> WhatsApp enviado a Familia Gómez notificando la aprobación y la devolución pendiente
+          </div>
+          <button onclick="apbCerrarNC()" style="background:#1A6DB5;color:#fff;border:none;border-radius:4px;padding:11px 28px;font-size:12px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;width:100%;">Entendido — ir a OT</button>
+        </div>
+      </div>
+
+    </div><!-- /screen-aprobaciones-dir -->
+
+<div class="screen" id="screen-hkmarketplace">
 
       <!-- Header -->
       <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:#0D2744;border-radius:6px;gap:16px;">
@@ -5774,6 +6009,9 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
       });
     }
     closeSidebar();
+    // aprobaciones-dir is a sub-screen, not in nav
+    var apbDir = document.getElementById('screen-aprobaciones-dir');
+    if (apbDir) apbDir.classList.remove('active');
   }
 
   function showTab(id, el) {
@@ -6036,7 +6274,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   // Restore screen from URL hash on load
   (function restoreFromHash() {
     const hash = window.location.hash.replace('#', '');
-    const validScreens = ['dash','ord','ia','agenda','analytics','hkmarketplace','hkstudio'];
+    const validScreens = ['dash','ord','ia','agenda','analytics','hkmarketplace','hkstudio','aprobaciones','clientes','admin'];
     if (hash && validScreens.includes(hash)) {
       // Find the nav item for this screen
       const navEl = Array.from(document.querySelectorAll('.nav-item'))
@@ -6164,7 +6402,76 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
   }
 
 
-  // ══ DESINCORPORACIÓN — Momento 1 ══
+  // ══ APROBACIONES N2 — Dirección ══
+  function apbAprobarN2() {
+    document.getElementById('modal-nc-generada').style.display = 'flex';
+  }
+
+  function apbRechazarN2() {
+    if (confirm('¿Confirmar rechazo? La desincorporación regresará al técnico.')) {
+      goTo('aprobaciones', document.getElementById('nav-aprobaciones'));
+      showToast('Desincorporación rechazada por Dirección. OT regresó al técnico.');
+    }
+  }
+
+  function apbCerrarNC() {
+    document.getElementById('modal-nc-generada').style.display = 'none';
+    goTo('ord', document.querySelector('[onclick*="goTo(\'ord\'"]'));
+    showToast('NC-2026-00441 vinculada a OT-08451. Estado: Pendiente devolución física.');
+  }
+
+    // ══ APROBACIONES — Momentos 2 y 3 ══
+  function aprobTab(btn, id) {
+    ['apb-desinc','apb-otros'].forEach(function(t) {
+      var el = document.getElementById(t);
+      if (el) el.style.display = 'none';
+    });
+    document.querySelectorAll('#screen-aprobaciones [onclick*="aprobTab"]').forEach(function(b) {
+      b.style.borderBottomColor = 'transparent';
+      b.style.color = '#9BA8B8';
+      b.style.fontWeight = '500';
+    });
+    var el = document.getElementById(id);
+    if (el) { el.style.display = 'flex'; el.style.flexDirection = 'column'; }
+    if (btn) { btn.style.borderBottomColor = '#1A202C'; btn.style.color = '#1A202C'; btn.style.fontWeight = '700'; }
+  }
+
+  function apbAprobarN1() {
+    // Ocultar card y mostrar estado vacío
+    var card = document.getElementById('apb-card-08451');
+    var empty = document.getElementById('apb-empty');
+    if (card) card.style.display = 'none';
+    if (empty) empty.style.display = 'block';
+    // Actualizar badge nav
+    var badge = document.querySelector('#nav-aprobaciones .nav-badge');
+    if (badge) badge.style.display = 'none';
+    // Mostrar toast
+    showToast('✓ Enviado a Dirección para aprobación final (Nivel 2)');
+    // Navegar a pantalla de Dirección después de un momento
+    setTimeout(function() {
+      // Show aprobaciones-dir as sub-screen
+      document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+      var dir = document.getElementById('screen-aprobaciones-dir');
+      if (dir) dir.classList.add('active');
+    }, 1200);
+  }
+
+  function apbRechazarN1() {
+    document.getElementById('modal-rechazar-n1').style.display = 'flex';
+  }
+
+  function apbConfirmarRechazoN1() {
+    document.getElementById('modal-rechazar-n1').style.display = 'none';
+    var card = document.getElementById('apb-card-08451');
+    var empty = document.getElementById('apb-empty');
+    if (card) card.style.display = 'none';
+    if (empty) empty.style.display = 'block';
+    var badge = document.querySelector('#nav-aprobaciones .nav-badge');
+    if (badge) badge.style.display = 'none';
+    showToast('Desincorporación rechazada. OT regresó al técnico con el motivo.');
+  }
+
+    // ══ DESINCORPORACIÓN — Momento 1 ══
   function abrirDeclararIrreperable() {
     var m = document.getElementById('modal-declarar-irreparable');
     m.style.display = 'flex';
