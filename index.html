@@ -1748,22 +1748,22 @@
   /* ══ HK SCREENS FINAL OVERRIDE ══ */
   div#screen-hkmarketplace.screen.active {
     display: flex !important;
+    flex-direction: column !important;
     flex: 1 !important;
+    overflow-y: auto !important;
+    padding: 18px 22px !important;
+    gap: 14px !important;
+    background: #F7F8FC !important;
     min-height: 0 !important;
-    padding: 18px 22px;
-    flex-direction: column;
-    gap: 14px;
-    background: #F7F8FC;
-    overflow-y: auto;
   }
   div#screen-hkstudio.screen.active {
     display: flex !important;
+    flex-direction: column !important;
     flex: 1 !important;
-    padding: 18px 22px;
-    flex-direction: column;
-    gap: 14px;
-    background: #F7F8FC;
-    overflow-y: auto;
+    overflow-y: auto !important;
+    padding: 18px 22px !important;
+    gap: 14px !important;
+    background: #F7F8FC !important;
   }
   div#screen-hkmarketplace .hk-header,
   div#screen-hkmarketplace .hk-plan-bar,
@@ -2731,7 +2731,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
 
     <!-- ══════ SCREEN: ÓRDENES ══════ -->
-    <div class="screen" id="screen-ord" data-notopbar="1" style="padding:0;flex-direction:column;">
+    <div class="screen" id="screen-ord" style="padding:0;flex-direction:column;">
 
       <!-- Topbar -->
       <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
@@ -4381,7 +4381,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
 
 
     <!-- ══════════════ CLIENTES ══════════════ -->
-    <div class="screen" id="screen-clientes" data-notopbar="1" style="padding:0;flex-direction:column;">
+    <div class="screen" id="screen-clientes" style="padding:0;flex-direction:column;">
 
       <!-- Topbar -->
       <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:#fff;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
@@ -4677,7 +4677,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ══════════════ ADMINISTRACIÓN ══════════════ -->
-    <div class="screen" id="screen-admin" data-notopbar="1" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+    <div class="screen" id="screen-admin" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
       <div style="font-size:40px;">⚙️</div>
       <div style="font-size:18px;font-weight:700;color:#1a1a2e;">Administración</div>
       <div style="font-size:13px;color:#888;text-align:center;max-width:280px;">Gestión de usuarios, roles, permisos y configuración del sistema. Próximamente.</div>
@@ -5448,7 +5448,7 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     const _sc = document.getElementById('screen-' + id);
     if (_sc) _sc.classList.add('active');
     const _tb = document.getElementById('tb-' + id);
-    if (_tb && !(_sc && _sc.getAttribute("data-notopbar"))) _tb.style.display = 'flex';
+    if (_tb && !(_sc && _sc.getAttribute('data-notopbar'))) _tb.style.display = 'flex';
     const _sa = document.getElementById('stabs-analytics');
     if (_sa) _sa.style.display = id === 'analytics' ? 'flex' : 'none';
     if (navEl && navEl.classList) navEl.classList.add('active');
