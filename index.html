@@ -2500,221 +2500,234 @@ function lpChk(){const b=document.getElementById('lp-chk-el');b.classList.toggle
     </div>
 
     <!-- ══════ SCREEN: DASHBOARD ══════ -->
-    <div class="screen active" id="screen-dash">
+    <div class="screen active" id="screen-dash" style="padding:0;flex-direction:column;overflow-y:auto;">
 
   <!-- IA GREETING BANNER -->
-  <div class="ai-greeting">
-    <div class="ai-greeting-left">
-      <div class="ai-greeting-avatar"><i class="ti ti-sparkles"></i></div>
-      <div class="ai-greeting-body">
-        <div class="ai-greeting-title">Buenos días, Luciana — <span id="dash-date"></span></div>
-        <div class="ai-greeting-msg">Analicé la operación de anoche. <strong>3 alertas requieren tu atención</strong>: 2 OTs vencieron SLA y hay un patrón de falla recurrente en lavadoras modelo WM-3200. El resto de la red opera con normalidad.</div>
+  <div style="background:#0D2744;border-left:3px solid #1A6DB5;padding:12px 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-shrink:0;">
+    <div style="display:flex;align-items:flex-start;gap:10px;">
+      <div style="width:28px;height:28px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="ti ti-sparkles" style="font-size:13px;color:rgba(255,255,255,0.7);"></i></div>
+      <div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-bottom:3px;">Buenos días, Luciana — <span id="dash-date">sábado 25 de julio</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.55;">Analicé la operación de anoche. <strong style="color:#fff;font-weight:600;">3 alertas requieren tu atención</strong>: 2 OTs vencieron SLA y hay un patrón de falla recurrente en lavadoras modelo WM-3200. El resto de la red opera con normalidad.</div>
       </div>
     </div>
-    <button class="ai-greeting-btn" onclick="goTo('ia',document.querySelector('[onclick*=goTo\\'ia\\']'))">
-      <i class="ti ti-message-circle"></i> Hablar con IA
-    </button>
+    <button onclick="goTo('ia',document.querySelector('[onclick*=goTo]'))" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);border-radius:4px;font-size:11px;padding:6px 12px;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0;"><i class="ti ti-message-circle" style="font-size:13px;"></i> Hablar con IA</button>
   </div>
 
-  <!-- KPI ROW 1 — 5 cards -->
-  <div class="dash-kpi-row">
-    <div class="dash-kpi-card">
-      <div class="dash-kpi-top">
-        <div class="dash-kpi-icon" style="background:#E8F2FB;color:#1A6DB5;"><i class="ti ti-clipboard-list"></i></div>
-        <span class="dash-kpi-trend up"><i class="ti ti-trending-up"></i> +12%</span>
+  <!-- KPI ROW -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-bottom:1px solid #e8e8e4;flex-shrink:0;">
+
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:7px;background:#E8F2FB;display:flex;align-items:center;justify-content:center;"><i class="ti ti-clipboard-list" style="font-size:15px;color:#1A6DB5;"></i></div>
+        <span style="font-size:10px;font-weight:600;color:#16a34a;">↑ +12%</span>
       </div>
-      <div class="dash-kpi-value">24</div>
-      <div class="dash-kpi-label">OTs activas</div>
+      <div style="font-size:30px;font-weight:700;color:#1a1a2e;letter-spacing:-.6px;line-height:1;">24</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">OTs activas</div>
     </div>
-    <div class="dash-kpi-card">
-      <div class="dash-kpi-top">
-        <div class="dash-kpi-icon" style="background:#e6f9f0;color:#16a34a;"><i class="ti ti-circle-check"></i></div>
-        <span class="dash-kpi-trend up"><i class="ti ti-trending-up"></i> +8%</span>
+
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:7px;background:#e6f9f0;display:flex;align-items:center;justify-content:center;"><i class="ti ti-circle-check" style="font-size:15px;color:#16a34a;"></i></div>
+        <span style="font-size:10px;font-weight:600;color:#16a34a;">↑ +8%</span>
       </div>
-      <div class="dash-kpi-value">37</div>
-      <div class="dash-kpi-label">Cerradas hoy</div>
+      <div style="font-size:30px;font-weight:700;color:#1a1a2e;letter-spacing:-.6px;line-height:1;">37</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">Cerradas hoy</div>
     </div>
-    <div class="dash-kpi-card alert-card">
-      <div class="dash-kpi-top">
-        <div class="dash-kpi-icon" style="background:#fff0f0;color:#c0392b;"><i class="ti ti-alert-triangle"></i></div>
-        <span class="dash-kpi-trend down">29% del total</span>
+
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;background:#fff5f5;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:7px;background:#fff0f0;display:flex;align-items:center;justify-content:center;"><i class="ti ti-alert-triangle" style="font-size:15px;color:#c0392b;"></i></div>
+        <span style="font-size:10px;font-weight:600;color:#c0392b;">29% del total</span>
       </div>
-      <div class="dash-kpi-value" style="color:#c0392b;">7</div>
-      <div class="dash-kpi-label">OTs bloqueadas</div>
+      <div style="font-size:30px;font-weight:700;color:#c0392b;letter-spacing:-.6px;line-height:1;">7</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">OTs bloqueadas</div>
     </div>
-    <div class="dash-kpi-card">
-      <div class="dash-kpi-top">
-        <div class="dash-kpi-icon" style="background:#fff4e0;color:#c27b00;"><i class="ti ti-clock"></i></div>
-        <span class="dash-kpi-trend warn">meta: 75%</span>
+
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:7px;background:#fff4e0;display:flex;align-items:center;justify-content:center;"><i class="ti ti-clock" style="font-size:15px;color:#c27b00;"></i></div>
+        <span style="font-size:10px;font-weight:600;color:#c27b00;">meta: 75%</span>
       </div>
-      <div class="dash-kpi-value">68%</div>
-      <div class="dash-kpi-label">Tasa FCR</div>
+      <div style="font-size:30px;font-weight:700;color:#1a1a2e;letter-spacing:-.6px;line-height:1;">68%</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">Tasa FCR</div>
     </div>
-    <div class="dash-kpi-card">
-      <div class="dash-kpi-top">
-        <div class="dash-kpi-icon" style="background:#e8f0fe;color:#2563eb;"><i class="ti ti-users"></i></div>
-        <span class="dash-kpi-trend up">2 disponibles</span>
+
+    <div style="padding:16px 20px;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+        <div style="width:32px;height:32px;border-radius:7px;background:#e8f0fe;display:flex;align-items:center;justify-content:center;"><i class="ti ti-users" style="font-size:15px;color:#2563eb;"></i></div>
+        <span style="font-size:10px;font-weight:600;color:#16a34a;">2 disponibles</span>
       </div>
-      <div class="dash-kpi-value">6</div>
-      <div class="dash-kpi-label">Técnicos activos</div>
+      <div style="font-size:30px;font-weight:700;color:#1a1a2e;letter-spacing:-.6px;line-height:1;">6</div>
+      <div style="font-size:11px;color:#888;margin-top:4px;">Técnicos activos</div>
     </div>
+
   </div>
 
-  <!-- MIDDLE ROW — Alertas IA + Actividad reciente -->
-  <div class="dash-mid-row">
+  <!-- MID ROW — Alertas IA + Operación en vivo -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid #e8e8e4;flex-shrink:0;min-height:240px;">
 
-    <!-- ALERTAS IA -->
-    <div class="dash-panel">
-      <div class="dash-panel-hdr">
-        <div class="dash-panel-title"><i class="ti ti-sparkles" style="color:#1A6DB5;"></i> Alertas detectadas por IA</div>
-        <span class="dash-panel-badge" style="background:#fff4e0;color:#c27b00;">3 pendientes</span>
+    <!-- Alertas IA -->
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1a1a2e;"><i class="ti ti-sparkles" style="font-size:13px;color:#1A6DB5;"></i> Alertas detectadas por IA</div>
+        <span style="font-size:10px;font-weight:600;background:#fff4e0;color:#c27b00;padding:2px 8px;border-radius:4px;">3 pendientes</span>
       </div>
-      <div class="ia-alert-list">
-        <div class="ia-alert ia-alert-red">
-          <div class="ia-alert-icon"><i class="ti ti-alert-circle"></i></div>
-          <div class="ia-alert-body">
-            <div class="ia-alert-title">2 OTs superaron SLA crítico</div>
-            <div class="ia-alert-sub">WO-2447 · WO-2445 — más de 72h sin avance</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#FFF8F8;border:1px solid #FCCACA;border-radius:4px;padding:10px 12px;display:flex;align-items:flex-start;gap:9px;">
+          <i class="ti ti-alert-circle" style="font-size:14px;color:#c0392b;margin-top:1px;flex-shrink:0;"></i>
+          <div style="flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#1a1a2e;">2 OTs superaron SLA crítico</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">WO-2447 · WO-2445 — más de 72h sin avance</div>
           </div>
-          <span class="ia-alert-time">hace 2h</span>
+          <span style="font-size:10px;color:#aaa;white-space:nowrap;">hace 2h</span>
         </div>
-        <div class="ia-alert ia-alert-amber">
-          <div class="ia-alert-icon"><i class="ti ti-repeat"></i></div>
-          <div class="ia-alert-body">
-            <div class="ia-alert-title">Patrón de falla recurrente detectado</div>
-            <div class="ia-alert-sub">Lavadora WM-3200 — 3 OTs con falla de compresor en 30 días</div>
+        <div style="background:#FFFDF5;border:1px solid #FDE68A;border-radius:4px;padding:10px 12px;display:flex;align-items:flex-start;gap:9px;">
+          <i class="ti ti-repeat" style="font-size:14px;color:#c27b00;margin-top:1px;flex-shrink:0;"></i>
+          <div style="flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#1a1a2e;">Patrón de falla recurrente detectado</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Lavadora WM-3200 — 3 OTs con falla de compresor en 30 días</div>
           </div>
-          <span class="ia-alert-time">hace 5h</span>
+          <span style="font-size:10px;color:#aaa;white-space:nowrap;">hace 5h</span>
         </div>
-        <div class="ia-alert ia-alert-blue">
-          <div class="ia-alert-icon"><i class="ti ti-package"></i></div>
-          <div class="ia-alert-body">
-            <div class="ia-alert-title">Stock mínimo: correa LG 6602-001655</div>
-            <div class="ia-alert-sub">Taller Tecnoserv — quedan 2 unidades, consumo promedio 4/semana</div>
+        <div style="background:#F5FAFF;border:1px solid #BFDBFE;border-radius:4px;padding:10px 12px;display:flex;align-items:flex-start;gap:9px;">
+          <i class="ti ti-package" style="font-size:14px;color:#1A6DB5;margin-top:1px;flex-shrink:0;"></i>
+          <div style="flex:1;">
+            <div style="font-size:11px;font-weight:600;color:#1a1a2e;">Stock mínimo: correa LG 6602-001655</div>
+            <div style="font-size:10px;color:#888;margin-top:2px;">Taller Tecnoserv — quedan 2 unidades, consumo promedio 4/semana</div>
           </div>
-          <span class="ia-alert-time">hace 8h</span>
+          <span style="font-size:10px;color:#aaa;white-space:nowrap;">hace 8h</span>
         </div>
       </div>
     </div>
 
-    <!-- ACTIVIDAD EN VIVO -->
-    <div class="dash-panel">
-      <div class="dash-panel-hdr">
-        <div class="dash-panel-title"><i class="ti ti-activity" style="color:#1A6DB5;"></i> Operación en vivo</div>
-        <div class="live-dot-wrap"><div class="live-dot"></div><span style="font-size:10px;color:#16a34a;font-weight:600;">EN VIVO</span></div>
+    <!-- Operación en vivo -->
+    <div style="padding:16px 20px;background:#fff;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1a1a2e;"><i class="ti ti-activity" style="font-size:13px;color:#1A6DB5;"></i> Operación en vivo</div>
+        <div style="display:flex;align-items:center;gap:5px;"><div style="width:6px;height:6px;border-radius:50%;background:#16a34a;animation:livePulse 1.5s ease-in-out infinite;"></div><span style="font-size:10px;color:#16a34a;font-weight:700;">EN VIVO</span></div>
       </div>
-      <div class="live-feed">
-        <div class="live-item">
-          <div class="live-av" style="background:#1A6DB5;">CR</div>
-          <div class="live-body">
-            <div class="live-action"><strong>Carlos Ruiz</strong> cerró OT #WO-2450 — A/C Torre Central</div>
-            <div class="live-time">hace 3 min</div>
-          </div>
-          <span class="live-badge live-ok">Cerrada</span>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #f5f5f5;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;">CR</div>
+          <div style="flex:1;"><div style="font-size:11px;color:#1a1a2e;"><strong>Carlos Ruiz</strong> cerró OT #WO-2450 — A/C Torre Central</div><div style="font-size:10px;color:#aaa;margin-top:1px;">hace 3 min</div></div>
+          <span style="font-size:9px;font-weight:700;background:#f0fdf4;color:#166534;padding:2px 7px;border-radius:2px;text-transform:uppercase;">Cerrada</span>
         </div>
-        <div class="live-item">
-          <div class="live-av" style="background:#0891b2;">MA</div>
-          <div class="live-body">
-            <div class="live-action"><strong>Miguel Arias</strong> inició diagnóstico — A/C Banco Nacional</div>
-            <div class="live-time">hace 11 min</div>
-          </div>
-          <span class="live-badge live-prog">En progreso</span>
+        <div style="display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #f5f5f5;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#0891b2;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;">MA</div>
+          <div style="flex:1;"><div style="font-size:11px;color:#1a1a2e;"><strong>Miguel Arias</strong> inició diagnóstico — A/C Banco Nacional</div><div style="font-size:10px;color:#aaa;margin-top:1px;">hace 11 min</div></div>
+          <span style="font-size:9px;font-weight:700;background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:2px;text-transform:uppercase;">Progreso</span>
         </div>
-        <div class="live-item">
-          <div class="live-av" style="background:#c0392b;">!</div>
-          <div class="live-body">
-            <div class="live-action"><strong>IA detectó</strong> pieza crítica en WO-2451 — solicitud automática enviada</div>
-            <div class="live-time">hace 18 min</div>
-          </div>
-          <span class="live-badge live-ia">IA</span>
+        <div style="display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #f5f5f5;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#c0392b;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;">!</div>
+          <div style="flex:1;"><div style="font-size:11px;color:#1a1a2e;"><strong>IA detectó</strong> pieza crítica en WO-2451 — solicitud automática enviada</div><div style="font-size:10px;color:#aaa;margin-top:1px;">hace 18 min</div></div>
+          <span style="font-size:9px;font-weight:700;background:#f5f3ff;color:#5b21b6;padding:2px 7px;border-radius:2px;text-transform:uppercase;">IA</span>
         </div>
-        <div class="live-item">
-          <div class="live-av" style="background:#16a34a;">LM</div>
-          <div class="live-body">
-            <div class="live-action"><strong>Luis Mora</strong> marcó disponible — regresó de WO-2449</div>
-            <div class="live-time">hace 24 min</div>
-          </div>
-          <span class="live-badge live-ok">Disponible</span>
+        <div style="display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid #f5f5f5;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;">LM</div>
+          <div style="flex:1;"><div style="font-size:11px;color:#1a1a2e;"><strong>Luis Mora</strong> marcó disponible — regresó de WO-2449</div><div style="font-size:10px;color:#aaa;margin-top:1px;">hace 24 min</div></div>
+          <span style="font-size:9px;font-weight:700;background:#f0fdf4;color:#166534;padding:2px 7px;border-radius:2px;text-transform:uppercase;">Disponible</span>
         </div>
-        <div class="live-item">
-          <div class="live-av" style="background:#6366f1;">RV</div>
-          <div class="live-body">
-            <div class="live-action"><strong>Roberto Vargas</strong> abrió WO-2452 — Refrigeradora Restaurante La Plaza</div>
-            <div class="live-time">hace 31 min</div>
-          </div>
-          <span class="live-badge live-prog">Nueva</span>
+        <div style="display:flex;align-items:center;gap:9px;padding:9px 0;">
+          <div style="width:28px;height:28px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;">RV</div>
+          <div style="flex:1;"><div style="font-size:11px;color:#1a1a2e;"><strong>Roberto Vargas</strong> abrió WO-2452 — Refrigeradora Restaurante La Plaza</div><div style="font-size:10px;color:#aaa;margin-top:1px;">hace 31 min</div></div>
+          <span style="font-size:9px;font-weight:700;background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:2px;text-transform:uppercase;">Nueva</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BOTTOM ROW — Gráfico + técnicos + estados -->
-  <div class="dash-bottom-row">
+  <!-- BOTTOM ROW — Gráfico + Donut + Técnicos -->
+  <div style="display:grid;grid-template-columns:1.2fr 1fr 1.4fr;gap:0;background:#fff;">
 
-    <!-- GRAFICO OTs POR SEMANA -->
-    <div class="dash-panel">
-      <div class="dash-panel-hdr">
-        <div class="dash-panel-title"><i class="ti ti-chart-bar" style="color:#1A6DB5;"></i> OTs cerradas por semana</div>
+    <!-- Gráfico barras -->
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1a1a2e;"><i class="ti ti-chart-bar" style="font-size:13px;color:#1A6DB5;"></i> OTs cerradas por semana</div>
         <span style="font-size:10px;color:#aaa;">Jul 2026</span>
       </div>
-      <div class="bar-chart" style="height:88px;margin-bottom:10px;">
-        <div class="bar-col"><div class="bv">41</div><div class="bar" style="height:43px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S1</div></div>
-        <div class="bar-col"><div class="bv">38</div><div class="bar" style="height:40px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S2</div></div>
-        <div class="bar-col"><div class="bv">45</div><div class="bar" style="height:47px;background:#B5D4F4;border-radius:4px 4px 0 0;"></div><div class="bl">S3</div></div>
-        <div class="bar-col"><div class="bv">52</div><div class="bar" style="height:55px;background:#378ADD;border-radius:4px 4px 0 0;"></div><div class="bl">S4</div></div>
-        <div class="bar-col"><div class="bv">49</div><div class="bar" style="height:51px;background:#378ADD;border-radius:4px 4px 0 0;"></div><div class="bl">S5</div></div>
-        <div class="bar-col"><div class="bv">58</div><div class="bar" style="height:61px;background:#1A6DB5;border-radius:4px 4px 0 0;"></div><div class="bl">S6</div></div>
-        <div class="bar-col"><div class="bv">61</div><div class="bar" style="height:64px;background:#1A6DB5;border-radius:4px 4px 0 0;"></div><div class="bl">S7</div></div>
-        <div class="bar-col"><div class="bv" style="color:#0D4E87;font-weight:700;">67</div><div class="bar" style="height:70px;background:#0D4E87;border-radius:4px 4px 0 0;"></div><div class="bl" style="color:#0D4E87;font-weight:700;">S8</div></div>
+      <div style="display:flex;align-items:flex-end;gap:6px;height:90px;margin-bottom:6px;">
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">41</span><div style="width:100%;background:#B5D4F4;border-radius:3px 3px 0 0;height:43px;"></div><span style="font-size:9px;color:#aaa;">S1</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">38</span><div style="width:100%;background:#B5D4F4;border-radius:3px 3px 0 0;height:40px;"></div><span style="font-size:9px;color:#aaa;">S2</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">45</span><div style="width:100%;background:#B5D4F4;border-radius:3px 3px 0 0;height:47px;"></div><span style="font-size:9px;color:#aaa;">S3</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">52</span><div style="width:100%;background:#378ADD;border-radius:3px 3px 0 0;height:55px;"></div><span style="font-size:9px;color:#aaa;">S4</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">49</span><div style="width:100%;background:#378ADD;border-radius:3px 3px 0 0;height:51px;"></div><span style="font-size:9px;color:#aaa;">S5</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">58</span><div style="width:100%;background:#1A6DB5;border-radius:3px 3px 0 0;height:61px;"></div><span style="font-size:9px;color:#aaa;">S6</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;color:#aaa;">61</span><div style="width:100%;background:#1A6DB5;border-radius:3px 3px 0 0;height:64px;"></div><span style="font-size:9px;color:#aaa;">S7</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><span style="font-size:9px;font-weight:700;color:#0D4E87;">67</span><div style="width:100%;background:#0D4E87;border-radius:3px 3px 0 0;height:70px;"></div><span style="font-size:9px;font-weight:700;color:#0D4E87;">S8</span></div>
       </div>
-      <div class="chart-footer">
-        <div><div class="cf-lbl">Promedio</div><div class="cf-val">51.4</div></div>
-        <div><div class="cf-lbl">Mejor semana</div><div class="cf-val" style="color:#1A6DB5;">67 (S8)</div></div>
-        <div><div class="cf-lbl">Tendencia</div><div class="cf-val" style="color:#16a34a;"><i class="ti ti-trending-up" style="font-size:10px;"></i> +63%</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid #f0f0f0;padding-top:10px;">
+        <div><div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.05em;">Promedio</div><div style="font-size:13px;font-weight:700;color:#1a1a2e;">51.4</div></div>
+        <div><div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.05em;">Mejor semana</div><div style="font-size:13px;font-weight:700;color:#1A6DB5;">67 (S8)</div></div>
+        <div><div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.05em;">Tendencia</div><div style="font-size:13px;font-weight:700;color:#16a34a;">↑ +63%</div></div>
       </div>
     </div>
 
-    <!-- ESTADOS DE OT — donut visual -->
-    <div class="dash-panel">
-      <div class="dash-panel-hdr">
-        <div class="dash-panel-title"><i class="ti ti-chart-donut" style="color:#1A6DB5;"></i> Estado de OTs activas</div>
+    <!-- Donut estado OTs -->
+    <div style="padding:16px 20px;border-right:1px solid #e8e8e4;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1a1a2e;"><i class="ti ti-chart-donut" style="font-size:13px;color:#1A6DB5;"></i> Estado de OTs activas</div>
         <span style="font-size:10px;color:#aaa;">24 total</span>
       </div>
-      <div class="donut-wrap">
+      <div style="display:flex;align-items:center;gap:16px;">
         <svg viewBox="0 0 80 80" width="80" height="80" style="flex-shrink:0;">
           <circle cx="40" cy="40" r="30" fill="none" stroke="#f0f0f0" stroke-width="10"/>
-          <circle cx="40" cy="40" r="30" fill="none" stroke="#c0392b" stroke-width="10" stroke-dasharray="22 167" stroke-dashoffset="0" stroke-linecap="butt"/>
-          <circle cx="40" cy="40" r="30" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="31 167" stroke-dashoffset="-22" stroke-linecap="butt"/>
-          <circle cx="40" cy="40" r="30" fill="none" stroke="#1A6DB5" stroke-width="10" stroke-dasharray="63 167" stroke-dashoffset="-53" stroke-linecap="butt"/>
-          <circle cx="40" cy="40" r="30" fill="none" stroke="#16a34a" stroke-width="10" stroke-dasharray="53 167" stroke-dashoffset="-116" stroke-linecap="butt"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#c0392b" stroke-width="10" stroke-dasharray="44 145" stroke-dashoffset="0"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#f59e0b" stroke-width="10" stroke-dasharray="56 145" stroke-dashoffset="-44"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#1A6DB5" stroke-width="10" stroke-dasharray="31 145" stroke-dashoffset="-100"/>
+          <circle cx="40" cy="40" r="30" fill="none" stroke="#16a34a" stroke-width="10" stroke-dasharray="19 145" stroke-dashoffset="-131"/>
           <text x="40" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#1a1a2e">24</text>
           <text x="40" y="48" text-anchor="middle" font-size="6" fill="#aaa">OTs</text>
         </svg>
-        <div class="donut-legend">
-          <div class="donut-item"><div class="donut-dot" style="background:#c0392b;"></div><span class="donut-lbl">Bloqueadas</span><span class="donut-val" style="color:#c0392b;">7</span></div>
-          <div class="donut-item"><div class="donut-dot" style="background:#f59e0b;"></div><span class="donut-lbl">Pendientes</span><span class="donut-val" style="color:#f59e0b;">9</span></div>
-          <div class="donut-item"><div class="donut-dot" style="background:#1A6DB5;"></div><span class="donut-lbl">En progreso</span><span class="donut-val" style="color:#1A6DB5;">5</span></div>
-          <div class="donut-item"><div class="donut-dot" style="background:#16a34a;"></div><span class="donut-lbl">Esp. repuesto</span><span class="donut-val" style="color:#16a34a;">3</span></div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:8px;height:8px;border-radius:50%;background:#c0392b;flex-shrink:0;"></div><span style="font-size:11px;color:#555;flex:1;">Bloqueadas</span><span style="font-size:12px;font-weight:700;color:#c0392b;">7</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0;"></div><span style="font-size:11px;color:#555;flex:1;">Pendientes</span><span style="font-size:12px;font-weight:700;color:#f59e0b;">9</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:8px;height:8px;border-radius:50%;background:#1A6DB5;flex-shrink:0;"></div><span style="font-size:11px;color:#555;flex:1;">En progreso</span><span style="font-size:12px;font-weight:700;color:#1A6DB5;">5</span></div>
+          <div style="display:flex;align-items:center;gap:7px;"><div style="width:8px;height:8px;border-radius:50%;background:#16a34a;flex-shrink:0;"></div><span style="font-size:11px;color:#555;flex:1;">Esp. repuesto</span><span style="font-size:12px;font-weight:700;color:#16a34a;">3</span></div>
         </div>
       </div>
     </div>
 
-    <!-- TÉCNICOS EN CAMPO -->
-    <div class="dash-panel">
-      <div class="dash-panel-hdr">
-        <div class="dash-panel-title"><i class="ti ti-users" style="color:#1A6DB5;"></i> Técnicos en campo</div>
+    <!-- Técnicos en campo -->
+    <div style="padding:16px 20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0;">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1a1a2e;"><i class="ti ti-users" style="font-size:13px;color:#1A6DB5;"></i> Técnicos en campo</div>
       </div>
-      <div class="tec-col-hdr"><span>Técnico</span><span>Origen</span><span>Estado</span></div>
-      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-cr">CR</div><div><div class="tec-name">Carlos Ruiz</div><div class="tec-loc">Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En servicio</span></div></div>
-      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-al">AL</div><div><div class="tec-name">Ana López</div><div class="tec-loc">Zona Sur</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-prog">En ruta</span></div></div>
-      <div class="tec-item"><div class="tec-identity"><div class="tec-av" style="background:#6366f1;">RV</div><div><div class="tec-name">Roberto Vargas</div><div class="tec-loc">Tecnoserv</div></div></div><div><span class="origen-tag origen-taller">Taller</span></div><div><span class="tec-status ts-prog">En servicio</span></div></div>
-      <div class="tec-item"><div class="tec-identity"><div class="tec-av av-lm">LM</div><div><div class="tec-name">Luis Mora</div><div class="tec-loc">Zona Norte</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
-      <div class="tec-item" style="border-bottom:none;"><div class="tec-identity"><div class="tec-av av-dp">DP</div><div><div class="tec-name">Diego Pérez</div><div class="tec-loc">Zona Central</div></div></div><div><span class="origen-tag origen-interno">Interno</span></div><div><span class="tec-status ts-disp">Disponible</span></div></div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:0 0 6px;border-bottom:1px solid #f0f0f0;margin-bottom:4px;">
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">Técnico</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">Origen</span>
+        <span style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">Estado</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:9px 0;border-bottom:1px solid #f5f5f5;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:26px;height:26px;border-radius:50%;background:#1A6DB5;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">CR</div><div><div style="font-size:12px;font-weight:600;color:#1a1a2e;">Carlos Ruiz</div><div style="font-size:10px;color:#aaa;">Zona Norte</div></div></div>
+        <span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 7px;border-radius:3px;width:fit-content;">Interno</span>
+        <span style="font-size:10px;font-weight:600;background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:3px;width:fit-content;">En servicio</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:9px 0;border-bottom:1px solid #f5f5f5;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:26px;height:26px;border-radius:50%;background:#0891b2;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">AL</div><div><div style="font-size:12px;font-weight:600;color:#1a1a2e;">Ana López</div><div style="font-size:10px;color:#aaa;">Zona Sur</div></div></div>
+        <span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 7px;border-radius:3px;width:fit-content;">Interno</span>
+        <span style="font-size:10px;font-weight:600;background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:3px;width:fit-content;">En ruta</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:9px 0;border-bottom:1px solid #f5f5f5;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:26px;height:26px;border-radius:50%;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">RV</div><div><div style="font-size:12px;font-weight:600;color:#1a1a2e;">Roberto Vargas</div><div style="font-size:10px;color:#aaa;">Tecnoserv</div></div></div>
+        <span style="font-size:10px;font-weight:600;background:#f0fdf4;color:#16a34a;padding:2px 7px;border-radius:3px;width:fit-content;">Taller</span>
+        <span style="font-size:10px;font-weight:600;background:#eff6ff;color:#1d4ed8;padding:2px 7px;border-radius:3px;width:fit-content;">En servicio</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:9px 0;border-bottom:1px solid #f5f5f5;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:26px;height:26px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">LM</div><div><div style="font-size:12px;font-weight:600;color:#1a1a2e;">Luis Mora</div><div style="font-size:10px;color:#aaa;">Zona Norte</div></div></div>
+        <span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 7px;border-radius:3px;width:fit-content;">Interno</span>
+        <span style="font-size:10px;font-weight:600;background:#f0fdf4;color:#166534;padding:2px 7px;border-radius:3px;width:fit-content;">Disponible</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 80px 100px;gap:8px;padding:9px 0;align-items:center;">
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:26px;height:26px;border-radius:50%;background:#8b5cf6;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">DP</div><div><div style="font-size:12px;font-weight:600;color:#1a1a2e;">Diego Pérez</div><div style="font-size:10px;color:#aaa;">Zona Central</div></div></div>
+        <span style="font-size:10px;font-weight:600;background:#e8f0fe;color:#1A6DB5;padding:2px 7px;border-radius:3px;width:fit-content;">Interno</span>
+        <span style="font-size:10px;font-weight:600;background:#f0fdf4;color:#166534;padding:2px 7px;border-radius:3px;width:fit-content;">Disponible</span>
+      </div>
     </div>
 
   </div>
 
-</div>
+
 
 
     <!-- ══════ SCREEN: ÓRDENES ══════ -->
